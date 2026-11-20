@@ -1,0 +1,200 @@
+<meta charset="utf-8"><title>11/19 서울 2회차 오프특강 실전 2장</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Black+Han+Sans&display=swap">
+<style>
+/* 인쇄용 A4 2장. 단일 라이트 룩(의도적). 역할색: 코드=파랑 / 클로드=주황 / jev=보라 / 사람=초록, 강조=라즈베리 */
+:root{--paper:#ffffff;--desk:#e9ebe6;--ink:#141c24;--muted:#56616b;--line:#d5d9d1;--soft:#f1f3ee;
+ --c:#2f6fc4;--cb:#e4eefa;--l:#c2621a;--lb:#fbeadc;--j:#6c4bc9;--jb:#ece6fa;--h:#17803f;--hb:#e3f3e8;--s:#ad2257;--sb:#f8e3eb;--mark:#fff0a0;--code:#151c23;--codeink:#e8edf0;--hi:#d9f26a;
+ --fd:"Black Han Sans","Noto Sans CJK KR","Noto Sans KR",sans-serif;--fb:"IBM Plex Sans KR","Noto Sans CJK KR","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--desk);color:var(--ink);font-family:var(--fb);word-break:keep-all;overflow-wrap:anywhere;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px}
+.page{background:var(--paper);width:210mm;height:297mm;margin:0 auto 20px;padding:10mm 10.5mm 8mm;font-size:7.6pt;line-height:1.42;display:flex;flex-direction:column;gap:2.3mm;overflow:hidden;box-shadow:0 1px 6px #0002}
+h1,h2{font-family:var(--fd);font-weight:400;margin:0;line-height:1.2}
+h1{font-size:17.5pt}
+h2{font-size:10.3pt;display:flex;align-items:center;gap:6px}
+h2 .n{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:4px;background:var(--ink);color:#fff;font-size:8.8pt}
+p{margin:0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:2mm;gap:10px}
+.top .sub{font-size:7.8pt;color:var(--muted);text-align:right}
+.top h1 .c{color:var(--c)} .top h1 .j{color:var(--j)} .top h1 .s{color:var(--s)} .top h1 .h{color:var(--h)}
+.row{display:grid;gap:2.2mm}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.c5{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.5mm}
+.box{border:1px solid var(--line);border-radius:6px;padding:1.9mm 2.4mm;min-width:0}
+.box .k{font-size:7.1pt;font-weight:700;letter-spacing:.02em}
+.box .t{font-weight:700;font-size:8.7pt;margin-top:.3mm;line-height:1.32}
+.box .d{margin-top:.6mm}
+.fc{background:var(--cb);border-color:transparent}.fc .k{color:var(--c)}
+.fl{background:var(--lb);border-color:transparent}.fl .k{color:var(--l)}
+.fj{background:var(--jb);border-color:transparent}.fj .k{color:var(--j)}
+.fh{background:var(--hb);border-color:transparent}.fh .k{color:var(--h)}
+.fs{background:var(--sb);border-color:transparent}.fs .k{color:var(--s)}
+.dark{background:var(--ink);color:#fff;border-color:transparent}.dark .k{color:var(--hi)}
+mark{background:var(--mark);padding:0 2px}
+ul{margin:.5mm 0 0;padding-left:3.5mm}
+li{margin:.15mm 0}
+code{font-family:"JetBrains Mono","D2Coding",Menlo,monospace;font-size:7.1pt;background:var(--soft);padding:0 3px;border-radius:3px}
+.st{border-radius:5px;padding:1.3mm 1.3mm 1.1mm;text-align:center;border:1px solid var(--line)}
+.st b{display:block;font-family:var(--fd);font-weight:400;font-size:9pt}
+.st span{display:block;font-size:6.5pt;color:var(--muted);line-height:1.28;margin-top:.3mm}
+.st.hl{background:var(--mark);border-color:transparent}
+.route{display:grid;grid-template-columns:19px 1fr;gap:1.8mm;align-items:start}
+.route .i{width:17px;height:17px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--s);font-size:7.6pt}
+.ck{list-style:none;padding:0;margin:0;display:grid;gap:.95mm}
+.ck li{display:grid;grid-template-columns:11px 1fr;gap:1.8mm;margin:0;align-items:start}
+.ck li::before{content:"";width:8.5px;height:8.5px;border:1.3px solid var(--ink);border-radius:2px;margin-top:2.2px}
+.ck li .tg{font-size:6.7pt;font-weight:700;padding:0 3.5px;border-radius:3px;margin-right:3px;color:#fff}
+.tc{background:var(--c)}.tj{background:var(--j)}.ts{background:var(--s)}.tk{background:var(--ink)}.th{background:var(--h)}.tl{background:var(--l)}
+.pr{background:var(--code);color:var(--codeink);border-radius:6px;padding:1.6mm 2.3mm;font-size:7.1pt;line-height:1.4;white-space:pre-wrap}
+.pr .h{display:block;color:var(--hi);font-weight:700;font-size:7pt;margin-bottom:.4mm}
+.foot{margin-top:auto;font-size:6.9pt;color:var(--muted);border-top:1px solid var(--line);padding-top:1.3mm;display:flex;justify-content:space-between;gap:8px}
+@media screen and (max-width:840px){
+ body{padding-block:12px}
+ .page{width:100%;height:auto;padding:16px;font-size:13px;gap:12px}
+ .c4,.c2,.c5{grid-template-columns:1fr}
+ .top{flex-direction:column;align-items:flex-start}.top .sub{text-align:left}
+ .pr{font-size:12px} code{font-size:11.5px} .st span{font-size:11px} .st b{font-size:14px}
+ h1{font-size:23px} h2{font-size:17px}
+}
+@page{size:A4;margin:0}
+@media print{body{background:#fff;padding:0}.page{margin:0;box-shadow:none;page-break-after:always}}
+</style>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="page">
+ <div class="top">
+  <h1>핵심 중의 핵심 · <span class="j">하네스2</span> · <span class="c">REA</span> · <span class="h">다국어·폰트</span> · <span class="s">롱폼 대전환</span></h1>
+  <div class="sub">AI 스위칭쇼츠 2기 오프라인 피드백 특강 (서울 2회차)<br>2026.11.19 · 강사 쇼츠대폭발 · 1/2</div>
+ </div>
+
+ <div class="row c5">
+  <div class="box fj"><div class="k">01 · 하네스2</div><div class="t">잡도리 없는 자동 기억</div><div class="d">1KB 안내판 + 마스터 정본 + <code>gate.py</code> + agy 훅 5단. 3,200번 정정 자동 학습.</div></div>
+  <div class="box fc"><div class="k">02 · REA × agy</div><div class="t">남의 도구 해부→내 것</div><div class="d">REA 6.9.0(255도구). <code>RESULT.md(ev_)</code> → 설계도 → 내 도구 제작·시험.</div></div>
+  <div class="box fh"><div class="k">03 · 다국어</div><div class="t">오가닉 글로벌 점프업</div><div class="d">롱폼 6언어·플리 20언어. 3겹 관문 + 볼케이노킷 무인 등록(자동더빙 끄기).</div></div>
+  <div class="box fl"><div class="k">04 · 칼카피 폰트</div><div class="t">이름표 + .ttf 절대경로</div><div class="d">폰트폰트(97.7%) → 눈누 «영상» → agy 화소 실측(화소 겹침 90.7%).</div></div>
+  <div class="box fs"><div class="k">05 · 리믹스파인더</div><div class="t">한국 빈집 · 누운 소재</div><div class="d">한국 빈집 68 · 누운 소재(100만+&amp;≤100/h) · 인스타 저장·틱톡 아이디어.</div></div>
+ </div>
+
+ <div class="row c2">
+  <div class="box">
+   <h2><span class="n" style="background:var(--j)">1</span>하네스2 &amp; REA × agy 핵심 규격</h2>
+   <ul>
+    <li><b>하네스2 핵심</b>: 폴더별 긴 지침서(최대 208KB) → <b>1KB 안내판</b> + 마스터 정본 한 곳. 끝내기 전 <b>7가지 관문</b>(커밋·기록·실행확인·기록찾기·미완료·땜질·일꾼놀림) 코드 차단.</li>
+    <li><b>agy 훅 5단계</b>: SessionStart(주입) → PreInvocation(맞는 교훈 3개 · 적중 48→76/94) → PreToolUse(정본 확인) → PostToolUse → Stop(7종 게이트·정정 카드 자동화).</li>
+    <li><b>REA 3단계</b>: ① 해부(<code>capture_browser_scenario</code>·<code>inspect_artifact</code> → <code>RESULT.md</code>·<code>ev_</code>) → ② <code>설계도.md</code>(원리만) → ③ 제작·시험(맥·윈도우 결과 표).</li>
+    <li><b>선 지키기</b>: 내 앱·공개 웹만 읽기 전용 해부. 암호·잠금·결제 우회 금지(저작권법 제104조의2).</li>
+    <li><b>단독 agy 안전</b>: 외부 스크립트/Codex에서 agy 자동 호출 절대 금지(구글 약관 정지). 반드시 사람이 직접 연 단독 agy 창에서만 실행.</li>
+   </ul>
+  </div>
+  <div class="box">
+   <h2><span class="n" style="background:var(--h)">2</span>다국어 · 칼카피 폰트 · 리믹스파인더</h2>
+   <ul>
+    <li><b>다국어 사전 준비</b>: <mark>자동 더빙 허용 끄기</mark>(고급 설정) + 업로드 프로필 <b>vidIQ 제거</b>.</li>
+    <li><b>다국어 3겹 관문</b>: 코드(<code>lang_tool check</code>·넷플릭스 글자/초당 규칙) → 원어민(일·태·중) → 제브(<code>jev_check</code> 같은 뜻≥0.5 · 사실바뀜≤0.5). 설명 <b>≤4,998자</b> · 태그 <b>≤500자</b> · 간격 0.034초.</li>
+    <li><b>칼카피 폰트 3단계</b>: 글자 줄만 바짝 잘라 <b>폰트폰트</b>(<code>fontfont.app</code>) → <b>눈누</b>(<code>noonnu.cc</code>) «영상» 사용 가능 <code>.ttf</code> → agy에 <b>절대경로</b> 전달(크기·자간·기울기 화소 실측).</li>
+    <li><b>VolcanoTube · RemixFinder</b>: 틱톡·릴스·쇼츠 최초 원본 추적 → <b>한국 빈집(0개)</b> + <b>누운 소재</b>(100만 회+ &amp; 현재 시간당 100회 이하)만 선점.</li>
+    <li><b>실전 소재 2통로</b>: 인스타 «저장됨» 자동 스캔 + <b>틱톡 스튜디오 아이디어 탭</b>(세차 3주 600만 원 · 포켓몬 1,000만 뷰 실측).</li>
+   </ul>
+  </div>
+ </div>
+
+ <div class="box" style="border:2px solid var(--s)">
+  <h2 style="color:var(--s)"><span class="n" style="background:var(--s)">3</span>현장 핵심 기조: 무조건 롱폼 대전환 · 고속 수창 치트키 · 블루오션</h2>
+  <div class="row c2" style="margin-top:1.2mm">
+   <div style="display:grid;gap:1mm">
+    <div class="route"><span class="i">①</span><div><b>2기의 기조 = 무조건 롱폼</b> — 숏폼 냉동기·포화(내년 유효조회수 2천만 전망). 롱폼은 시그널(조회수)이 명확하고 진입장벽이 곧 해자.</div></div>
+    <div class="route"><span class="i">②</span><div><b>보이스 클로닝(본인 육성)</b> — 커뮤·롱폼의 킥은 사람 냄새 나는 목소리(피시오디오 등 변조). 얼굴 내밀고 말하는 채널(김피비·다이켄·KNN·이슈왕) 대본 카피.</div></div>
+    <div class="route"><span class="i">③</span><div><b>고속 수창 치트키</b> — 시청시간은 <mark>영화 구작 롱폼(180~200% 얼빡)</mark> 1~2편으로 돌파(CID 걸려도 시청시간 인정 · 구작 넘버3/스피드 · 둥둥아빠 자료 확인) + 구독자 구매(SMM 패널). 수창 후 저작권 영상은 비공개 X <b>반드시 삭제</b>.</div></div>
+    <div class="route"><span class="i">④</span><div><b>썸네일 &amp; 음량</b> — 원톤/투톤 + 지마켓산스 + 5어절 역설(너굴경제 카피, 6조각 과밀 금지). 음량 <b>-14 LUFS</b>, 첫 0.0초 무음·중복 제목 컷.</div></div>
+   </div>
+   <div style="display:grid;gap:1mm;align-content:start">
+    <div class="box fs"><div class="k">돈 되는 롱폼 블루오션 &amp; 레퍼런스</div><div class="d">• <b>경제·부동산·정책</b>(50대·돈 본질): 강남3구(8일 수창), 국민연금·퇴직금·복지로 → 제브서치+<b>팟캐스트 프리셋</b><br>• <b>정치 인물 계보</b>: 정치 쇼츠 금지 → 보수/진보 국회의원 50명·원로배우 인물형 롱폼(빅맨 다큐 폼)<br>• <b>국제정세·로컬·기업</b>: 센서스튜디오(하루 4편)·강호의발바닥(제주 중국자본)·정보의신(공공 API)·식품/재벌 미담<br>• <b>역사·범죄·해외수출</b>: 더러운 그림체 역사물(궁금하단말이야·에보링크 그록)·안협소/재즈감귤/밋돌세·아이돌 팬튜브(스페인어/영어 수출)·이혼숙려캠프 심리학 롱폼</div></div>
+    <div class="box"><div class="k">쇼츠 한다면?</div><div class="d"><b>지구별 칼카피</b>(클라우드플레어 누끼+네온+매 문장 색변경+해시태그 좋아요 유도) · <b>쇼핑+국뽕</b>(잇템로그·쿠팡태그 4할 타율) · <b>해짜 빈집</b>(볼케이노튜브·틱허브).</div></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="row c4">
+  <div class="box fc"><div class="k">초보 4단계 (15편 완주)</div><div class="d">① agy단독+하네스2 → ② 한국 빈집(0개) → ③ 기본 프리셋 무자막 1층 → ④ 단일 주제 <b>15편 완주</b> 후 꼬꼬무.</div></div>
+  <div class="box fj"><div class="k">다계정 1:1 격리</div><div class="d">1채널=1크롬 프로필=1폴더. 3~4개 씨앗 15편 테스트 → 자력 수창만 애드센스 결합(중드 5쌍둥이 분산 금지).</div></div>
+  <div class="box fh"><div class="k">자가 점검 숫자 2개</div><div class="d">조회수 말고 <b>시청 선택 비율(75%+)</b> + <b>자막 덧방 여부</b> 먼저 체크. 잘 되는 폴더는 기준판 금고 격리.</div></div>
+  <div class="box dark"><div class="k">노는 PC = 테일스케일</div><div class="d">저사양 PC는 VS Code 채팅·지시, 고사양 PC/맥미니는 영상 렌더 분산. agy가 이제 클로드보다 대본 잘 씀.</div></div>
+ </div>
+
+ <div class="foot"><span>공통 강의안 56장 + 서울 2회차 40명 진단 + 현장 녹취 5시간 9분 + 필기 PDF 11쪽</span><span>개인 학습용 · 외부 유포 금지</span></div>
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page">
+ <div class="top">
+  <h1>바로 실행 · 오늘 세팅하고 <span class="s">롱폼·다국어로 점프업</span></h1>
+  <div class="sub">체크하면서 따라 하세요 · 명령어는 강의안·현장 원문 그대로<br>2/2</div>
+ </div>
+
+ <div class="row c2">
+  <div class="box">
+   <h2><span class="n">1</span>오늘 바로 세팅 (최초 1회)</h2>
+   <ul class="ck" style="margin-top:1.2mm">
+    <li><span><span class="tg tj">하네스2</span><code>하네스2_세팅묶음.zip</code> 폴더에서 터미널 <code>agy</code> 직접 실행 → <b>M1</b> 붙여넣기 → <code>--selftest</code> 통과 확인 후 새 agy 창 열기</span></li>
+    <li><span><span class="tg tc">REA</span>Node 22.23.4+/26.12.1+ 확인 → <code>npm i -g rea-agents@latest</code> → <code>rea setup --yes --client antigravity</code> → <code>rea doctor</code> healthy 확인 <b>(M2)</b></span></li>
+    <li><span><span class="tg th">다국어</span>유튜브 스튜디오 설정 → 채널 → 고급 설정에서 <b>«자동 더빙 허용» 끄기</b> · 업로드용 크롬 프로필에서 <b>vidIQ 제거</b></span></li>
+    <li><span><span class="tg tk">격리</span>채널마다 <b>독립 크롬 프로필 + 독립 작업 폴더</b> 1:1 격리 · 잘 돌아가는 기존 폴더는 기준판 금고로 백업 후 건드리기</span></li>
+    <li><span><span class="tg tl">폰트</span>휴대폰·웹에 <b>폰트폰트(<code>fontfont.app</code>)</b> · <b>눈누(<code>noonnu.cc</code>)</b> 북마크 — 무료 <code>.ttf</code> 전용 폴더 생성</span></li>
+    <li><span><span class="tg ts">목소리</span>피시오디오·일레븐랩스 등으로 <b>본인 육성 보이스 클로닝</b> 1종 확정(변조 가능) — 롱폼 나레이션 무기 장착</span></li>
+    <li><span><span class="tg tk">분산</span>노는 PC/맥미니 있으면 <b>테일스케일(Tailscale)</b> 설치 → 저사양 PC 채팅, 고사양 PC 렌더 분산 연결</span></li>
+    <li><span><span class="tg tk">안전</span>Codex·외부 스크립트에서 agy 자동 호출 설정 전부 끄기(약관 정지 방지 · 오직 사람이 연 단독 agy 창)</span></li>
+   </ul>
+  </div>
+  <div class="box">
+   <h2><span class="n">2</span>매일 · 주간 실행 루틴</h2>
+   <ul class="ck" style="margin-top:1.2mm">
+    <li><span><span class="tg ts">소재</span>자기 전 인스타 신기한 릴스 «저장됨» 수집 + <b>틱톡 스튜디오 아이디어 탭</b> 확인 → 리믹스파인더 <b>한국 빈집(0개) + 누운 소재</b> 선점</span></li>
+    <li><span><span class="tg ts">롱폼</span>매일 아침 <b>제브서치</b>로 부동산·연금·정책·정치인물·국제정세 핫 키워드 10개 + 공신력 근거 추출 <b>(M6)</b> → 팟캐스트/인물형 롱폼 제작</span></li>
+    <li><span><span class="tg ts">수창</span>신규 채널 고속 수창 필요 시: 둥둥아빠 자료로 권리사 확인 → <b>영화 구작 롱폼(180~200% 얼빡)</b> 1~2편 + 구독자 구매 → 수창 후 저작권 영상 삭제</span></li>
+    <li><span><span class="tg tl">칼카피</span>벤치 채널 캡처 → 글자 줄만 잘라 <b>폰트폰트</b> → 눈누 «영상» <code>.ttf</code> → agy 창에 절대경로 + 화소 실측 <b>(M5)</b></span></li>
+    <li><span><span class="tg th">다국어</span>완성된 롱폼·플리·팬튜브에 <b>6개국(롱폼)/20개국(플리)</b> 제목·설명(≤4,998자)·SRT(3관문)·태그(≤500자) 볼케이노킷 무인 등록 <b>(M4)</b></span></li>
+    <li><span><span class="tg tc">역설계</span>벤치 웹·확장·앱 구조가 궁금하면 단독 agy+REA로 읽기 전용 <b>해부(<code>ev_</code>) → 설계도 → 내 도구 제작·시험</b> <b>(M3)</b></span></li>
+    <li><span><span class="tg tj">교훈</span>AI가 어긋나면 잔소리 대신 «그게 아니라 …» 한마디 → 하네스2 자동 교훈 카드화 · 15편 완주 후 시청 선택 비율(75%+)·음량(-14 LUFS) 점검</span></li>
+   </ul>
+  </div>
+ </div>
+
+ <div>
+  <h2><span class="n">3</span>필수 복붙 명령어 6선 (강의안 · 현장 원문 그대로)</h2>
+  <div class="row c2" style="margin-top:1.2mm">
+   <div style="display:grid;gap:1.5mm;align-content:start">
+    <div class="pr"><span class="h">M1 · 하네스2 세팅 한 줄 설치 (강의안 p13 · 내가 직접 연 agy 창)</span>하네스2_세팅묶음.zip 풀어서 install.py 로 하네스2 세팅 설치해줘</div>
+    <div class="pr"><span class="h">M2 · REA 6.9.0 설치 및 agy 연결 (강의안 p16 · 터미널)</span>node -v
+npm install -g rea-agents@latest
+rea --version
+rea setup --client antigravity --dry-run
+rea setup --yes --client antigravity
+rea doctor --client antigravity</div>
+    <div class="pr"><span class="h">M3 · REA 웹 서비스 해부 → 설계도 (강의안 p19~20 · agy 창)</span>REA 로 [웹 주소] 페이지를 해부해 줘. 읽기만.
+1) capture_browser_scenario 로 화면·요청·스크립트 기록
+2) export_web_scripts → analyze_javascript_application 화면 배치 규칙
+3) [궁금한 버튼] 요청 추적 · 문장마다 ev_ (모자라면 «추정» 칸)
+4) RESULT.md 저장 → export_evidence_bundle
+(완료 후) RESULT.md 를 읽고 [내 도구] 설계도.md 를 원리만으로 써 줘.</div>
+    <div class="pr"><span class="h">M6 · 제브서치 경제·연금·부동산 롱폼 키워드 (현장 필기 PDF)</span>퇴직금, 국민연금, 부동산(강남 3구·정부정책) 키워드로 콘텐츠를 만들려고 해. 현재 가장 검색량과 키워드가 많은 연관 주제 10개를 제브 서치로 공신력 있는 기관 자료까지 최대한 빠르게 찾아와 줘.</div>
+   </div>
+   <div style="display:grid;gap:1.5mm;align-content:start">
+    <div class="pr"><span class="h">M4 · 다국어 번역·3관문·SRT 조립 + 스튜디오 등록 (강의안 p38~39)</span>[볼케이노킷_다국어_언어추가_프로세스 폴더] 의 00 총정리·01 번역지침을 끝까지 읽고 순서대로 해 줘. 내 영상은 [완성본 폴더], 언어는 [영어, 스페인어, 일본어, 중국어(간체), 중국어(번체)] 야.
+1) lang_tool.py meta·src 로 src.json 추출 (URL은 ⟦U1⟧ 가림)
+2) 언어별 동시 번역 JSON (카드 묶음 n 만, 0.7~7초, 넷플릭스 규칙)
+3) lang_tool.py check ➔ 원어민 검수 ➔ jev_check.py run·report
+4) lang_tool.py build (설명 4,998자 이하) → 02 업로드 도구로 yt_langs.py · add_tags.py(500자 셈) 등록 후 전 언어 «게시됨» 표 보고.</div>
+    <div class="pr"><span class="h">M5 · 칼카피 폰트 절대경로 지시문 (강의안 p49 · agy 창)</span>레퍼런스 화면 캡처는 [캡처_파일_경로] 야.
+제목 폰트는 폰트폰트(fontfont.app)로 확인한 [폰트_이름] 이고, 눈누에서 받은 파일은 [폰트_파일_절대경로.ttf] 야.
+1) 글자는 반드시 이 파일 하나로만 그려. 폰트 선택은 이걸로 확정이야.
+2) 캡처에서 글자 크기, 자간, 띄어쓰기 폭, 행간, 기울기, 색을 화소로 직접 재서 숫자로 적어.
+3) 그 숫자로 같은 문구를 그려 원본 위·내 것 아래로 붙인 비교 그림을 만들고, 어긋난 숫자를 고쳐.
+4) 확정한 폰트 경로와 숫자를 하나도 빠짐없이 정본 파일에 적고, 이 agy 창에서 그대로 영상 렌더까지 적용해.</div>
+   </div>
+  </div>
+ </div>
+
+ <div class="foot"><span>2026-11-19 서울 2회차 오프특강 · 실행 체크리스트 &amp; 복붙 명령어</span><span>전체 명령어 16개 · 40명 진단표는 상세 요약 페이지 참고</span></div>
+</div>
