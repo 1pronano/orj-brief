@@ -4,34 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>2026-11-20 오르제이 완전 카피 데일리 브리프</title>
+<title>2026-11-20(금) 오르제이 대화 정리 &amp; 적용 셋팅 (1/5일차)</title>
 <style>
-  :root { --bg:#0b0e14; --card:#141923; --card2:#1a2130; --text:#e8edf5; --muted:#9aa7bd; --accent:#5eead4; --p0:#f43f5e; --p1:#f59e0b; --p2:#38bdf8; --border:#252f42; }
+  :root { --bg:#0b0e14; --card:#141923; --card2:#1a2130; --text:#e8edf5; --muted:#9aa7bd; --accent:#5eead4; --p0:#f43f5e; --p1:#f59e0b; --p2:#38bdf8; --ok:#10b981; --warn:#a855f7; --border:#252f42; }
   * { box-sizing:border-box; }
-  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
-  .wrap { max-width:860px; margin:0 auto; padding:18px 14px 64px; }
-  header { background:linear-gradient(135deg,#131b2e,#1d1633); border:1px solid var(--border); border-radius:16px; padding:20px; margin-bottom:16px; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",sans-serif; background:var(--bg); color:var(--text); line-height:1.65; }
+  .wrap { max-width:960px; margin:0 auto; padding:18px 14px 72px; }
+  header { background:linear-gradient(135deg,#131b2e,#1d1633); border:1px solid var(--border); border-radius:16px; padding:22px 20px; margin-bottom:14px; }
   .eyebrow { font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.04em; }
-  h1 { margin:6px 0 10px; font-size:21px; line-height:1.35; }
+  h1 { margin:6px 0 10px; font-size:22px; line-height:1.35; }
   .headline { font-size:14.5px; color:#dbeafe; margin:0 0 14px; }
   .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
   .stat { background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:10px; padding:10px 8px; text-align:center; }
   .stat b { display:block; font-size:18px; color:#fff; }
   .stat span { font-size:11px; color:var(--muted); }
-  nav { display:flex; gap:6px; overflow-x:auto; padding:6px 0 12px; position:sticky; top:0; background:rgba(11,14,20,.92); backdrop-filter:blur(8px); z-index:10; }
+  nav { display:flex; gap:6px; overflow-x:auto; padding:8px 0 12px; position:sticky; top:0; background:rgba(11,14,20,.94); backdrop-filter:blur(8px); z-index:20; border-bottom:1px solid rgba(37,47,66,.5); }
   nav a { flex:0 0 auto; text-decoration:none; color:var(--text); background:var(--card); border:1px solid var(--border); padding:7px 12px; border-radius:999px; font-size:12.5px; font-weight:600; }
   nav a:hover { border-color:var(--accent); color:var(--accent); }
-  section { margin-top:22px; }
+  nav a.primary { background:#112a2e; border-color:var(--accent); color:var(--accent); }
+  .part-banner { margin:26px 0 14px; padding:12px 16px; background:linear-gradient(90deg,rgba(94,234,212,.14),rgba(56,189,248,.04)); border:1px solid rgba(94,234,212,.35); border-radius:12px; font-size:16px; font-weight:800; color:#fff; letter-spacing:-.01em; }
+  section { margin-top:20px; }
   h2 { font-size:17px; margin:0 0 12px; padding-left:10px; border-left:3.5px solid var(--accent); }
-  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px; margin-bottom:10px; }
-  .check-card { display:flex; gap:10px; align-items:flex-start; cursor:pointer; }
-  .cb { width:18px; height:18px; margin-top:2px; accent-color:var(--accent); flex-shrink:0; }
-  .card-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
-  .badge { font-size:11px; font-weight:800; padding:2px 7px; border-radius:6px; color:#fff; }
-  .badge.p0 { background:var(--p0); } .badge.p1 { background:var(--p1); color:#111; } .badge.p2 { background:var(--p2); color:#111; }
-  .desc { margin:0; font-size:13.8px; color:#d5dfee; }
-  .ev { margin-top:6px; font-size:12px; color:var(--muted); }
-  .cat-title { font-size:15px; font-weight:800; color:var(--accent); margin-bottom:8px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:15px; margin-bottom:12px; }
+  .timeline-grid { display:grid; gap:10px; }
+  .tl-item { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+  .tl-head { font-size:14.5px; font-weight:800; color:var(--accent); margin-bottom:8px; }
+  .tl-item ul { margin:0; padding-left:18px; font-size:13.6px; color:#d8e2f0; }
+  .tl-item li { margin-bottom:5px; }
+  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:14px; background:var(--card); }
+  table.fc { width:100%; border-collapse:collapse; font-size:13px; min-width:680px; }
+  table.fc th { background:var(--card2); color:var(--accent); text-align:left; padding:11px 12px; border-bottom:1px solid var(--border); font-size:12.5px; white-space:nowrap; }
+  table.fc td { padding:11px 12px; border-bottom:1px solid rgba(37,47,66,.65); vertical-align:top; color:#dbe5f4; }
+  table.fc tr:last-child td { border-bottom:none; }
+  table.fc tr.row-p0 { background:rgba(244,63,94,.05); }
+  table.fc tr.row-p1 { background:rgba(245,158,11,.04); }
+  table.fc tr.row-warn { background:rgba(168,85,247,.06); }
+  .fc-chk { display:flex; align-items:center; gap:5px; margin-top:6px; font-size:11.5px; color:var(--muted); cursor:pointer; }
+  .badge { display:inline-block; font-size:11px; font-weight:800; padding:2px 7px; border-radius:6px; color:#fff; white-space:nowrap; }
+  .badge.p0 { background:var(--p0); } .badge.p1 { background:var(--p1); color:#111; } .badge.p2 { background:var(--p2); color:#111; } .badge.ok { background:var(--ok); color:#052e16; } .badge.warn { background:var(--warn); color:#fff; }
+  .cb { width:16px; height:16px; accent-color:var(--accent); flex-shrink:0; }
+  .cat-title { font-size:15px; font-weight:800; color:var(--accent); margin-bottom:10px; }
+  .chat-card { padding:14px 15px; }
+  .chat-log { font-size:13.3px; line-height:1.6; }
+  .chat-line { padding:5px 8px; border-radius:8px; margin-bottom:3px; word-break:break-word; }
+  .chat-line.orj { background:rgba(94,234,212,.08); border-left:3px solid var(--accent); }
+  .chat-line.other { background:rgba(255,255,255,.02); color:#b8c4d9; }
+  .chat-gap { height:7px; }
+  .chat-sep { text-align:center; font-size:12px; color:var(--p1); font-weight:700; margin:10px 0 6px; padding:4px; background:rgba(245,158,11,.08); border-radius:6px; }
+  .orj-star { color:var(--accent); font-weight:900; margin-right:4px; }
+  .spk { color:#fff; }
   .orj-box { background:var(--card2); border-radius:10px; padding:10px 12px; font-size:13.5px; margin-bottom:10px; }
   .step-row { display:flex; gap:8px; align-items:flex-start; padding:6px 0; font-size:13.5px; cursor:pointer; border-top:1px dashed rgba(255,255,255,.06); }
   .step-row input:checked + span { text-decoration:line-through; color:var(--muted); }
@@ -45,294 +66,233 @@
   .sheets figure { margin:12px 0; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:10px; }
   .sheets figcaption { font-size:12px; color:var(--muted); margin-bottom:8px; }
   .sheets img { width:100%; height:auto; border-radius:8px; display:block; }
-  details { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
+  details { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:10px; }
   summary { cursor:pointer; font-weight:700; color:var(--accent); font-size:14px; }
   pre { white-space:pre-wrap; word-break:break-word; font-size:12px; color:#cbd5e1; max-height:600px; overflow:auto; margin:10px 0 0; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
   a { color:var(--accent); }
   code { background:#1e293b; padding:1px 5px; border-radius:4px; font-size:12px; }
-  @media (max-width:520px) { .stats { grid-template-columns:repeat(2,1fr); } h1 { font-size:18px; } }
+  @media (max-width:600px) { .stats { grid-template-columns:repeat(2,1fr); } h1 { font-size:18.5px; } .wrap { padding:12px 10px 56px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="eyebrow">AI스위칭쇼츠 2기 프리미엄방 · 23:00 테스트 리포트 (2026-11-20 23:02)</div>
-    <h1>2026-11-20 오르제이 완전 카피 브리프</h1>
-    <p class="headline">영상 1~3개로 7일간 수창 3개 돌파! 핵심은 &#x27;최소 영상·최대 조회수 소재 발굴 → 1발 간보기 → 터지면 원형+둔갑(70% 변주)으로 9~20채널 동시 융단폭격 + 틱톡 46채널 62초 리워드 확장 + 거실 스마트TV 체류 락 + 네온 고속 생산&#x27;</p>
+    <div class="eyebrow">AI스위칭쇼츠 2기 프리미엄방 · 역순 분석 1/5일차 (20일 → 16일) · 갱신 2026-11-21 02:23</div>
+    <h1>2026-11-20(금) 오르제이님 카톡 대화 정리 &amp; 적용 셋팅</h1>
+    <p class="headline">영상 1~3개로 7일간 수창 3개 돌파! <b>1부</b>에 하루 전체 맥락 요약과 현재 우리 시스템 팩트체크·적용 셋팅 표를 먼저 배치하고, <b>2부</b>에 20일 오르제이님 대화 전문(시간대별 핵심 전문 + 209블록 전수 원문)과 캡처 40장을 담았습니다.</p>
     <div class="stats">
-      <div class="stat"><b>5,414</b><span>방 전체 메시지</span></div>
       <div class="stat"><b>1,067</b><span>오르제이 발언</span></div>
       <div class="stat"><b>40</b><span>오르제이 캡처</span></div>
       <div class="stat"><b>17</b><span>삭제 전 포착</span></div>
+      <div class="stat"><b>P0 3 · P1 3</b><span>신규 적용 후보</span></div>
     </div>
   </header>
 
   <nav>
-    <a href="#actions">🔥 당장 적용 TOP</a>
-    <a href="#copy">🧬 오르제이 카피</a>
-    <a href="#deleted">🚨 삭제 전 포착</a>
-    <a href="#images">🖼️ 캡처 판독</a>
-    <a href="#room">🧰 방 공유/인사이트</a>
-    <a href="#archive">📜 전수 아카이브</a>
+    <a href="#part1-summary" class="primary">📌 1부: 맥락 요약</a>
+    <a href="#part1-factcheck" class="primary">✅ 1부: 셋팅 팩트체크</a>
+    <a href="#part2-fullchat" class="primary">💬 2부: 대화 전문</a>
+    <a href="#archive">📜 209블록 원시로그</a>
+    <a href="#images">🖼️ 캡처 40장</a>
+    <a href="#deleted">🚨 삭제 포착</a>
+    <a href="#copy">🧬 카피 체크리스트</a>
+    <a href="#room">🧰 방 공유</a>
   </nav>
 
-  <section id="actions">
-    <h2>1. 오늘 당장 업데이트 · 적용해야 할 것 TOP</h2>
+  <div class="part-banner">1부. 요약 정리 &amp; 적용할 셋팅 (맥락 + 현재 시스템 팩트체크)</div>
+
+  <section id="part1-summary">
+    <h2>A. 20일 하루 전체 맥락 요약 (시간순 흐름)</h2>
+    <div class="timeline-grid">
+      <div class="tl-item">
+        <div class="tl-head">① 새벽 (00:00~05:32) — 원샷 수창 3개 돌파 공식 &amp; 삭제 전 포착 맥락</div>
+        <ul>
+          <li>테일스케일 2PC 원격 연결 팁 + 마이크 음성 지시 후기(2만 원짜리, 헤드셋 추천).</li>
+          <li><b>원샷 수창 인증(삭제 전 포착):</b> 11/17 영상 1개 39만 뷰, 11/15 한국 영상 1개 6.4만 뷰, 3시간 만에 3.5만 뷰, 2일 전 2.8만 뷰 인증. 최근 7일간 시청시간 4천시간 3개 통과(이번 달 4개 완료, 12월 20~30개 목표).</li>
+          <li><b>핵심 전략:</b> «1~3개월 내 가장 적은 영상으로 가장 많은 조회수(버프 종료/진행 무관)가 나온 독식/무주공산 영상(한·영·일)» 스캔 → <b>1발 간보기</b> → 입질 오면 딴길 새지 말고 <b>그 소재 하나만 V1~V20 끝까지 단물 빼기(핀셋 타격)</b>.</li>
+          <li><i>(삭제 전 포착 민감 맥락)</i> 새벽에 포시즌·태양빠·킹콩샤워님과 «원저작권 허락 없이 터트린 채널(넷플릭스 등)을 찾아 1~2개 100% 카피 테스트 → 경고 오면 AGY로 경고장·역신고(윈윈/ㅇㅅㄱ) 대응» 논의 후 오픈톡방 리스크로 삭제.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">② 오전 (08:31~11:59) — 네온 고속 생산 · 바디캠 50분 · 거실 스마트TV(CTV) 체류 락</div>
+        <ul>
+          <li><b>Gemini 4 Neon 실측:</b> 네온 창 2개로 25분 롱폼 21~25편을 6시간 만에 완성(<a href="https://cafe.naver.com/aiswitchingshorts2/2293" target="_blank" rel="noopener">카페 #2293 ↗</a> 세팅 + 잡도리). 15분 간격 예약 업로드(11:30~14:00).</li>
+          <li><b>바디캠 50분 롱폼:</b> 3~5일 잠복 후 터짐(403회 → 4.2만 뷰 우상향), 토큰 적게 먹고 한국 1차 검증 후 해외 나라별 원판 확장 + 10편 전후 수창.</li>
+          <li><b>거실 스마트 TV(CTV) 6070 체류 락(캡처 #15):</b> ① 0.00초 날짜 낭독 0% → 가장 충격적인 4초 원음 콜드오픈 ② 4~5분 이탈 지점에 2차 스모킹건 예고 ③ 우측 상단 카드 + 종료 20초 전 최종화면 <b>재생목록 강제 연동</b> ④ 엔딩 '구독/댓글' 멘트 <b>0% 영구 차단</b>(여운 팩트 한 줄로 즉시 종료). <i>(호호브로스님 보강: 일본 시니어층 TV 유입 압도적, 20분 6편=2천 시간 실측)</i></li>
+          <li><b>AGY 거짓말 차단 C07 규칙(캡처 #14):</b> 문장 주장 금지, <code>tailscale status</code> 등 실제 콘솔 실측 출력으로만 판정.</li>
+          <li><b>채널 전환 실험:</b> 카테고리 전환 시 기존 영상 비공개 안 해도 조회수 정상 유입(3.7천·9.6천 뷰 인증). 구독자 구매 대신 «롱폼 조회수 안 막히면서 쇼츠로 구독자 늘리는 방식» 테스트 중.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">③ 낮 (12:00~15:58) — 썸네일 4대 시각 기법 · 원판 분량 매칭 · 2PC/터미널 운영 · 조회수 신호등</div>
+        <ul>
+          <li><b>AGY 거짓말 추가 원인:</b> 목표 25분 롱폼인데 원본 자료가 짧으면 빈 공간을 채우려다 거짓말/창작 → <b>목표 시간과 원본 자료 분량 1:1 매칭</b> 필수.</li>
+          <li><b>베네치아식 썸네일 도감연구소(<a href="https://kr-thumbnail-lab-switching2.vercel.app" target="_blank" rel="noopener">웹앱 열기 ↗</a>, 암호 <code>switching2012</code>) + 오르제이 4대 시각 기법(캡처 #17):</b> ① 배경 심도 블러 &amp; 명도 -15% ② 인물 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트 + 2줄 레드(<code>#FF1E1E</code>) 극태고딕.</li>
+          <li><b>틀 우선 원칙(정면님 상담):</b> 잡도리보다 먼저 <b>소재 타겟 → 상위권 1~5위 상방 체크 → 칼카피로 '틀(프레임)' 복제</b>가 1순위. 틀 없이 시키면 토큰만 녹음.</li>
+          <li><b>다PC·터미널 과부하 해결(변갸님 상담):</b> 터미널 여러 개 열면 서로 공유 안 돼 CPU 100% 포화 → <b>터미널 1개 + 순차/시간대별 분배</b>(쇼츠 우선 → 인물형 롱폼 → 플리 새벽) + CPU 70~80% 상한 코드 강제 + 2·4번 PC 렌더 전용 분리.</li>
+          <li><b>조회수 신호등 공식:</b> 100대 = <b>가열 상태</b>(1~2방 추가 중요) / 1천대 = <b>신호탄</b>(방향·소재 확인) / 실시간 2~3천~4천대 = <b>수창·폭격 신호</b>. 금요일 오전/낮 부진 → 목요일 밤·금요일 저녁~주말 집중 배치.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">④ 저녁~밤 (18:04~23:02) — 틱톡 46채널 62초 리워드 · 일레븐랩스 재활용 · 원형+둔갑(70%) 융단폭격</div>
+        <ul>
+          <li><b>틱톡 46채널 즉시 세팅(산이 조교 팁 즉시 실행):</b> 유튜브 5만 원 vs 틱톡 50만 원(10배). 조건: 팔로워 1만 + 30일 10만 뷰. PC 4대 크롬 프로필 분리(12+12+11+11=46채널) → 구글 로그인 10초 가입 → 창 X 닫으면 AGY 감시 엔진 자동 등록 → <b>무조건 62~68초</b>(실측 65.8/65.9/67.9초) 포맷, 타겟은 K-POP 팬튜브 + 중국배우 출퇴근(장릉혁·샤오잔·왕이보·디리러바). API 없이 크롬 자동업로드.</li>
+          <li><b>일레븐랩스 조각 재활용:</b> 롱폼 TTS 요금 절감을 위해 기존 생성 오디오 조각 재활용.</li>
+          <li><b>계정·채널 운영:</b> <code>구글 계정 1 = 본채널 1</code>(크롬 완전 분리), <b>3차 고급인증 미리 필수</b>, 실패 아이디 버리지 말고 카테 3번 이상 전환해 재활용.</li>
+          <li><b>원형 + 둔갑(70% 변주) 다채널 융단폭격:</b> 1발 터지면(롱폼 10분=6만·20분=4만 수창, 쇼츠 15시간 70.7만→50편 제작 선언) <b>원형 1~3호 + 둔갑 1A~3B(또는 둔갑 1~7호)</b>로 중복 안 걸리게 <b>70% 유사 변주</b>(순서·대본·제목·썸네일 변경)해 여유 채널 5~10개에 시간차(15분 간격/일자 분산) 연속 발사 → 저녁 한 타임 <b>총 34편 완성</b>. 바디캠 잘 나온 v1 두 채널 교차 복제(터또터) 검증 완료.</li>
+          <li><b>기타 도구:</b> <code>/mcp</code> 볼케이노 <code>Re-authenticate</code>로 <code>volcano_subtitle</code> 활성화 / 포시즌 공유 <code>볼케이노킷_플로우_완전세팅가이드_2026-11-20.txt</code> (20장 생성)·<code>nexlev_hunter</code>.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="part1-factcheck">
+    <h2>B. 현재 우리 시스템 팩트체크 &amp; 적용할 셋팅 표</h2>
+    <div class="table-wrap">
+      <table class="fc">
+        <thead>
+          <tr>
+            <th style="width:140px">구분</th>
+            <th style="width:210px">항목</th>
+            <th>현재 우리 시스템 상태 (팩트체크 근거)</th>
+            <th>적용 액션 (권장)</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>Gemini 4 Neon (Medium) 메인 모델</b></td>
+        <td><code>settings.json</code>에 <code>Gemini 4 Neon (Medium)</code> 이미 적용됨</td>
+        <td>유지 (2단계 Carbon Low→Neon Low 전환은 19일 비교 후 선택)</td>
+      </tr>
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>1계정=1채널=1크롬 프로필 물리 분리</b></td>
+        <td><code>스위칭쇼츠2기-최신통합세팅.md</code>에 기기값 절단 포함 완비</td>
+        <td>유지</td>
+      </tr>
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>0.0초 콜드오픈 · 엔딩 홍보 금지</b></td>
+        <td><code>스위칭쇼츠2기-최신통합세팅.md</code>에 0.0초 시작·끝 4초 홍보판 금지 반영</td>
+        <td>아래 CTV 4분 2차 예고·재생목록·구독멘트 0%로 강화</td>
+      </tr>
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>TTS 재활용 (tts_cache 해시 캐시)</b></td>
+        <td><code>스위칭쇼츠2기-최신통합세팅.md</code>에 <code>tts_cache/&lt;hash&gt;.wav</code> 문장 캐시 반영</td>
+        <td>유지 (일레븐랩스 롱폼 파이프라인 캐시 히트율 점검)</td>
+      </tr>
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>GPU 강제 · 2-Slot 렌더 큐 · C07 실측 보고</b></td>
+        <td><code>영상작업-GPU강제-ESRGAN정본.md</code> · <code>고품질-초고속-병렬제작.md</code> 반영</td>
+        <td>아래 원판 분량 매칭 + 순차/시간대 분배 추가</td>
+      </tr>
+      <tr class="row-done">
+        <td><span class="badge ok">✅ 이미 반영됨</span></td>
+        <td><b>30일 소수영상 아웃라이어 탐색</b></td>
+        <td><code>스위칭쇼츠2기-최신통합세팅.md</code>에 30일·영상≤35개 반영</td>
+        <td>1~3개월 최소영상·최대조회수(한·영·일 무주공산) 필터 추가</td>
+      </tr>
+      <tr class="row-p0">
+        <td><span class="badge p0">🟢 신규 적용 [P0]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_1"><span>적용</span></label></td>
+        <td><b>1. 원형 + 둔갑(70% 변주) 다채널 융단폭격 & 신호등 공식</b></td>
+        <td>현재는 «5천~1만 뷰 시 같은 채널 5편 꼬꼬무»까지만 기재. 타 채널 원형 1~3호+둔갑 1A~3B(70% 변주) 분산 발사·조회수 신호등(100가열/1천신호/2~3천수창·폭격)·롱폼 수창 기준(10분=6만·20분=4만) 미반영</td>
+        <td>1발 간보기 → 신호등 판정 → 원형+둔갑 70% 변주 5~10채널 15분/일자 분산 발사 루틴 추가</td>
+      </tr>
+      <tr class="row-p0">
+        <td><span class="badge p0">🟢 신규 적용 [P0]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_2"><span>적용</span></label></td>
+        <td><b>2. 거실 스마트 TV(CTV) 체류 락 4규칙</b></td>
+        <td>현재 AVD 떡밥이 7/13/18분 및 중반 구독 멘트로 기재. 4~5분 차 2차 스모킹건 예고 + 종료 20초 전 재생목록 최종화면/우측 상단 카드 강제 연동 + 엔딩 '구독/댓글' 0% 영구 차단 미반영</td>
+        <td>롱폼 대본/업로드 규칙에 CTV 4종 추가 (시니어/정치/바디캠/일본 타겟 최우선)</td>
+      </tr>
+      <tr class="row-p0">
+        <td><span class="badge p0">🟢 신규 적용 [P0]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_3"><span>적용</span></label></td>
+        <td><b>3. 틱톡 62~68초 리워드 포맷 & 크롬 프로필 다계정 자동화</b></td>
+        <td>현재 통합 세팅에 틱톡 수익화(팔로워 1만+30일 10만 뷰, 62초+ 리워드, 팬튜브·중국배우 출퇴근) 규격 전무</td>
+        <td>틱톡 62~68초 포맷 + 크롬 프로필 분리 무API 자동 업로드 파이프라인 신설</td>
+      </tr>
+      <tr class="row-p1">
+        <td><span class="badge p1">🟢 신규 적용 [P1]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_4"><span>적용</span></label></td>
+        <td><b>4. 베네치아식 썸네일 도감 + 4대 시각 기법</b></td>
+        <td>현재 «1인물+5어절 2톤»만 기재. 배경 심도 블러(-15%)+림 라이트+3D 드롭 섀도우+S-Curve & Real-ESRGAN 눈빛 콘트라스트+2줄 레드(#FF1E1E) 극태고딕 미반영</td>
+        <td>롱폼 썸네일 생성 규격에 4대 시각 기법 + 도감 웹앱(kr-thumbnail-lab-switching2.vercel.app) 추가</td>
+      </tr>
+      <tr class="row-p1">
+        <td><span class="badge p1">🟢 신규 적용 [P1]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_5"><span>적용</span></label></td>
+        <td><b>5. AGY 원판 분량 1:1 매칭 + 3차 고급인증 사전 완료 + 카테 전환 비공개 생략</b></td>
+        <td>① 목표 분량=원본 분량 매칭 규칙 없음 ② 고급인증이 '어필리에이트 필요 시'로 늦춰져 있음 ③ 카테 전환 비공개 생략 실측 미반영 ④ 목요일 밤·금요일 저녁~주말 집중 배치 미반영</td>
+        <td>4가지 모두 통합 세팅에 즉시 반영 (단, 저작권 경고 영상은 기존 규칙대로 삭제 유지)</td>
+      </tr>
+      <tr class="row-p1">
+        <td><span class="badge p1">🟢 신규 적용 [P1]</span><label class="fc-chk"><input type="checkbox" class="cb" data-id="fc_2026-11-20_6"><span>적용</span></label></td>
+        <td><b>6. volcano_subtitle MCP 활성화 & 포시즌 공유 도구 확인</b></td>
+        <td>현재 lazy MCP 목록에 <code>volcano_subtitle</code> 정상 등록 확인. <code>~/Downloads/볼케이노킷_플로우_완전세팅가이드_2026-11-20.txt</code>·<code>nexlev_hunter_공유용.zip</code> 다운로드 완료 확인</td>
+        <td>필요 시 플로우 20장 배치 설정 및 nexlev_hunter 활용 검토</td>
+      </tr>
+      <tr class="row-warn">
+        <td><span class="badge warn">⚠️ 충돌/주의 (미적용)</span></td>
+        <td><b>새벽 삭제 발언: 넷플릭스 불펌 채널 100% 카피 + 역신고</b></td>
+        <td>배급사 허용표(넷플릭스 한국 신작 롱폼 금지) 및 저작권 리스크와 충돌</td>
+        <td>100% 무단 카피·역신고는 미적용. «최소 영상·최대 조회수 무주공산 스캔 → 안전 배급사/70% 변주» 구조만 채택</td>
+      </tr>
+      <tr class="row-warn">
+        <td><span class="badge warn">⚠️ 충돌/주의 (미적용)</span></td>
+        <td><b>눕방사업가 '관제탑 꾸러미' (클로드↔AGY 자동 검수 호출)</b></td>
+        <td>11-14 AGY 단독 모드 전환(외부 호출 금지) 및 0순위 사후 검수 금지와 충돌</td>
+        <td>절대 미적용 (계정 정지 위험)</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="part-banner">2부. 2026-11-20(금) 오르제이님 대화 전문 (맥락 포함)</div>
+
+  <section id="part2-fullchat">
+    <h2>시간대별 핵심 실무 · 전략 대화 전문 (①~⑤)</h2>
+    <p class="muted" style="margin:-4px 0 12px">단순 인사·웃음·잡담을 제외하고 실무·전략·세팅·수익화 맥락이 담긴 20일 오르제이님 대화 전후 원문 전체입니다. 잡담 포함 100% 원시 로그(209블록·1,067건)는 바로 아래 아카이브에서 펼칠 수 있습니다.</p>
     
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_1">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p0">P0</span><strong>원형 + 둔갑(70% 변주) 다채널 융단폭격 파이프라인 구축</strong></div>
-            <p class="desc">1발 간보기 업로드 → 입질(100대 가열 → 1천 신호탄 → 2~3천 수창 신호) 오면 딴길 새지 말고 즉시 같은 소재를 &#x27;원형 1~3호 + 둔갑 1A~3B(또는 둔갑 1~7호)&#x27; 구조로 대본·순서·제목·썸네일만 바꿔(중복 안 걸리게 70% 유사) 5~10개 여유 채널에 시간차 연속 발사. 롱폼 기준 10분=6만·20분=4만 뷰로 수창 직결.</p>
-            <div class="ev">근거: 04:18~04:53 / 20:37~22:45 발언 및 캡처 #32, #33, #34, #38, #39</div>
-          </div>
-        </label>
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_2">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p0">P0</span><strong>거실 스마트 TV(CTV) 체류 락 + 0.00초 콜드오픈 + 4분 차 2차 도파민 + 엔딩 멘트 0% 영구 차단 규칙 적용</strong></div>
-            <p class="desc">롱폼(정치·시니어·바디캠·역사 등) 제작 시: ① 도입부 날짜 낭독 0% 배제 → 0.00초에 가장 분노/충격적인 4초 원음 폭격 ② 4~5분 지점에 2차 스모킹건 예고 배치 ③ 우측 상단 카드 + 최종화면(종료 20초 전) 재생목록 강제 연동(거실 TV 6070 자동 연속재생) ④ &#x27;구독/댓글 남겨주세요&#x27; 영구 금지, 여운 있는 팩트 한 줄로 즉시 종료.</p>
-            <div class="ev">근거: 11:03 캡처 #15 + 11:03~11:07 발언(일본 시니어층 TV 유입 20분 6편=2천시간 검증)</div>
-          </div>
-        </label>
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_3">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p0">P0</span><strong>틱톡 62초+ 리워드 킬링 포맷 &amp; 크롬 프로필 분리 다계정 자동화 착수</strong></div>
-            <p class="desc">유튜브 5만원 줄 때 틱톡은 50만원(10배) 단가. 팔로워 1만 + 30일 10만 뷰 조건. 구글 크롬 프로필 분리(PC당 11~12개, 오르제이는 4대 46채널) → 크롬 구글 로그인 10초 가입 → 창 X 닫으면 AGY 감시 엔진이 자동 등록. 영상 길이는 무조건 62~68초(캡처 실측 65.8초/65.9초/67.9초). 타겟: K-POP 팬튜브 + 중국배우 출퇴근(장릉혁·샤오잔·왕이보·디리러바).</p>
-            <div class="ev">근거: 05:03 / 10:10~10:40 / 18:04~18:27 발언 및 캡처 #11, #12, #26, #27, #28</div>
-          </div>
-        </label>
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_4">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p1">P1</span><strong>베네치아식 한국 썸네일 도감연구소 + 4대 시각 기법(심도블러·림라이트·3D섀도우·Real-ESRGAN) 도입</strong></div>
-            <p class="desc">공유 웹앱(https://kr-thumbnail-lab-switching2.vercel.app / 암호: switching2012) 즉시 활용 + 오르제이 썸네일 4대 규칙(① 배경 심도 블러 &amp; 명도 -15% ② 인물 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 극초선명 S-Curve &amp; Real-ESRGAN 눈빛 콘트라스트 + 2줄 레드 #FF1E1E 극태고딕) 내 썸네일 파이프라인에 고정.</p>
-            <div class="ev">근거: 10:09 / 12:09 베네치아 공유 + 12:15~12:20 캡처 #16, #17, #36</div>
-          </div>
-        </label>
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_5">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p1">P1</span><strong>소재 발굴 프롬프트 &amp; 바디캠 50분 원판 해외 교차 복제(터또터) + 일레븐랩스 TTS 재활용</strong></div>
-            <p class="desc">① &#x27;1~3개월 동안 가장 적은 영상으로 가장 많은 조회수 나온 독식/무주공산 영상(한·영·일) 싹다 긁어와&#x27;로 소재 1순위 타격 ② 미국 실화 바디캠 50분 원판으로 한국 먼저 검증(4.2만 뷰) → 해외 나라별 확장 + 잘 나온 v1 두 곳 교차 복제 ③ 일레븐랩스(TTS) 조각 재활용으로 롱폼 요금 절감 ④ 채널 여유분 확보(계정 1=본채널 1, 크롬 완전 분리, 3차 고급인증 필수, 카테고리 전환 시 기존 영상 비공개 안 해도 조회수 나옴).</p>
-            <div class="ev">근거: 04:18 / 08:42~09:05 / 12:30 / 18:54 / 19:26 / 21:10 / 22:30 발언 및 캡처 #08, #09, #18, #19, #35</div>
-          </div>
-        </label>
-        <label class="card check-card">
-          <input type="checkbox" class="cb" data-id="act_2026-11-20_6">
-          <div class="card-body">
-            <div class="card-top"><span class="badge p1">P1</span><strong>AGY 거짓말 차단 규칙(C07 실측 강제) + 원판 분량 매칭 + 터미널 1개 순차/분산 운영 + 볼케이노 예능자막 MCP 재인증</strong></div>
-            <p class="desc">① C07 규칙: 문장 주장 금지·실제 콘솔 실측 출력으로만 판정 ② 25분 롱폼이면 25분치 원본 자료를 줘야 AGY 속임수(빈 공간 창작) 감소 ③ CPU 70~80% 상한 코드 강제 + 터미널 난립 금지(순차/시간대별 분배: 쇼츠→롱폼→플리 새벽) ④ /mcp 볼케이노 Re-authenticate로 volcano_subtitle 활성화 + 포시즌 공유 파일(떡상채널파인더v8, nexlev_hunter, 볼케이노킷 플로우 20장 세팅가이드) 확인.</p>
-            <div class="ev">근거: 10:42 캡처 #14 / 12:12 / 14:08~14:25 / 20:44 / 22:18 발언</div>
-          </div>
-        </label>
-  </section>
+    <div class="card chat-card">
+      <div class="cat-title">① 새벽 (00:00~05:32) — 테일스케일 · 음성 지시 · 원샷 수창 3개 돌파 · 삭제 전 포착 · 1발 간보기 &amp; 핀셋 타격</div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">00:01:30</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">안깔아야해요 / 원격으로 보시는거에요</span></div><div class="chat-line other"><span class="time-tag">00:01:55</span><b class="spk">태양빠</b>: <span class="msg">아 그럼 테일스케일만 세팅하면 되는거네요</span></div><div class="chat-line orj"><span class="time-tag">00:01:57</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">원격 연결하고 바탕화면에 바로가기 만들라고 하세요 / 로그인 확인 되면 —-&gt; 위내용 / 그럼 2pc에서 줄하나 파워셀 + 관리자 로 입력하면 끝이에요</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">00:03:26</span><b class="spk">태양빠</b>: <span class="msg">마이크 하나 사다가 마이크로 명령하는거 해볼까...자비스 만들어보고싶어지네</span></div><div class="chat-line orj"><span class="time-tag">00:03:38</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">마이크 설치 하시고 / 스페이스 바나 엔터 누르고 말로 하셔요 / 2만원짜리 삿습니다 ㅎㅎ / 한달전에 / 이제 목소리 넣고 있어요 / 티키타카 그대로 나옵니다 / 글도 잘써요 / 근데 잘안쓰게 되요 헤드셋처럼 붙는걸로 사야겠어요</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">00:05:08</span><b class="spk">리니P</b>: <span class="msg">요건 어떻게 하는걸까요 ㅠㅠ</span></div><div class="chat-line orj"><span class="time-tag">00:05:44</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">그동인 쭉 말씀 드린 (따라가자: 롱폼 작전) / 네네 쉽게 롱폼 / 쉽게 표현 / 롱폼이 쉽다는말이 아니구요 / 저도 이제 완전 몰입할거라 말수좀 줄이고 이제 세팅 다끝난거 같아요</span></div><div class="chat-gap"></div><div class="chat-sep">--- (04:05 원샷 수창 인증 폭발 · 삭제 전 포착 복원 포함) ---</div><div class="chat-line orj"><span class="time-tag">04:05:52</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">[사진: 11/17 업로드 영상 단 1개로 조회수 39만 달성 원샷 수창 인증]</span></div><div class="chat-line orj"><span class="time-tag">04:06:19</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">영상 1개로 수창 나와있었네요…. / 저도 모르게 나와 있는</span></div><div class="chat-line orj"><span class="time-tag">04:07:48</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">[사진: 11/15 한국 영상 단 1개로 조회수 6.4만 달성 원샷 수창 인증]</span></div><div class="chat-line other"><span class="time-tag">04:07:51</span><b class="spk">태양빠</b>: <span class="msg">해외영상이에요?</span></div><div class="chat-line orj"><span class="time-tag">04:07:59</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">영상하나로 수창이네요 / 한국이요</span></div><div class="chat-line other"><span class="time-tag">04:08:10</span><b class="spk">포시즌</b>: <span class="msg">혹시 김정은 넣으셨어요?ㅋ</span></div><div class="chat-line orj"><span class="time-tag">04:08:16</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">아니에요 / 7일간 시청시간 4천시간 3개 통과 했어요 / 7일동안 수창 3개…. / 이번달 4개 / 저도 이해가 안되요 / 보고 개깜놀 / 자다가 깨서 / 3개 정도 시청시간 30일까지 할 수 있을걸로 봤거든요 / 한달 수창 8개면 ….. 미친넘인데</span></div><div class="chat-line other"><span class="time-tag">04:12:50</span><b class="spk">포시즌</b>: <span class="msg">수학의 정석처럼 예를 들어서 하나만 풀어주시죠</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">04:13:15</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">포시즌님 쓰고 지울게요</span></div><div class="chat-line orj"><span class="time-tag">04:13:51</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">지금것도 지우셔요 이따가는</span></div><div class="chat-line orj"><span class="time-tag">04:14:21</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">태양빠님 아시잖아요</span></div><div class="chat-line orj"><span class="time-tag">04:14:31</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">역신고</span></div><div class="chat-line other"><span class="time-tag">04:14:40</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">태양빠</b>: <span class="msg">아 그거는 아는데 그 역신고의 출발점을 몰라서 저 중간에 들었잖아요;</span></div><div class="chat-line other"><span class="time-tag">04:14:51</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">포시즌</b>: <span class="msg">역신고가 뭐에요?</span></div><div class="chat-line orj"><span class="time-tag">04:15:03</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">포시즌님 말씀 드리려 / 태양빠님 지우셔요 / 포시즌님 지우시고</span></div><div class="chat-line orj"><span class="time-tag">04:16:05</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">이렇게 하셔요 포시즌님 / 기존꺼에는 하지마시고 (포시즌[삭제됨]: 새채널) / 이게 딱 정답은 아닌데</span></div><div class="chat-line orj"><span class="time-tag">04:18:15</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">1개월 ~ 3개월 동안 가장적은 영상에 가만 많은 조회수 (버프끝난거,버프안끝난거) 독식가능한 or무주공산 영상 영어권 ,일본어 , 한국 싹다 긁어와 / 여기에 / 아까 그내용 가능한것으로 / 이해되셨죠?</span></div><div class="chat-line orj"><span class="time-tag">04:19:19</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">100% 똑같이 싹다 똑같이 만들어</span></div><div class="chat-line orj"><span class="time-tag">04:19:34</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">역신고 / 저키워드 쓰면요 교육때 말해줬잖어요</span></div><div class="chat-line orj"><span class="time-tag">04:20:34</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">자 잘들으세요 / 진짜 아이디 있는대로 10개 만드셔서 / 두개까지 100% 똑같이 만든거 올리세요 / 경고 날라오면 / Agy한테 경고장 써서 날리세요 / 내일 12시까지 윈윈할건지? / 아니면 ㅇㅅㄱ 해줄지? / 바로 플겁니다</span></div><div class="chat-line orj"><span class="time-tag">04:22:20</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">그렇게 영상 1~2개로 수창되는걸 찾아서 맛을 보세요 / 이 맛을 보는 방법이에요 / 터진영상중 원샷에 수창되는걸 찾는거에요 / 그맛을 한번만 보면 / 많이도 말고 한번만 거기서 수만 터지면 / 그다음은 감이 와요 / 10개로 영상 몇개 던지면 / 지금처럼 운좋으면 수창 3개 터져요</span></div><div class="chat-line orj"><span class="time-tag">04:24:49</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">그게 한번만 설명 드릴게요 / 포시즌님? 보세요 / 저작권이 있죠? / 넷플릭스꺼 허락받고 쓰는사람 있나요? / 거의 엄ㅅ죠? / 몰래 쓰는걸로 터트린사람들꺼를 싹다 조사 / 이해다 되셨져? / 시청시간 4천시간 한방에 채워요 / 이게 생각만 했는데 된거에요 / V v1,2,3?4?5 / 오키요? 여기서 3이터질지 제가 몰랐던거에요 / 이거 보신분들만 알고 계셔요 일단 / 이렇게 정리 할게요 누설 금지</span></div><div class="chat-line other"><span class="time-tag">04:27:33</span><b class="spk">태양빠</b>: <span class="msg">그럼 그렇게해서 수창을 하고 그 다음 채널결을 잡은다음에는 만든 결이 있으니까 소재만 주면 알아서 만들어준다 그건가요?</span></div><div class="chat-line orj"><span class="time-tag">04:28:01</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네네 맞아요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">04:28:56</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네 해법 입니다 / 그냥 수창 무적권 저 맛을 봐야 해요 / 그럼 채널 10개면 진짜 안받는거 말고 한달이면 수창 다되요 / 영상 1~10개면 / 테스트를 던저 보세요 / 바디캠은 일단 빼세요 / 테스트 중인데 터지는기간이 3~5일인데 지금 50분 짜리 이제 터져서 / 아마 초반 흥미 떨어지실 듯해요 / 그래도 30개 영상안에 끝날 듯요</span></div><div class="chat-line orj"><span class="time-tag">04:31:05</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">영상 1개 ~ 3개로 수창시청시간 3개 한겁니다 / 이게 키에요 / 이걸 졸라 파세요 / 숫자가 답입니다 / 조회수 터지냐 안터지냐만 보시고</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">04:33:48</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">제가 25년도 진짜 피해금이 대략 32억이라고 ㅋㅋ 말씀 드렸죠 / 저경매만 3채이고 / 제가 감당 안해도 될거 까지 책임져 주다가</span></div><div class="chat-line orj"><span class="time-tag">04:36:02</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">핵심만 꼭 기억하시고 딴길로 새지 마시고 이것만 파세요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">04:45:01</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 업로드 3시간 만에 3.5만 뷰 폭발 캡처]</span></div><div class="chat-line orj"><span class="time-tag">04:45:21</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">영상 1~5개면 끝나요 대부분 / 이해 되셨죠?</span></div><div class="chat-line other"><span class="time-tag">04:45:53</span><b class="spk">태양빠</b>: <span class="msg">V5까지 5개를 해서 5개의 채널에 한번에?</span></div><div class="chat-line orj"><span class="time-tag">04:45:58</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">노노 / 1개로 간보시고 / 조회수 터졌다? / 그걸로 뽕뽑으세요 / 딴길로 가지마요 / 그냥 이탄 만들고 삼탄만들고 / 검증이중요해요 / 나왔다? 딴길 새지 말고 그놈만 패세요 절대</span></div><div class="chat-line other"><span class="time-tag">04:47:53</span><b class="spk">tu</b>: <span class="msg">올제이님 신고 들어온 건은 없으시죠?</span></div><div class="chat-line orj"><span class="time-tag">04:48:07</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">저 한테 신고 못해요 / 이건 지울게요 이게 오픈톡방이라 조심스러워서</span></div><div class="chat-line other"><span class="time-tag">04:48:39</span><b class="spk">tu</b>: <span class="msg">카테는 상관없는거죠?</span></div><div class="chat-line orj"><span class="time-tag">04:48:58</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">조회수가 = 입질이면 / 카테마다 입질오는 일수가 달라요 / 이건 찾아보셔요 오래 안걸려요</span></div><div class="chat-line orj"><span class="time-tag">04:50:15</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">소재만 계속 찾으면 주에 수창 1~2개가 가능해요 / 이것도 지울게요 사기저하 문제성 으로 생각하실 수 있으니</span></div><div class="chat-line other"><span class="time-tag">04:51:13</span><b class="spk">tu</b>: <span class="msg">제가 이해한게 일단 터진영상들을 찾아서 만들어 올리고 입질오는지 확인하는거..이게 맞나요</span></div><div class="chat-line orj"><span class="time-tag">04:51:27</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">맞아요 / 테스트는 필요해요 / 저도 처음에 올리다 보면 조회수 쌓여서 수창되겠지? 이렇게 가는것보다 / 한번에 입질이 씨게 오는걸 찾았어요 / 이 걸 테스트 단계 / 이게 나온다? / 그럼 이것만 파요 한소재로 수창 3개 해도되나? 할정도로 돈만 보고 완성만 시켜요 / 이미터진걸 또 터트리는 것 뿐 / 그게 터지면 또 터트리고</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">05:00:20</span><b class="spk">tu</b>: <span class="msg">제작은 agy로 하시는거죠?</span></div><div class="chat-line orj"><span class="time-tag">05:00:45</span><span class="orj-star">★</span><span class="badge p0" style="margin-right:4px">삭제됨</span><b class="spk">오르제이</b>: <span class="msg">[사진: 2일 전 2.8만회 좋아요 474 AGY 제작 성과] / 네네 / 감잡으시면 한달 최소 3개 이상 가능해요</span></div><div class="chat-line other"><span class="time-tag">05:01:35</span><b class="spk">태양빠</b>: <span class="msg">2월부터 조건이 두배죠?</span></div><div class="chat-line orj"><span class="time-tag">05:01:41</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네네 / 2월되도 가능해요 / 근데 올해안에 끝내죠 / 지금 제가 영상 1~3개로 수창이라 / 결만들고 이게 없어요 ㅋㅋ / 그냥 허고싶은 카테 리스크없는거 가면될 듯해료</span></div><div class="chat-line orj"><span class="time-tag">05:03:36</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">틱톡 꼭 만드시고요 / 산이조교님 내용 / 하라 하는건 바로바로</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">05:12:09</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">저는 0~10벽 있어요 지금도 / 근데 이거 30일 다시설정걸고 뚫어보게요 / 뭘 대던하게 만들어야지 아니고 / 되는걸 찾아서 때려넣자 / 2월까지 20~30개 가능할 듯하네요 수창</span></div><div class="chat-line other"><span class="time-tag">05:18:23</span><b class="spk">tu</b>: <span class="msg">소재는 agy에게 물어오라고 시키시나요?</span></div><div class="chat-line orj"><span class="time-tag">05:19:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">최소영상으로 최고 조회수 나온거 정리 해서 가 기본으로 / 네네 / 질문을 꼬리에 꼬리를 물고 던지세요 / (태양빠 첫 영상 3개에 대해) 2편을 딴길로 새지마시고 결그대로</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">05:26:26</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 또 다른 채널 9.4천 뷰 + 다음 영상 4천대 인증]</span></div><div class="chat-line orj"><span class="time-tag">05:26:44</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">이거 다음영상 4천대라 7일이면 완성 / 핀셋정책 허고 있어요 / 입질온거 집중타격 / 4만 기준으로 / 정치는 2주안에 될거 같아요 / (05:31) 지송요 하나 또 임박이네요 1.7만 짜리 5일안에 끝내야지</span></div>
+      </div>
+    </div>
 
-  <section id="copy">
-    <h2>2. 오르제이님 실행 방식 완전 카피 플랜</h2>
-    
-        <div class="card">
-          <div class="cat-title">1. 초고속 수창 공식 (최소 영상 1~3개 → 수창 돌파)</div>
-          <div class="orj-box"><b>오르제이 실행:</b> 7일간 시청시간 4천시간 3개 돌파, 이번 달 4개 완료(12월 20~30개 목표). &#x27;1~3개월 내 가장 적은 영상으로 최고 조회수(버프 종료/진행 무관) 나온 무주공산·독식 가능 영상&#x27;을 한·영·일 전수 스캔 → 먼저 칼카피로 &#x27;틀(프레임)&#x27;을 완벽 복제 → 1발 간보기 후 입질 오면(100대=가열, 1천=신호탄, 2~3천=수창신호) 딴길 새지 않고 한 소재로 V1~V9(심지어 20~50편) 끝까지 단물 빨아먹기. 롱폼 기준 10분=6만 뷰, 20분=4만 뷰 수창 공식.</div>
-          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_1"><span>소재 탐색 시 &#x27;최근 1~3개월, 영상 수 최소(1~10개), 조회수 최대, 무주공산&#x27; 필터로 한·영·일 채널 리스트업</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_2"><span>카테고리 1~5위 상방 체크 후, 잡도리보다 먼저 상위 레퍼런스 &#x27;틀(구조/편집/자막/길이)&#x27;을 칼카피 세팅</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_3"><span>신규/여유 채널에 1발 간보기 업로드 → 100대 가열/1천 신호탄 감지 시 즉시 후속 2~3발 장전</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_4"><span>터진 소재 1개를 &#x27;원형 1~3호 + 둔갑 1A~3B(70% 유사·중복 회피 변주)&#x27;로 5~10개 채널에 시간차(15분 간격 또는 일자 분산) 융단폭격</span></label></div>
-        </div>
-        <div class="card">
-          <div class="cat-title">2. 롱폼 완주율 70%+ &amp; 거실 스마트 TV(CTV) 체류 락</div>
-          <div class="orj-box"><b>오르제이 실행:</b> 0.00초 콜드오픈(날짜 낭독 0%, 가장 분노/충격적인 4초 원음 폭격) → 4~5분 이탈 지점에 2차 스모킹건 예고 배치 → 거실 TV 6070 시청층 겨냥 우측 상단 카드 + 종료 20초 전 최종화면 재생목록 강제 연동 → 막판 &#x27;구독/댓글&#x27; 이탈 멘트 0% 영구 차단(여운 있는 팩트 한 줄로 종료). 바디캠 50분 롱폼도 토큰 적게 먹고 4.2만 뷰 상승 중.</div>
-          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_1"><span>내 롱폼 대본 규칙에 &#x27;0.00초 콜드오픈 4초 + 4분 차 2차 도파민 예고 + 엔딩 구독/댓글 멘트 영구 금지&#x27; 하드코딩</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_2"><span>유튜브 업로드 템플릿에 종료 20초 전 &#x27;몰아보기 재생목록&#x27; 최종화면 + 우측 상단 카드 필수 연동</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_3"><span>시니어/정치/바디캠/역사 롱폼은 한국 1차 검증 후 일본 시니어(거실 TV 비중 극대) 및 영어권으로 원판 다국어 확장</span></label></div>
-        </div>
-        <div class="card">
-          <div class="cat-title">3. 틱톡 46채널 62초 리워드 자동화 공장</div>
-          <div class="orj-box"><b>오르제이 실행:</b> 산이 조교님 틱톡 단가(유튜브 5만원 vs 틱톡 50만원) 즉시 실행: PC 4대에 크롬 프로필 분리(12+12+11+11=46채널) → 구글 로그인 10초 가입 → 크롬 X 닫으면 AGY 감시 엔진이 자동 등록. 영상 길이 62~68초(65.8/65.9/67.9초) 맞춤. 팬튜브(BTS/블랙핑크/변우석/K-POP 챌린지) + 중국배우 출퇴근(장릉혁·샤오잔·왕이보·디리러바) 타겟. API 없이 자동업로드 파이프라인 가동.</div>
-          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_1"><span>크롬 프로필 분리로 틱톡 전용 계정 최소 10개부터 즉시 세팅(구글 계정 10초 연동)</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_2"><span>쇼츠/팬튜브/중국배우 출퇴근 컷을 62~68초(1분 초과 리워드 조건) 포맷으로 자동 생성 스크립트 구축</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_3"><span>크롬 프로필 기반 무API 자동 업로드 루틴 연결 및 일일 예약 발행</span></label></div>
-        </div>
-        <div class="card">
-          <div class="cat-title">4. 다채널·다PC·AI 모델 &amp; 토큰 최적화 운영</div>
-          <div class="orj-box"><b>오르제이 실행:</b> 구글 계정 1개 = 본채널 1개(크롬 프로필 완전 분리, 3차 고급인증 미리 완료, 아이디 절대 버리지 말고 3번 이상 카테 전환해 끝까지 재활용, 전환 시 기존 영상 비공개 안 해도 조회수 나옴). 모델은 네온(빠르고 가벼움, 네온앤네온 창 2개로 25분 롱폼 21편 6시간 완성) + 클로드 프로 + 파티원 x4~6 조합. PC 4대(향후 8대, 유튜브+틱톡+인스타 150채널 목표, 2·4번 PC 렌더 전용), 테일스케일 원격 제어, 일레븐랩스 조각 재활용, C07 실측 검증 규칙, 15분 간격 예약 업로드.</div>
-          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_1"><span>보유 계정별 크롬 프로필 1:1 완전 분리 및 3차 고급인증 사전 완료(여유 채널 상시 확보)</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_2"><span>실패/0뷰 채널 삭제 금지 → 카테고리 전환(기존 영상 비공개 불필요)으로 3회 이상 재활용 테스트</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_3"><span>AGY 전역 규칙에 &#x27;C07: 콘솔 실측 없는 문장 보고 금지&#x27; 및 &#x27;롱폼 목표 분량=원본 자료 분량 매칭&#x27; 반영</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_4"><span>업로드 스케줄은 동시 몰아 올리기 금지 → 15분 간격 또는 시간차/채널 분산 발사(금요일 낮 부진 → 목요일 밤·금요일 저녁~주말 집중 배치)</span></label></div>
-        </div>
-        <div class="card">
-          <div class="cat-title">5. 클릭률 극대화 썸네일 4대 공식</div>
-          <div class="orj-box"><b>오르제이 실행:</b> 베네치아식 한국 썸네일 도감연구소 적용 + ① 배경 심도 블러(명도 -15% 톤다운) ② 인물 외곽 림 라이트(역광 윤곽 분리) ③ 3D 드롭 섀도우(공간감) ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트 + 2줄 레드(#FF1E1E) 극태고딕.</div>
-          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_5_1"><span>https://kr-thumbnail-lab-switching2.vercel.app (암호 switching2012) 북마크 및 벤치마크 구도 추출 활용</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_5_2"><span>내 썸네일 생성기에 &#x27;배경 블러 -15% + 림 라이트 + 3D 드롭 섀도우 + Real-ESRGAN 눈빛 보정 + #FF1E1E 극태고딕&#x27; 프리셋 등록</span></label></div>
-        </div>
-  </section>
+    <div class="card chat-card">
+      <div class="cat-title">② 오전 (08:31~11:59) — 네온 6시간 25편 · 바디캠 50분 · 틱톡 가입 · C07 실측 규칙 · 거실 스마트 TV 체류 락</div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">08:31:28</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: AGY 자동화 콘솔 — 각 타겟 폴더 15편 전량 즉시 업로드 장부 완비]</span></div><div class="chat-line orj"><span class="time-tag">08:31:58</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">여러분 네온 안쓰셨던 분들은 한번 시도해보시길 추천 드려요</span></div><div class="chat-line orj"><span class="time-tag">08:33:09</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네온앤네온(오타: 이혼앤 비온) 꼭 써보세요. 25분 짜리 각각 다른 15가지+ 6편 = 6시간 무난하게 다나오네요</span></div><div class="chat-line orj"><span class="time-tag">08:35:57</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 15분 간격 예약 업로드 스케줄표 11:30~14:00]</span></div><div class="chat-line orj"><span class="time-tag">08:36:08</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">https://cafe.naver.com/aiswitchingshorts2/2293 / 요고 세팅 해서 + 잡도리 조금만 더 추가하시고요 못하신 분들 25편 6시간 그냥 나옵니다</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">08:41:54</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 미국 실화 바디캠 50분짜리 초반 6일 전 403회]</span></div><div class="chat-line orj"><span class="time-tag">08:42:38</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">바디캠 50분 짜리 입니다. 원판 받아서 해외 나라별로 굴리시는것더 도움 되실 수 있으세요.^^</span></div><div class="chat-line orj"><span class="time-tag">08:43:55</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 바디캠 50분짜리 4.2만 뷰 우상향 돌파]</span></div><div class="chat-line orj"><span class="time-tag">08:44:32</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">어제 내용 꾝 agy 분석 시키십쇼.~^^ / (09:04) 카톡 로그인 하시고, 프리미엄방 오르제이 쓴말 다 긁어와봐 분석하고, 개구란지 아닌지 분석해봐 라고 하시고 정리 해보셔요</span></div><div class="chat-line orj"><span class="time-tag">09:05:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 신규 바디캠 1일 전 1.8천 뷰 상승] / 바디캠 터지는 거 맞습니다.</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">09:27:37</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">산이조교님 감사드립니다.^^ 금일 틱톡아이디 5개 더 추가 시키겠습니다.</span></div><div class="chat-line orj"><span class="time-tag">09:52:27</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">틱톡 오늘 20개 자동화시킬게요</span></div><div class="chat-line other"><span class="time-tag">09:53:52</span><b class="spk">따라가자</b>: <span class="msg">틱톡 그냥 가입하면 되요?</span></div><div class="chat-line orj"><span class="time-tag">10:01:51</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네 ~^^ 바로 구글 이동될텐데 잠시만요.</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">10:01:51</span><b class="spk">소근소금</b>: <span class="msg">혹시 롱폼 수창시간 채웠는데 구독자 구매 하는 사이트 괜찮은 곳 아시는 데 있을까요??</span></div><div class="chat-line orj"><span class="time-tag">10:04:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">이거 agy가 하지말라 해서 저는 멈췄어요 / Agy에 롱폼 조회수 안막히면서 숏폼으로 구독자 늘리는 방식 있다 해서 시도 어제 부터 진행 중 입니다</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">10:10:46</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 크롬 구글 로그인 10초 틱톡 가입 + 크롬 프로필 8개+ 분리 가이드]</span></div><div class="chat-line orj"><span class="time-tag">10:11:36</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 틱톡 전략표 — 팬튜브 2~5호(BTS/블핑/변우석/K-POP챌린지) + 중국배우 1~3호(샤오잔·왕이보·디리러바 62초 리워드)]</span></div><div class="chat-line orj"><span class="time-tag">10:12:15</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">장릉혁 등등 중국 배우 출근 샷 , 퇴근 샷들 어마어마 할거에요.</span></div><div class="chat-line orj"><span class="time-tag">10:40:28</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">틱톡 산이 조교님 말씀 주신 내용 전체 원본 따와서 자동업로드 내용 곧 공유 드릴게요. 남는 시간에 아이디 풀 세팅 하시죠</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">10:42:39</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: AGY 잡도리 규칙 C07 — 문장 주장 금지·실제 콘솔 실측(tailscale status 4대 PC 온라인/IP)으로만 판정]</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">10:43:19</span><b class="spk">쇼츠부자맘</b>: <span class="msg">카테 변경할때 그전에 있던 영상들은 비공개 이후 올리실까요? 수창채널에 영향은 없을까요?</span></div><div class="chat-line orj"><span class="time-tag">10:49:55</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">그냥 올려도 보고, 비공개로 해봤는데 결국 터질 건 터지더라고요. 저는 요즘 비공개 안하고 터지고 정리하려고 두고 올립니다 / 시청시간에 영향이 없다면 없습니다</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">11:03:25</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 롱폼 완주율 70%+ 규칙 — 0.00초 4초 설전 콜드오픈 + 4~5분 2차 스모킹건 예고 + 거실 스마트 TV(CTV) 6070 재생목록 카드·최종화면(종료 20초 전) 강제 연동 + 엔딩 &#x27;구독/댓글&#x27; 멘트 0% 영구 차단]</span></div><div class="chat-line orj"><span class="time-tag">11:03:46</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">거실 스마트 TV 검색 타겟 안잡으신 분들은 같이 잡아 보시길 바랍니다.</span></div><div class="chat-line other"><span class="time-tag">11:04:56</span><b class="spk">호호브로스</b>: <span class="msg">일본 시니어층이 이 비율이 높습니다. / 제 경험상 일본 시니어층 타겟으로 잡았는데, 제대로 꽂히니까 시청지속시간이 장난아닙니다. 20분 영상 6개로 2천시간 금방 채웠습니다. 유입통로 보니 tv가 대부분이더라고요</span></div><div class="chat-line orj"><span class="time-tag">11:04:57</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">정치 뿐만아니에요 / 너무 좋은 정보 감사드려요.~~^^</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">11:24:51</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">오전 반 , 저녁반 영상 폭격기 팀 있거든요 / 대낮 틱톡 폭격기팀 출시 / 전부 다하면 75채널 내일이면 세팅 끝날 듯 해요</span></div><div class="chat-line orj"><span class="time-tag">11:27:08</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">시스템을 만들라고 해보십쇼 agy에^^ / 나에게 가장 효율적인 루틴 시스템을 기획해 / 1번 최소 영상 -&gt; 최대 조회수 , 버프가 끝나는 시점 정밀 타격 영상공개 테스트 / 2. 카테고리 별로 분석 / 가장 중요한거 한가지 기억해 주세요 / 1등 ~5등 의 상방을 체크 하세요</span></div><div class="chat-line orj"><span class="time-tag">11:36:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(나링님 질문에) 요고 프리미엄방 새벽에 산이 조교님 말쌈 싹다 긁어와서 정리 해서 분석 해줘 ! / Agy에 많이 물어봐 주세요. 저는 큰키워드만 드리는거에요.</span></div>
+      </div>
+    </div>
 
-  <section id="deleted">
-    <h2>3. 삭제 전 포착된 메시지 · 캡처 (17건)</h2>
-    <ul class="clean"><li><span class="time-tag">04:05:52</span> [삭제된 캡처 복원] 11월 17일 영상 단 1개로 39만 뷰 수창 인증 캡처(040552_orj_...jpg) — DB에서 원문 이미지 100% 확보.</li><li><span class="time-tag">04:07:48</span> [삭제된 캡처 복원] 11월 15일 한국 영상 단 1개로 6.4만 뷰 수창 인증 캡처(040748_orj_...jpg) — DB에서 100% 확보.</li><li><span class="time-tag">04:13~04:20</span> [삭제된 대화 복원] 새벽 비밀 공유(&#x27;지금것도 지우셔요 / 역신고 / 태양빠님·포시즌님 지우셔요&#x27;): 넷플릭스 등 원저작권 허락 없이 몰래 올려 터진 채널들을 조사해 1~2개 100% 카피로 테스트 → 경고 오면 AGY로 경고장/역신고(&#x27;윈윈할지 ㅇㅅㄱ할지&#x27;) 대응 맥락. (※ 주의: 저작권 분쟁 리스크가 크므로 내 시스템에서는 구조·소재 감잡기 인사이트로만 참고하고, 실전에서는 반드시 70% 변주·중복회피·안전 카테고리로 적용 권장)</li><li><span class="time-tag">04:48~04:50</span> [삭제된 발언 복원] &#x27;저한테 신고 못해요&#x27; / &#x27;소재만 계속 찾으면 주에 수창 1~2개가 가능해요&#x27; / &#x27;이것도 지울게요 사기저하 문제성으로 생각하실 수 있으니&#x27;.</li><li><span class="time-tag">05:00:45</span> [삭제된 캡처 복원] 2일 전 2.8만회(좋아요 474) AGY 제작 영상 성과 캡처(050045_orj_...jpg) 100% 확보.</li><li><span class="time-tag">04:33~14:56</span> [삭제된 개인사 맥락] 25년 피해금 약 32억·경매 3채·소송 10건 이상(2명 구속) 중 약 10억 전후 회수 가능성 — 오르제이님이 &#x27;무조건 돈이 목적&#x27;으로 초고도 몰입하는 배경.</li></ul>
-  </section>
+    <div class="card chat-card">
+      <div class="cat-title">③ 낮 (12:00~15:58) — 원판 분량 매칭 · 베네치아식 썸네일 4대 기법 · 네온 속도 · 틀 우선 · 2PC 터미널/CPU 70~80% · 신호등 공식</div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">12:12:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">여러분 한가지 또 추가로 나와서 전달 드려요. Agy 가 거짓말 하는 내용중 일부는 원본 원판이 짧아서 빈공간을 어찌 채울지 몰라 방향을 잃을 때? 소재 —&gt; 시간 25분 이면 25분의 자료에 대한 내용을 체크하셔야 속임수가 줄어 듭니다. 속임수 체크 한가지에요.~~~^^</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">12:15:11</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 베네치아식 한국 썸네일 도감연구소(kr-thumbnail-lab-switching2.vercel.app / 암호 switching2012) 자동 세팅 결합]</span></div><div class="chat-line orj"><span class="time-tag">12:20:53</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 썸네일 4대 시각 기법 — ① 배경 심도 블러(명도 -15%) ② 인물 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트]</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">12:29:46</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진 2장: 비공개 안 하고 채널 전환 후 1일 전 3.7천 뷰 · 3일 전 9.6천 뷰 정상 유입]</span></div><div class="chat-line orj"><span class="time-tag">12:30:00</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">추가또 한가지 테스트 결과 나와서 전달 드려요~~ 비공개 안해도 나옵니다 채널 틀어져도 / 채널 비공개 안해도 나오네요 —&gt; 전환시 꼭 정답은 없다</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">12:34:46</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네온 써보시면 창2개로 내스피드 넘사 입니다 / 네온앤네온 졸라 빠릅니다</span></div><div class="chat-line orj"><span class="time-tag">12:37:02</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">3주간 수창 7~8개 나올 듯 합니다. 구독자만 채우는 중</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">13:32:32</span><b class="spk">빵빵아</b>: <span class="msg">혹시 제미나이 네온으로 쓰시고 계신가요?? 어떤게 좋나요??</span></div><div class="chat-line orj"><span class="time-tag">13:32:47</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">저는 네온 씁니다 / 네온 가볍고 빨라요 / 해보시고 맞는걸로 가야할거 같아요 정답은 없는거 같아용 비교도 시켜 보셔요</span></div><div class="chat-line orj"><span class="time-tag">13:33:09</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(세션 끊김 질문에) 앞으로는 종료되고 전작업 다시열면 바로 진행되게 해두셔요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">13:59:35</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">카본도 잘하고, 아르곤도 잘하고, 네온도 잘하네요 / 근데 네온이 처음으로 제가 작업하는 스피드를 앞서 가는느낌? 그래서 더 많은 작업을 할 수 있겠다 느꼈어요 / 이제 매일 매일 영상 올라간거 보고 카테고리별 잡도리 디테일 잡아가면 될거 같더라고요</span></div><div class="chat-line orj"><span class="time-tag">14:01:22</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">개인적으로 잡도리보다 소재를 타겟을 맞추고 잡도리는 두번째 같아요 / 칼카피로 틀 세팅하고 / 틀이 있을 때야 잡도리도 빨리되는데 틀도 없는데 잡도리 하려고 하면 시간 소요 많이될 듯 해요 / 계산 해보니까 제기준에 1년에 최소 150배 이상 차이나더라고요 확률도 한채널을 성공시킬 확률</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">14:06:12</span><b class="spk">변갸님</b>: <span class="msg">제미나이 얘.. 자꾸 메인PC꺼 CPU로만 작업하는데.. 다PC(테일스케일 2대)로 할때 원격PC GPU로 우선 작업하게 시키는 강력한 방법 없을까요?</span></div><div class="chat-line orj"><span class="time-tag">14:08:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">Gpu 작업되도록 설정 되어 있냐고 물어봐 주시겠어요? / CPU 70% 이상 넘기지 않게 코드로 설정 하면 너가 지킬 수 있겠냐? / 이렇게 하나하나 물어가면서 사이사이 규칙을 박았어요</span></div><div class="chat-line orj"><span class="time-tag">14:10:22</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">렌더 -&gt; GPU / Pc에 맞게 능력에 맞게 작업을 분배 하자라고도 해보신거죠? / 작업량이 많으면 하나 끝나고 하나를 해야 하는데 / 터미널 여러개열어두세요?</span></div><div class="chat-line other"><span class="time-tag">14:11:53</span><b class="spk">변갸님</b>: <span class="msg">네 작업폴더별로 열어서 사용하고 있어요</span></div><div class="chat-line orj"><span class="time-tag">14:12:05</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">터미널여러개라 그럴거같아요 / 작업 할때 터미널 끼리 어떻게 작업하는지 공유 하냐? 물어보세요 / 지금 상황보니 작업을 주는 놈이 물량이 넘치는데 이걸 조절해야 하는데 이걸 다받는거에요 제어 해줄 중간에 뭐가 없어요</span></div><div class="chat-line orj"><span class="time-tag">14:14:36</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(변갸님 AGY 답변: 터미널끼리 실시간 쉘 상태 공유 X) 제말이 맞네요 / 터미널 하나로 충분하실텐데 / 지금 두pc로 터미널 하나 이상 못받을거 같아요 / 몸이 하난데 일을 두명이 시키는거에요 동시에</span></div><div class="chat-line other"><span class="time-tag">14:17:03</span><b class="spk">변갸님</b>: <span class="msg">여러가지 작업을 어떻게 시키죠? (3d쇼츠, 인물롱폼, 플리)</span></div><div class="chat-line orj"><span class="time-tag">14:17:24</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">순차적으로요 / 너가 받을 수 있는 범위가 어떤작업인지 물어보셔요 / 플리는 새벽 , 쇼츠 우선 , 인물형 롱폼 그다음 / 이게 아니면 꼬일 확률이 높아요 / 저는 2,4pc 가 렌더 전용이에요</span></div><div class="chat-line orj"><span class="time-tag">14:19:34</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">gpu로 받아서 처리 하는 시간이 정리하고 , 렌더가 두개인데 무조건 받는 다 하지말고 cpu 80% 느려지지않는 범위를 상세하게 정리해봐 / 지금 작업 했던 내용도 어디로 어떻게 했는지 정리해서 갖고와봐 라고</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">15:24:36</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 쇼츠 스튜디오 조회수 23.3만 · 60분 조회수 46,239 · 시청시간 1.7천시간 · 구독자 +306]</span></div><div class="chat-line other"><span class="time-tag">15:24:40</span><b class="spk">정면</b>: <span class="msg">오르제이님이 올려주시는거 정독하고 가져와서 제꺼에 먹여도 바보네요..</span></div><div class="chat-line orj"><span class="time-tag">15:31:33</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">이거 확률이 그럴 확률이 높아요. 만드는게 틀이 없을 거에요. 틀 부터 만드셔요 / 내 카테고리 같은 경쟁사 상위권 라인 긁어 와서 / 링크 떠서 붙이세요 / 틀 복사해 / 분석해서 틀 복제해 / 그다음 내 소재 넣어서 만들어 / 토큰은 최소로 아껴서 활용해 / 도화지에 그림 그려 (하면) 펜이 색연필이 없다는 말을 안해요 / 틀없이는 2분짜리도 스스로 못만듭니다 agy라도 / 프리셋 싹다 적용됫는지도 봐보세요</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">15:39:08</span><b class="spk">따라가자</b>: <span class="msg">아 오늘은 롱폼이 조용 1시간 됐는데 100 ㅠㅠ</span></div><div class="chat-line orj"><span class="time-tag">15:39:58</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">저는 100을 이제 가열상태라는 걸 알겠더라고요 / 1천~ 신호 / 실시간 2~3천 수창 신호</span></div><div class="chat-line orj"><span class="time-tag">15:41:09</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 18시간 전 251회] 가열상태 -&gt; 1~2방이 중요함</span></div><div class="chat-line orj"><span class="time-tag">15:42:10</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 1일 전 72회] 가열상태</span></div><div class="chat-line orj"><span class="time-tag">15:42:48</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 18시간 전 898회] 신호탄 방향 소재 잘잡아</span></div><div class="chat-line orj"><span class="time-tag">15:44:11</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 2일 전 497회] 좀더 가열해</span></div><div class="chat-line orj"><span class="time-tag">15:44:47</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 2일 전 4.4천회] 폭격해</span></div><div class="chat-line orj"><span class="time-tag">15:49:26</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">금요일 영양 있는지 봐야 할거 같아요 / 금요일은 다음주는 오후로 설정해야 할거 같아요 저녁에</span></div>
+      </div>
+    </div>
 
-  <section id="images">
-    <h2>4. 오르제이님 이미지 · 캡처 전수 판독 (40장)</h2>
-    
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">04:05:52</span> <span class="badge p0">삭제됨</span> <code>040552_orj_3977692967265499137_0.jpg</code></div>
-          <div class="img-desc">[삭제 전 포착] 2026년 11월 17일 업로드 영상 단 1개로 조회수 39만 달성 → 원샷 수창 인증.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">04:07:48</span> <span class="badge p0">삭제됨</span> <code>040748_orj_3977693939094124545_0.jpg</code></div>
-          <div class="img-desc">[삭제 전 포착] 2026년 11월 15일 한국 영상 단 1개로 조회수 6.4만 달성 → 원샷 수창 인증.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">04:45:01</span> <code>044501_orj_3977712668758636545_0.jpg</code></div>
-          <div class="img-desc">업로드 3시간 만에 조회수 3.5만 폭발 캡처 (영상 1~5개면 수창 끝난다는 증거).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">05:00:45</span> <span class="badge p0">삭제됨</span> <code>050045_orj_3977720589307475969_0.jpg</code></div>
-          <div class="img-desc">[삭제 전 포착] 2일 전 업로드 영상 2.8만회(좋아요 474) — AGY 제작 성과 인증.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">05:26:26</span> <code>052626_orj_3977733514248189953_0.jpg</code></div>
-          <div class="img-desc">또 다른 채널 9.4천 뷰 + 다음 영상 4천대 → 7일 내 수창 완성 예정 인증.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">08:31:28</span> <code>083128_orj_3977826649003390977_0.jpg</code></div>
-          <div class="img-desc">AGY 자동화 콘솔: &#x27;5. 장부 완비: 각 타겟 폴더 내 15편 전량 즉시 업로드&#x27; 완료 보고.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">08:35:57</span> <code>083557_orj_3977828905840932866_0.jpg</code></div>
-          <div class="img-desc">15분 간격 예약 업로드 스케줄표 (낮 11:30, 11:45, 12:00, 12:15, 12:30, 12:45, 13:00, 13:15, 13:30, 14:00).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">08:41:54</span> <code>084154_orj_3977831899743516673_0.jpg</code></div>
-          <div class="img-desc">미국 실화 바디캠 50분짜리 초반 6일 전 403회 (바디캠은 3~5일 잠복 후 터지는 패턴).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">08:43:55</span> <code>084355_orj_3977832913179637761_0.jpg</code></div>
-          <div class="img-desc">바디캠 50분짜리 게시 이후 조회수 4.2만 우상향 곡선 돌파 인증.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">09:05:13</span> <code>090513_orj_3977843636630845441_0.jpg</code></div>
-          <div class="img-desc">신규 바디캠 1일 전 1.8천 뷰 상승 신호 (&#x27;바디캠 터지는 거 맞습니다&#x27;).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">10:10:46</span> <code>101046_orj_3977876629445539841_0.jpg</code></div>
-          <div class="img-desc">AGY 가이드: 크롬 구글 로그인으로 10초 만에 틱톡 가입 + 크롬 프로필 추가(8개+)로 팬튜브/중국배우 계정 분리 생성법.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">10:11:36</span> <code>101136_orj_3977877044539029505_0.jpg</code></div>
-          <div class="img-desc">틱톡 계정 전략표: 팬튜브 2~5호(BTS/블랙핑크/변우석/K-POP챌린지) + 중국배우 1~3호(샤오잔·왕이보·디리러바, 62초 리워드 킬링 포맷).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">10:35:23</span> <code>103523_orj_3977889017716668418_0.jpg</code></div>
-          <div class="img-desc">AGY 분석 화면: 12월 안으로 수창 20~25개 이상 돌파 가능(남은 41일간 수학적 계산 일치).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">10:42:39</span> <code>104239_orj_3977892676089280513_0.jpg</code></div>
-          <div class="img-desc">AGY 잡도리 규칙(C07: 문장 주장 금지·실제 실측으로만 판정) — tailscale status 직접 실행 후 4대 PC 온라인/IP 실측 보고.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">11:03:25</span> <code>110325_orj_3977903126642292737_0.jpg</code></div>
-          <div class="img-desc">★핵심★ 롱폼 완주율 70%+ 규칙: 0.00초 4초 설전 콜드오픈 + 4~5분 2차 스모킹건 예고 + 거실 스마트 TV(CTV) 6070 겨냥 재생목록 카드·최종화면(종료 20초 전) 강제 연동 + 엔딩 &#x27;구독/댓글&#x27; 멘트 0% 영구 차단.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">12:15:11</span> <code>121511_orj_3977939244800669697_0.jpg</code></div>
-          <div class="img-desc">오늘 제작 중인 자동 세팅에 &#x27;베네치아식&#x27; 썸네일 공식 결합 화면.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">12:20:53</span> <code>122053_orj_3977942112177879042_0.jpg</code></div>
-          <div class="img-desc">★핵심★ 썸네일 4대 시각 기법: ① 배경 심도 블러(명도 -15%) ② 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">12:29:46</span> <code>122946_orj_3977946588825647105_0.jpg</code></div>
-          <div class="img-desc">기존 영상 비공개 안 하고 채널 카테고리 전환했는데도 1일 전 3.7천 뷰 정상 유입 증거.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">12:29:46</span> <code>122946_orj_3977946588825647105_1.jpg</code></div>
-          <div class="img-desc">채널 전환 테스트 2호: 3일 전 9.6천 뷰 정상 유입 증거.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:24:36</span> <code>152436_orj_3978034582907648001_0.png</code></div>
-          <div class="img-desc">유튜브 쇼츠 스튜디오: 조회수 23.3만(60분 조회수 46,239 · 시청시간 1.7천시간 · 구독자 +306).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:41:09</span> <code>154109_orj_3978042915236476930_0.jpg</code></div>
-          <div class="img-desc">18시간 전 251회 — &#x27;가열상태 → 여기서 1~2방 추가가 중요&#x27;.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:42:10</span> <code>154210_orj_3978043428107581441_0.jpg</code></div>
-          <div class="img-desc">1일 전 72회 — 가열 시작 구간.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:42:48</span> <code>154248_orj_3978043739752757249_0.jpg</code></div>
-          <div class="img-desc">18시간 전 898회 — &#x27;신호탄, 방향·소재 잘 잡아&#x27;.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:44:11</span> <code>154411_orj_3978044436997076994_0.jpg</code></div>
-          <div class="img-desc">2일 전 497회 — &#x27;좀 더 가열해&#x27;.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">15:44:47</span> <code>154447_orj_3978044744389228546_0.jpg</code></div>
-          <div class="img-desc">2일 전 4.4천회 — &#x27;폭격해!&#x27; 신호 구간.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">18:04:32</span> <code>180432_orj_3978115083458975746_0.jpg</code></div>
-          <div class="img-desc">PC 4대별 틱톡 채널 세팅 현황: 12개 + 12개 + 11개 + 11개 = 총 46개 채널 즉시 세팅 완료.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">18:10:53</span> <code>181053_orj_3978118276523890689_0.jpg</code></div>
-          <div class="img-desc">★핵심★ AGY 틱톡 다계정 감시 엔진: 크롬 프로필 열어 tiktok.com 로그인 → X 닫기 → 뒤에서 &#x27;0번 채널 등록 완료!&#x27; 자동 낚아채기.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">18:25:04</span> <code>182504_orj_3978125415030128642_0.jpg</code></div>
-          <div class="img-desc">틱톡 60초(1분) 이상 리워드 조건 맞춤 즉시 출격 목록: 1호탄 65.8초, 2호탄 65.9초, 3호탄 67.9초.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">20:31:27</span> <code>203127_orj_3978189025842145281_0.jpg</code></div>
-          <div class="img-desc">48시간 전체 조회수 2,011,669 (201만 뷰) 수직 상승 그래프.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">20:31:59</span> <code>203159_orj_3978189292784429058_0.jpg</code></div>
-          <div class="img-desc">쇼츠 13시간 만에 51.1만 뷰(평소 대비 50.3만 높음) — 주말 내 천만 유효 돌파 임박.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">20:37:24</span> <code>203724_orj_3978192020549533698_0.jpg</code></div>
-          <div class="img-desc">금요일 밤 한 소재 9탄(v1~v9) 포함 총 13편 동시 생산 지시 화면.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">20:49:30</span> <code>204930_orj_3978198112675430401_0.jpg</code></div>
-          <div class="img-desc">★핵심★ 즉시 연속 발사 대기열: 원형 2호·3호 + 둔갑 1A·1B·2A·2B·3A·3B 로켓 발사표.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">20:52:59</span> <code>205259_orj_3978199866176387073_0.jpg</code></div>
-          <div class="img-desc">2발~9발 파일 매핑(원형2.mp4, 원형3.mp4, 둔갑1A.mp4~둔갑3B.mp4) 즉시 연속 발사 대기.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">21:00:25</span> <code>210025_orj_3978203608040814593_0.jpg</code></div>
-          <div class="img-desc">&#x27;18편 추가 v2~v3 만들고 발사 준비 해&#x27; → 18편 그물망 채널별 겹치지 않게 분산(서브에이전트 2개 동시 지시).</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">21:10:07</span> <code>211007_orj_3978208487261743105_0.jpg</code></div>
-          <div class="img-desc">&#x27;바디캠 지금 두 군데 v1 → v2 조회수 잘 나온 거 교차로 만들어&#x27; + AGY_1초응답_상태판.json / 진행중.md 관리 구조 노출.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">22:11:17</span> <code>221117_orj_3978239275930066946_0.jpg</code></div>
-          <div class="img-desc">9편 완결 업로드 순항 중 + 추가 18편 파이프라인 마스터 현황판 + 썸네일 &#x27;2줄 레드(#FF1E1E) 극태고딕&#x27; 규칙 노출.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">22:26:21</span> <code>222621_orj_3978246858376060932_0.jpg</code></div>
-          <div class="img-desc">쇼츠 15시간 만에 70.7만 뷰(평소 대비 69.6만 높음) 급등 — &#x27;이 소재로 백 단위 나올 때까지 50편 만든다&#x27;.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">22:38:04</span> <code>223804_orj_3978252752572751873_0.jpg</code></div>
-          <div class="img-desc">&#x27;빨리 롱폼 만들자 8편&#x27; → 롱폼 8편 사출 파이프라인 즉시 가동.</div>
-        </div>
-        <div class="img-item">
-          <div class="img-head"><span class="time-tag">22:45:41</span> <code>224541_orj_3978256588314091521_0.jpg</code></div>
-          <div class="img-desc">롱폼 8편(01 원형 1호 + 02 둔갑 1호 ~ 08 둔갑 7호, 파생존기_V7/썸네일.jpg) 완성 → 저녁 한 타임 총 34편 완성.</div>
-        </div>
-    <div class="sheets"><figure><figcaption>오르제이 캡처 모음 #1</figcaption><img src="assets/2026-11-20/sheet_1.jpg" loading="lazy" alt="sheet 1"></figure><figure><figcaption>오르제이 캡처 모음 #2</figcaption><img src="assets/2026-11-20/sheet_2.jpg" loading="lazy" alt="sheet 2"></figure><figure><figcaption>오르제이 캡처 모음 #3</figcaption><img src="assets/2026-11-20/sheet_3.jpg" loading="lazy" alt="sheet 3"></figure><figure><figcaption>오르제이 캡처 모음 #4</figcaption><img src="assets/2026-11-20/sheet_4.jpg" loading="lazy" alt="sheet 4"></figure><figure><figcaption>오르제이 캡처 모음 #5</figcaption><img src="assets/2026-11-20/sheet_5.jpg" loading="lazy" alt="sheet 5"></figure><figure><figcaption>오르제이 캡처 모음 #6</figcaption><img src="assets/2026-11-20/sheet_6.jpg" loading="lazy" alt="sheet 6"></figure><figure><figcaption>오르제이 캡처 모음 #7</figcaption><img src="assets/2026-11-20/sheet_7.jpg" loading="lazy" alt="sheet 7"></figure></div>
-  </section>
+    <div class="card chat-card">
+      <div class="cat-title">④ 저녁 (18:04~20:55) — 틱톡 46채널 62초 리워드 · 바디캠 · 일레븐랩스 재활용 · 크롬 분리 · 볼케이노 자막 MCP · 원형+둔갑 로켓 발사</div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">18:04:32</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: PC 4대별 틱톡 12+12+11+11 = 총 46채널 세팅] / 틱톡 46개 채널 세팅 가능하네요 바로 / Pc별로 크롬분리해서요</span></div><div class="chat-line orj"><span class="time-tag">18:07:52</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(중드 관련) 중드 하다가 ㅋㅋㅋ 가금채하는데 채널 바로 날아갔습니다</span></div><div class="chat-line orj"><span class="time-tag">18:10:53</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: AGY 틱톡 감시 엔진 — 크롬 프로필 tiktok.com 로그인 → X 닫기 → 자동 채널 등록]</span></div><div class="chat-line orj"><span class="time-tag">18:16:20</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">틱톡영상은 진짜 무한대로 뽑을 수 있는데 / 인스타까지 100채널 완료 / 네이버 클립 3채널 / 블로그 6채널 / 넵 크롬으로 하는 중 입니다 / 월마다 기본 올라가는영상이 3천개 이상이네요</span></div><div class="chat-line orj"><span class="time-tag">18:18:22</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(구글 아이디 질문에) 네넵~^^ 크롬만 다 분리 시켰어요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">18:21:25</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">바디캠 해보시면 토큰 적게 먹고 좋네요 원판 가져오고 / 6천회 나왔습니다 상승중 / 10편 전후 ~ 수창시간 달성</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">18:25:04</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 틱톡 60초+ 리워드 1호탄 65.8초 · 2호탄 65.9초 · 3호탄 67.9초]</span></div><div class="chat-line orj"><span class="time-tag">18:25:19</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">여러분 산이조교님 말씀 주신 틱톡 얼른 고고 하세요 / 한달이면 수익조건 달성 가능할 듯 합니다 / 팬튜브 유튜브 5만원 주는거 틱톡 50만원 준다고 어제 전달 주셨어요 / 62초 ~ 영상으로 올리라고</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">18:54:02</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(계정당 본채널+브랜드채널 질문에) 계정하나 본채널 하나요~^^</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">19:15:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">목요일 밤에 조회수 잘나오고 , 금요일은 오전 낮이 안나와요 잘 / 저녁 돌아왔어요 / 다음주도 볼게요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">19:26:10</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(보이스클로닝 질문에) 저는 일래븐랩스 재활용 해서 써요 / 네네 재활용하면 토큰 엄청 아낍니다 ㅎㅎ / Agy에 재활용 해서 사용해 최소로 토큰 닳도록 / 저도 요금 많이 나가서 롱폼 뽑으니까 / 재활용 해서 사용하라 하면 조각 모아서 잘활용 합니다.~^^</span></div><div class="chat-gap"></div><div class="chat-line other"><span class="time-tag">19:32:14</span><b class="spk">작은별</b>: <span class="msg">시청시간 다 채운 채널 구독자 모자란건 어떻게들 하세용?</span></div><div class="chat-line orj"><span class="time-tag">19:32:47</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">구독자 숏폼으로 롱폼조회수 안막히게 해야한다 해서 그렇게 하려고요 / 지금 롱폼 좀 더 넣고 있어요 소재빨 남아있어서</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">19:43:04</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">@따라가자 구글 아이디로 크롬분리해서 틱톡 되도록 agy 얘기 하면 로그인만 하시면 뚫립니다 / 지금 아이디 10개 연결 하시면 되실 듯 합니다</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">20:31:27</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진 2장: 48시간 201만 뷰 · 쇼츠 13시간 만에 51.1만 뷰] / 이번 주말까지 천만 유효 임박 끝내겠습니다</span></div><div class="chat-line other"><span class="time-tag">20:35:35</span><b class="spk">딱지파파</b>: <span class="msg">계정마다 핸드폰 따로 따로 관리하시나요? 아님 그냥 크롬만 분리해서 운영하시나요?</span></div><div class="chat-line orj"><span class="time-tag">20:36:30</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">크롬분리해서 운영입니다. 몇개 분리가 안된게 있었는데 이번 오프 다녀와서 싹다 분리했어요. 분리하라고 말씀 주셔서</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">20:37:24</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 금요일 밤 한 소재 9탄 v1~v9 포함 13편 동시 생산] / 금요일 밤 도박 편 한소재 9탄 v1,2,3,4,5,6,7,8,9 / (내퍼: 소재 한개로 9개 변주해서 올리시는건가요?) 넵 해보려고요 / 오늘이 타이밍 인거 같아서요 / 금요일밤 ~ 토 , 일</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">20:44:37</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">@all 예능 자막 도구를 사용하기 위해서는 mcp 재접속이 필요합니다! /mcp 볼케이노 선택후 Re-authenticate를 실행시켜 주시면 volcano subtitle 도구가 목록에 보입니다! (※ 20:51 킷켓님이 volcano_subtitle_guide.html 첨부)</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">20:49:30</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 원형 2·3호 + 둔갑 1A~3B 즉시 연속 발사표] / 전부 신규 채널이라 얻어 걸려라 / 금요일 밤이라 느낌이 옵니다 주말까지 3연타 / 1~3방에 수창 목표 세팅 입니다 / 그다음 채널 변경</span></div><div class="chat-line orj"><span class="time-tag">20:52:59</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 2발~9발 파일 매핑 원형2·3.mp4 + 둔갑1A~3B.mp4]</span></div>
+      </div>
+    </div>
 
-  <section id="room">
-    <h2>5. 방 전체 주요 인사이트 · 도구/파일/링크</h2>
-    <ul class="clean"><li><b>안@혜(베네치아) — 한국 썸네일 도감연구소 웹앱</b> <a href="https://kr-thumbnail-lab-switching2.vercel.app" target="_blank" rel="noopener">링크 열기 ↗</a><br><span class="muted">국내+해외 1,000만 스타일 썸네일 구도 분석·복제 지시문 생성·한영일스 4개국어·로고/글자 제거 원클릭·고클릭 문구 5종 추천 (입장 암호: switching2012, 스위칭 2기 전용).</span></li><li><b>김@미(포시즌) — 볼케이노킷 플로우 20장 세팅가이드 &amp; 채널 파인더</b> <code>볼케이노킷_플로우_완전세팅가이드_2026-11-20.txt / 떡상채널파인더v8.html / nexlev_hunter_공유용.zip</code><br><span class="muted">플로우 UI 변경 후 에이전트로 20장씩 생성 세팅 가이드 + 떡상채널파인더v8 + nexlev_hunter(버프 죽은 100만 채널 포함 태그별 떡상 검색기).</span></li><li><b>오르제이 — 카페 세팅 글 (25편 6시간 생산)</b> <a href="https://cafe.naver.com/aiswitchingshorts2/2293" target="_blank" rel="noopener">링크 열기 ↗</a><br><span class="muted">카페 2293번 글 세팅 + 잡도리 추가 시 25분 롱폼 21~25편을 6시간 만에 뽑는 세팅.</span></li><li><b>오르제이 / 신@현(킷켓) — 볼케이노 예능 자막 도구 활성화</b> <code>volcano_subtitle_guide.html</code><br><span class="muted">/mcp 볼케이노 선택 후 Re-authenticate 실행 시 volcano_subtitle 도구 목록 노출 + 가이드 HTML 공유.</span></li><li><b>김@민(호호브로스) — 일본 시니어 거실 TV 타겟 검증</b><br><span class="muted">일본 시니어층은 거실 스마트 TV 유입 비율이 압도적 → 20분 영상 6개로 2,000시간 단기 돌파 실측.</span></li><li><b>조@원(눕방사업가) — 클로드↔AGY 자동 연동 관제탑</b> <code>관제탑_꾸러미.zip (삭제됨)</code><br><span class="muted">VSCode에서 클로드가 AGY 검수 필요 시 자동으로 AGY 터미널을 열어 이어받고 다시 클로드로 복귀하는 꾸러미(삭제됨: 커멘드센터 테스트.zip / 관제탑_꾸러미.zip).</span></li><li><b>서@택(변갸님) — 2PC 테일스케일 GPU 분산 클러스터 실측</b><br><span class="muted">노트북 GPU 1순위(GTX 1050 4GB) + 메인 PC 3순위 폴백 + tar_chunk_pipeline + FFmpeg/Real-ESRGAN 투명 프록시 구조 상세 공유.</span></li></ul>
+    <div class="card chat-card">
+      <div class="cat-title">⑤ 밤 (20:59~23:02) — 18편 그물망 · 바디캠 교차 터또터 · 원형+둔갑 70% 변주 철학 · 3차 고급인증 필수 · 총 34편 완성</div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">21:00:25</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 18편 추가 v2~v3 그물망 채널별 분산, 서브에이전트 2개 동시 지시] / 하나도 안걸릴 수도 있습니다 / 3일 딱 보고 안걸리면 대기</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">21:10:07</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 바디캠 두 군데 v1 → v2 조회수 잘 나온 거 교차 제작 + AGY_1초응답_상태판.json] / 정해진 틀을 조금 깨볼게요 / 두채널 양쪽 터진 걸 양갈래 교차해서 한번 터또터 / 이미 됫어요 확인 검증 끝났어요</span></div><div class="chat-line other"><span class="time-tag">21:11:59</span><b class="spk">빠빠라뿡뿡</b>: <span class="msg">틱톡 자동업로드는 api없이도 잘올라가나요?</span></div><div class="chat-line orj"><span class="time-tag">21:12:05</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네네 / 틱톡은 산이 조교님이 지금 빨리 진입하라 하셔서 달리려고요 / 팬튜브 , 중국배우 출퇴근으로 / 아이돌 활동 아이돌 지정 시키고</span></div><div class="chat-line other"><span class="time-tag">21:13:39</span><b class="spk">태바리</b>: <span class="msg">오르제이님은 바디캠 여러나라로 보내시나요?</span></div><div class="chat-line orj"><span class="time-tag">21:13:55</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">한국 부터 항시 해보고요 / 그다음 해외 입니다.^^</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">21:40:10</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">천대~ 는 1~2방 장전 , 만대는 2~3발 장전 +@ / 조회수 더뎌질 때 2차 발사 / 채널 여유분 들고 계셔야 해요 / 최소 수창 하나 날때 1.5배 2개는 나오실겁니다 / 쉽게 생각 해보셔요 터또터를 왜 한채널에만 하는지</span></div><div class="chat-line orj"><span class="time-tag">21:48:56</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">대장님 초반 이야기 기억 하셔요? 뇌전구때 두개씩 만들어서 두개씩 올려보라고 / 이걸 두개를 미리 올리지 마시고 / 1개 올렸는데 터지면 바로 다른채널에 올리는거에요 이게 끝 / 받아주면 3채널 / 받아주면 4채널 / 받아주네? 5채널 / 1,2,3,4,5를 섞어서 올려요 / 중복도안나오게 agy에 만들어서요</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">22:11:17</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 9편 업로드 순항 + 추가 18편 마스터 현황판 + 썸네일 2줄 레드(#FF1E1E) 극태고딕 규칙]</span></div><div class="chat-line orj"><span class="time-tag">22:11:26</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">아이디 절대 버리지 마세요 / 버릴 땐 다써먹고요 / 채널 3번 바꿔도 되네요</span></div><div class="chat-line other"><span class="time-tag">22:13:17</span><b class="spk">갬갬이</b>: <span class="msg">역사채널입니다 (수창 500시간 남음, 한 개 17만 나옴)</span></div><div class="chat-line orj"><span class="time-tag">22:13:50</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">그역사를 소재만 같고 하나더 하세요 / 순서만 다르게 / 아니면 약간 다른방향 / 두개가 받으면 3개 하십쇼 / (17만 나왔어요에) 이거 4개 만드십셔~ 수창 4개더 추가 되시겠네요 / 17만이면 우려 드세여</span></div><div class="chat-line other"><span class="time-tag">22:20:09</span><b class="spk">불루</b>: <span class="msg">저 200만나온거있는데</span></div><div class="chat-line orj"><span class="time-tag">22:20:34</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">20개 / 몇명 따라했는지 보시그요 / 20개 정도 나와요 타이밍 잘잡으시면 / 다른 채널에 올려요 네네 / 200만이면 5만 터질 때 만들어요 v1,v2,v3,v4,v5 / 카테고리는 나중에 일단 수창 20개 터트리고 / 200만에 올인 / 수창되고 본게임은 나눠야 하지만 수창까지는 그하나로 끝날때 까지 우려요 / 20만 나와도 수창 3~4개 먹어요</span></div><div class="chat-line other"><span class="time-tag">22:23:59</span><b class="spk">브브브</b>: <span class="msg">롱폼 말씀하시는거쥬? (숏은 40만)</span></div><div class="chat-line orj"><span class="time-tag">22:24:05</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">전부다요 롱폼 숏폼 / 그럼 30개 준비 하세요 숏폼 같은 소재 섞어서 투척하다가 받으면 시리즈로 투척 / (영드짜 질문에) Cid만 감수요 독식하셔야죠</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">22:26:21</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 쇼츠 15시간 만에 70.7만 뷰 급등] / 자 이거 올리면 끝내시죠? 저는 50편 만듭니다 / 아예 죽어도 안나올 때까지 백단위 까지 / 같은 채널도 바꿔요 / 천만 유효 저걸로 끝이에요 / 터지면 대화도 하지마시고 그냥 만드세요 v1~v20까지 / 채널 여유분 준비 해두시고</span></div><div class="chat-line orj"><span class="time-tag">22:29:39</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">롱폼은 10분 = 6만 , 20분 = 4만 수창 / 이렇게 박아두시고 / 터지면 다 집어 치우고 그소재만 10개 채널에 몰빵 / 수창 하시고 채널 바꿔가셔요</span></div><div class="chat-line orj"><span class="time-tag">22:30:35</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">(3차 고급인증 필수 질문에) 필수요 미리 / (업로드 방식 질문에) api 없이, 업로드가능하게 만들어줘 해서 파보세요^^ / (2차 중급 아닌 3차 고급인증까지?) 할수 있는건 다하셔여 / (기타 세팅?) 없습니다 50개 인데 50개 빨리 더만들어야 겠다? 입니다 / pc 8대 빨리 세팅해서 채널 100개이상 굴리기 / 틱톡까지 150개일거라 인스타도 해야 하고</span></div><div class="chat-gap"></div><div class="chat-line orj"><span class="time-tag">22:38:04</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 롱폼 8편 사출 파이프라인 가동]</span></div><div class="chat-line other"><span class="time-tag">22:42:04</span><b class="spk">브브브</b>: <span class="msg">롱폼이 그정도 조회수가 안나오면 나올때까지 올려보고 나오면 그때부터 그걸로 파는거에여?</span></div><div class="chat-line orj"><span class="time-tag">22:42:34</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">네 agy 한테 말씀 하세요 중복 안되게 70% 똑같이 만들어 / 그럼 유튜브 ai 검수도 피하고 조회수 먹고 / 한번 터지면 넘어가지 마세요 / 한놈만 계속 패요 / 그한놈이 어떻게 되는지 끝까지 단물까지 다 빨아요 / 그럼 반복으로 터트리는 단계는 끝나요</span></div><div class="chat-line orj"><span class="time-tag">22:45:41</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 롱폼 8편(01 원형 1호 + 02 둔갑 1호 ~ 08 둔갑 7호) 완성] / 34편 저녁에 완성</span></div><div class="chat-line orj"><span class="time-tag">22:46:07</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">클로드 프로로 바꿨어요 / 파티원 x 4개 써요 / 6개까지는 갈 수도 있어요 / 파티원 조금씩 나눠쓰면 대박 입니다</span></div><div class="chat-line other"><span class="time-tag">22:50:08</span><b class="spk">깨끗한싼타페</b>: <span class="msg">보니까 이것도 그냥 agy한테 70% 기준 주고 영상 따로 나오는거같네용</span></div><div class="chat-line orj"><span class="time-tag">22:50:16</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">맞아요 / (22:51) 6+4=10, 4+6=10, 3+4+3=10, 2+8=10 / 문제만 다를 뿐 답은 똑같아요</span></div><div class="chat-line orj"><span class="time-tag">22:58:13</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="msg">[사진: 다채널 탭 현황] / 자 수금 시간 입니다 / (23:01) 6.9만 / 4.8만 / 6.3만 / 1.1만 / 4.9천 / 정치 다음주 수창</span></div>
+      </div>
+    </div>
   </section>
 
   <section id="archive">
-    <h2>6. 오르제이님 2026-11-20 대화 전수 맥락 아카이브 (누락 0건)</h2>
+    <h2>209개 맥락 블록 · 오르제이 1,067건 100% 원시 아카이브</h2>
     <details>
       <summary>전체 209개 맥락 블록 · 오르제이 1067건 원문 펼치기</summary>
       <pre>=== BLOCK 1 (00:00:53~00:08:10) ===
@@ -3199,6 +3159,211 @@
 ★ [23:01:50] 이@나(오르제이): 정치 다음주 수창
   [23:02:07] 조@원(눕방사업가): 어디까지 날라 가실&quot;껍니까?</pre>
     </details>
+  </section>
+
+  <div class="part-banner">부록. 캡처 40장 판독 · 삭제 전 포착 · 카피 체크리스트 · 방 인사이트</div>
+
+  <section id="deleted">
+    <h2>삭제 전 포착된 메시지 · 캡처 (17건)</h2>
+    <ul class="clean"><li><span class="time-tag">04:05:52</span> [삭제된 캡처 복원] 11월 17일 영상 단 1개로 39만 뷰 수창 인증 캡처(040552_orj_...jpg) — DB에서 원문 이미지 100% 확보.</li><li><span class="time-tag">04:07:48</span> [삭제된 캡처 복원] 11월 15일 한국 영상 단 1개로 6.4만 뷰 수창 인증 캡처(040748_orj_...jpg) — DB에서 100% 확보.</li><li><span class="time-tag">04:13~04:20</span> [삭제된 대화 복원] 새벽 비밀 공유(&#x27;지금것도 지우셔요 / 역신고 / 태양빠님·포시즌님 지우셔요&#x27;): 넷플릭스 등 원저작권 허락 없이 몰래 올려 터진 채널들을 조사해 1~2개 100% 카피로 테스트 → 경고 오면 AGY로 경고장/역신고(&#x27;윈윈할지 ㅇㅅㄱ할지&#x27;) 대응 맥락. (※ 주의: 저작권 분쟁 리스크가 크므로 내 시스템에서는 구조·소재 감잡기 인사이트로만 참고하고, 실전에서는 반드시 70% 변주·중복회피·안전 카테고리로 적용 권장)</li><li><span class="time-tag">04:48~04:50</span> [삭제된 발언 복원] &#x27;저한테 신고 못해요&#x27; / &#x27;소재만 계속 찾으면 주에 수창 1~2개가 가능해요&#x27; / &#x27;이것도 지울게요 사기저하 문제성으로 생각하실 수 있으니&#x27;.</li><li><span class="time-tag">05:00:45</span> [삭제된 캡처 복원] 2일 전 2.8만회(좋아요 474) AGY 제작 영상 성과 캡처(050045_orj_...jpg) 100% 확보.</li><li><span class="time-tag">04:33~14:56</span> [삭제된 개인사 맥락] 25년 피해금 약 32억·경매 3채·소송 10건 이상(2명 구속) 중 약 10억 전후 회수 가능성 — 오르제이님이 &#x27;무조건 돈이 목적&#x27;으로 초고도 몰입하는 배경.</li></ul>
+  </section>
+
+  <section id="images">
+    <h2>오르제이님 이미지 · 캡처 전수 판독 (40장 + 모음 시트 7장)</h2>
+    <details>
+      <summary>캡처 40장 개별 판독 + 모음 시트 7장 펼치기</summary>
+      <div style="margin-top:12px"><div class="img-item">
+          <div class="img-head"><span class="time-tag">04:05:52</span> <span class="badge p0">삭제됨</span> <code>040552_orj_3977692967265499137_0.jpg</code></div>
+          <div class="img-desc">[삭제 전 포착] 2026년 11월 17일 업로드 영상 단 1개로 조회수 39만 달성 → 원샷 수창 인증.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">04:07:48</span> <span class="badge p0">삭제됨</span> <code>040748_orj_3977693939094124545_0.jpg</code></div>
+          <div class="img-desc">[삭제 전 포착] 2026년 11월 15일 한국 영상 단 1개로 조회수 6.4만 달성 → 원샷 수창 인증.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">04:45:01</span> <code>044501_orj_3977712668758636545_0.jpg</code></div>
+          <div class="img-desc">업로드 3시간 만에 조회수 3.5만 폭발 캡처 (영상 1~5개면 수창 끝난다는 증거).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">05:00:45</span> <span class="badge p0">삭제됨</span> <code>050045_orj_3977720589307475969_0.jpg</code></div>
+          <div class="img-desc">[삭제 전 포착] 2일 전 업로드 영상 2.8만회(좋아요 474) — AGY 제작 성과 인증.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">05:26:26</span> <code>052626_orj_3977733514248189953_0.jpg</code></div>
+          <div class="img-desc">또 다른 채널 9.4천 뷰 + 다음 영상 4천대 → 7일 내 수창 완성 예정 인증.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">08:31:28</span> <code>083128_orj_3977826649003390977_0.jpg</code></div>
+          <div class="img-desc">AGY 자동화 콘솔: &#x27;5. 장부 완비: 각 타겟 폴더 내 15편 전량 즉시 업로드&#x27; 완료 보고.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">08:35:57</span> <code>083557_orj_3977828905840932866_0.jpg</code></div>
+          <div class="img-desc">15분 간격 예약 업로드 스케줄표 (낮 11:30, 11:45, 12:00, 12:15, 12:30, 12:45, 13:00, 13:15, 13:30, 14:00).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">08:41:54</span> <code>084154_orj_3977831899743516673_0.jpg</code></div>
+          <div class="img-desc">미국 실화 바디캠 50분짜리 초반 6일 전 403회 (바디캠은 3~5일 잠복 후 터지는 패턴).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">08:43:55</span> <code>084355_orj_3977832913179637761_0.jpg</code></div>
+          <div class="img-desc">바디캠 50분짜리 게시 이후 조회수 4.2만 우상향 곡선 돌파 인증.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">09:05:13</span> <code>090513_orj_3977843636630845441_0.jpg</code></div>
+          <div class="img-desc">신규 바디캠 1일 전 1.8천 뷰 상승 신호 (&#x27;바디캠 터지는 거 맞습니다&#x27;).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">10:10:46</span> <code>101046_orj_3977876629445539841_0.jpg</code></div>
+          <div class="img-desc">AGY 가이드: 크롬 구글 로그인으로 10초 만에 틱톡 가입 + 크롬 프로필 추가(8개+)로 팬튜브/중국배우 계정 분리 생성법.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">10:11:36</span> <code>101136_orj_3977877044539029505_0.jpg</code></div>
+          <div class="img-desc">틱톡 계정 전략표: 팬튜브 2~5호(BTS/블랙핑크/변우석/K-POP챌린지) + 중국배우 1~3호(샤오잔·왕이보·디리러바, 62초 리워드 킬링 포맷).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">10:35:23</span> <code>103523_orj_3977889017716668418_0.jpg</code></div>
+          <div class="img-desc">AGY 분석 화면: 12월 안으로 수창 20~25개 이상 돌파 가능(남은 41일간 수학적 계산 일치).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">10:42:39</span> <code>104239_orj_3977892676089280513_0.jpg</code></div>
+          <div class="img-desc">AGY 잡도리 규칙(C07: 문장 주장 금지·실제 실측으로만 판정) — tailscale status 직접 실행 후 4대 PC 온라인/IP 실측 보고.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">11:03:25</span> <code>110325_orj_3977903126642292737_0.jpg</code></div>
+          <div class="img-desc">★핵심★ 롱폼 완주율 70%+ 규칙: 0.00초 4초 설전 콜드오픈 + 4~5분 2차 스모킹건 예고 + 거실 스마트 TV(CTV) 6070 겨냥 재생목록 카드·최종화면(종료 20초 전) 강제 연동 + 엔딩 &#x27;구독/댓글&#x27; 멘트 0% 영구 차단.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">12:15:11</span> <code>121511_orj_3977939244800669697_0.jpg</code></div>
+          <div class="img-desc">오늘 제작 중인 자동 세팅에 &#x27;베네치아식&#x27; 썸네일 공식 결합 화면.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">12:20:53</span> <code>122053_orj_3977942112177879042_0.jpg</code></div>
+          <div class="img-desc">★핵심★ 썸네일 4대 시각 기법: ① 배경 심도 블러(명도 -15%) ② 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">12:29:46</span> <code>122946_orj_3977946588825647105_0.jpg</code></div>
+          <div class="img-desc">기존 영상 비공개 안 하고 채널 카테고리 전환했는데도 1일 전 3.7천 뷰 정상 유입 증거.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">12:29:46</span> <code>122946_orj_3977946588825647105_1.jpg</code></div>
+          <div class="img-desc">채널 전환 테스트 2호: 3일 전 9.6천 뷰 정상 유입 증거.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:24:36</span> <code>152436_orj_3978034582907648001_0.png</code></div>
+          <div class="img-desc">유튜브 쇼츠 스튜디오: 조회수 23.3만(60분 조회수 46,239 · 시청시간 1.7천시간 · 구독자 +306).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:41:09</span> <code>154109_orj_3978042915236476930_0.jpg</code></div>
+          <div class="img-desc">18시간 전 251회 — &#x27;가열상태 → 여기서 1~2방 추가가 중요&#x27;.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:42:10</span> <code>154210_orj_3978043428107581441_0.jpg</code></div>
+          <div class="img-desc">1일 전 72회 — 가열 시작 구간.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:42:48</span> <code>154248_orj_3978043739752757249_0.jpg</code></div>
+          <div class="img-desc">18시간 전 898회 — &#x27;신호탄, 방향·소재 잘 잡아&#x27;.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:44:11</span> <code>154411_orj_3978044436997076994_0.jpg</code></div>
+          <div class="img-desc">2일 전 497회 — &#x27;좀 더 가열해&#x27;.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">15:44:47</span> <code>154447_orj_3978044744389228546_0.jpg</code></div>
+          <div class="img-desc">2일 전 4.4천회 — &#x27;폭격해!&#x27; 신호 구간.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">18:04:32</span> <code>180432_orj_3978115083458975746_0.jpg</code></div>
+          <div class="img-desc">PC 4대별 틱톡 채널 세팅 현황: 12개 + 12개 + 11개 + 11개 = 총 46개 채널 즉시 세팅 완료.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">18:10:53</span> <code>181053_orj_3978118276523890689_0.jpg</code></div>
+          <div class="img-desc">★핵심★ AGY 틱톡 다계정 감시 엔진: 크롬 프로필 열어 tiktok.com 로그인 → X 닫기 → 뒤에서 &#x27;0번 채널 등록 완료!&#x27; 자동 낚아채기.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">18:25:04</span> <code>182504_orj_3978125415030128642_0.jpg</code></div>
+          <div class="img-desc">틱톡 60초(1분) 이상 리워드 조건 맞춤 즉시 출격 목록: 1호탄 65.8초, 2호탄 65.9초, 3호탄 67.9초.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">20:31:27</span> <code>203127_orj_3978189025842145281_0.jpg</code></div>
+          <div class="img-desc">48시간 전체 조회수 2,011,669 (201만 뷰) 수직 상승 그래프.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">20:31:59</span> <code>203159_orj_3978189292784429058_0.jpg</code></div>
+          <div class="img-desc">쇼츠 13시간 만에 51.1만 뷰(평소 대비 50.3만 높음) — 주말 내 천만 유효 돌파 임박.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">20:37:24</span> <code>203724_orj_3978192020549533698_0.jpg</code></div>
+          <div class="img-desc">금요일 밤 한 소재 9탄(v1~v9) 포함 총 13편 동시 생산 지시 화면.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">20:49:30</span> <code>204930_orj_3978198112675430401_0.jpg</code></div>
+          <div class="img-desc">★핵심★ 즉시 연속 발사 대기열: 원형 2호·3호 + 둔갑 1A·1B·2A·2B·3A·3B 로켓 발사표.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">20:52:59</span> <code>205259_orj_3978199866176387073_0.jpg</code></div>
+          <div class="img-desc">2발~9발 파일 매핑(원형2.mp4, 원형3.mp4, 둔갑1A.mp4~둔갑3B.mp4) 즉시 연속 발사 대기.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">21:00:25</span> <code>210025_orj_3978203608040814593_0.jpg</code></div>
+          <div class="img-desc">&#x27;18편 추가 v2~v3 만들고 발사 준비 해&#x27; → 18편 그물망 채널별 겹치지 않게 분산(서브에이전트 2개 동시 지시).</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">21:10:07</span> <code>211007_orj_3978208487261743105_0.jpg</code></div>
+          <div class="img-desc">&#x27;바디캠 지금 두 군데 v1 → v2 조회수 잘 나온 거 교차로 만들어&#x27; + AGY_1초응답_상태판.json / 진행중.md 관리 구조 노출.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">22:11:17</span> <code>221117_orj_3978239275930066946_0.jpg</code></div>
+          <div class="img-desc">9편 완결 업로드 순항 중 + 추가 18편 파이프라인 마스터 현황판 + 썸네일 &#x27;2줄 레드(#FF1E1E) 극태고딕&#x27; 규칙 노출.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">22:26:21</span> <code>222621_orj_3978246858376060932_0.jpg</code></div>
+          <div class="img-desc">쇼츠 15시간 만에 70.7만 뷰(평소 대비 69.6만 높음) 급등 — &#x27;이 소재로 백 단위 나올 때까지 50편 만든다&#x27;.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">22:38:04</span> <code>223804_orj_3978252752572751873_0.jpg</code></div>
+          <div class="img-desc">&#x27;빨리 롱폼 만들자 8편&#x27; → 롱폼 8편 사출 파이프라인 즉시 가동.</div>
+        </div>
+        <div class="img-item">
+          <div class="img-head"><span class="time-tag">22:45:41</span> <code>224541_orj_3978256588314091521_0.jpg</code></div>
+          <div class="img-desc">롱폼 8편(01 원형 1호 + 02 둔갑 1호 ~ 08 둔갑 7호, 파생존기_V7/썸네일.jpg) 완성 → 저녁 한 타임 총 34편 완성.</div>
+        </div>
+    <div class="sheets"><figure><figcaption>오르제이 캡처 모음 #1</figcaption><img src="assets/2026-11-20/sheet_1.jpg" loading="lazy" alt="sheet 1"></figure><figure><figcaption>오르제이 캡처 모음 #2</figcaption><img src="assets/2026-11-20/sheet_2.jpg" loading="lazy" alt="sheet 2"></figure><figure><figcaption>오르제이 캡처 모음 #3</figcaption><img src="assets/2026-11-20/sheet_3.jpg" loading="lazy" alt="sheet 3"></figure><figure><figcaption>오르제이 캡처 모음 #4</figcaption><img src="assets/2026-11-20/sheet_4.jpg" loading="lazy" alt="sheet 4"></figure><figure><figcaption>오르제이 캡처 모음 #5</figcaption><img src="assets/2026-11-20/sheet_5.jpg" loading="lazy" alt="sheet 5"></figure><figure><figcaption>오르제이 캡처 모음 #6</figcaption><img src="assets/2026-11-20/sheet_6.jpg" loading="lazy" alt="sheet 6"></figure><figure><figcaption>오르제이 캡처 모음 #7</figcaption><img src="assets/2026-11-20/sheet_7.jpg" loading="lazy" alt="sheet 7"></figure></div></div>
+    </details>
+  </section>
+
+  <section id="copy">
+    <h2>오르제이님 실행 방식 완전 카피 체크리스트</h2>
+    <div class="card">
+          <div class="cat-title">1. 초고속 수창 공식 (최소 영상 1~3개 → 수창 돌파)</div>
+          <div class="orj-box"><b>오르제이 실행:</b> 7일간 시청시간 4천시간 3개 돌파, 이번 달 4개 완료(12월 20~30개 목표). &#x27;1~3개월 내 가장 적은 영상으로 최고 조회수(버프 종료/진행 무관) 나온 무주공산·독식 가능 영상&#x27;을 한·영·일 전수 스캔 → 먼저 칼카피로 &#x27;틀(프레임)&#x27;을 완벽 복제 → 1발 간보기 후 입질 오면(100대=가열, 1천=신호탄, 2~3천=수창신호) 딴길 새지 않고 한 소재로 V1~V9(심지어 20~50편) 끝까지 단물 빨아먹기. 롱폼 기준 10분=6만 뷰, 20분=4만 뷰 수창 공식.</div>
+          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_1"><span>소재 탐색 시 &#x27;최근 1~3개월, 영상 수 최소(1~10개), 조회수 최대, 무주공산&#x27; 필터로 한·영·일 채널 리스트업</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_2"><span>카테고리 1~5위 상방 체크 후, 잡도리보다 먼저 상위 레퍼런스 &#x27;틀(구조/편집/자막/길이)&#x27;을 칼카피 세팅</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_3"><span>신규/여유 채널에 1발 간보기 업로드 → 100대 가열/1천 신호탄 감지 시 즉시 후속 2~3발 장전</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_1_4"><span>터진 소재 1개를 &#x27;원형 1~3호 + 둔갑 1A~3B(70% 유사·중복 회피 변주)&#x27;로 5~10개 채널에 시간차(15분 간격 또는 일자 분산) 융단폭격</span></label></div>
+        </div>
+        <div class="card">
+          <div class="cat-title">2. 롱폼 완주율 70%+ &amp; 거실 스마트 TV(CTV) 체류 락</div>
+          <div class="orj-box"><b>오르제이 실행:</b> 0.00초 콜드오픈(날짜 낭독 0%, 가장 분노/충격적인 4초 원음 폭격) → 4~5분 이탈 지점에 2차 스모킹건 예고 배치 → 거실 TV 6070 시청층 겨냥 우측 상단 카드 + 종료 20초 전 최종화면 재생목록 강제 연동 → 막판 &#x27;구독/댓글&#x27; 이탈 멘트 0% 영구 차단(여운 있는 팩트 한 줄로 종료). 바디캠 50분 롱폼도 토큰 적게 먹고 4.2만 뷰 상승 중.</div>
+          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_1"><span>내 롱폼 대본 규칙에 &#x27;0.00초 콜드오픈 4초 + 4분 차 2차 도파민 예고 + 엔딩 구독/댓글 멘트 영구 금지&#x27; 하드코딩</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_2"><span>유튜브 업로드 템플릿에 종료 20초 전 &#x27;몰아보기 재생목록&#x27; 최종화면 + 우측 상단 카드 필수 연동</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_2_3"><span>시니어/정치/바디캠/역사 롱폼은 한국 1차 검증 후 일본 시니어(거실 TV 비중 극대) 및 영어권으로 원판 다국어 확장</span></label></div>
+        </div>
+        <div class="card">
+          <div class="cat-title">3. 틱톡 46채널 62초 리워드 자동화 공장</div>
+          <div class="orj-box"><b>오르제이 실행:</b> 산이 조교님 틱톡 단가(유튜브 5만원 vs 틱톡 50만원) 즉시 실행: PC 4대에 크롬 프로필 분리(12+12+11+11=46채널) → 구글 로그인 10초 가입 → 크롬 X 닫으면 AGY 감시 엔진이 자동 등록. 영상 길이 62~68초(65.8/65.9/67.9초) 맞춤. 팬튜브(BTS/블랙핑크/변우석/K-POP 챌린지) + 중국배우 출퇴근(장릉혁·샤오잔·왕이보·디리러바) 타겟. API 없이 자동업로드 파이프라인 가동.</div>
+          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_1"><span>크롬 프로필 분리로 틱톡 전용 계정 최소 10개부터 즉시 세팅(구글 계정 10초 연동)</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_2"><span>쇼츠/팬튜브/중국배우 출퇴근 컷을 62~68초(1분 초과 리워드 조건) 포맷으로 자동 생성 스크립트 구축</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_3_3"><span>크롬 프로필 기반 무API 자동 업로드 루틴 연결 및 일일 예약 발행</span></label></div>
+        </div>
+        <div class="card">
+          <div class="cat-title">4. 다채널·다PC·AI 모델 &amp; 토큰 최적화 운영</div>
+          <div class="orj-box"><b>오르제이 실행:</b> 구글 계정 1개 = 본채널 1개(크롬 프로필 완전 분리, 3차 고급인증 미리 완료, 아이디 절대 버리지 말고 3번 이상 카테 전환해 끝까지 재활용, 전환 시 기존 영상 비공개 안 해도 조회수 나옴). 모델은 네온(빠르고 가벼움, 네온앤네온 창 2개로 25분 롱폼 21편 6시간 완성) + 클로드 프로 + 파티원 x4~6 조합. PC 4대(향후 8대, 유튜브+틱톡+인스타 150채널 목표, 2·4번 PC 렌더 전용), 테일스케일 원격 제어, 일레븐랩스 조각 재활용, C07 실측 검증 규칙, 15분 간격 예약 업로드.</div>
+          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_1"><span>보유 계정별 크롬 프로필 1:1 완전 분리 및 3차 고급인증 사전 완료(여유 채널 상시 확보)</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_2"><span>실패/0뷰 채널 삭제 금지 → 카테고리 전환(기존 영상 비공개 불필요)으로 3회 이상 재활용 테스트</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_3"><span>AGY 전역 규칙에 &#x27;C07: 콘솔 실측 없는 문장 보고 금지&#x27; 및 &#x27;롱폼 목표 분량=원본 자료 분량 매칭&#x27; 반영</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_4_4"><span>업로드 스케줄은 동시 몰아 올리기 금지 → 15분 간격 또는 시간차/채널 분산 발사(금요일 낮 부진 → 목요일 밤·금요일 저녁~주말 집중 배치)</span></label></div>
+        </div>
+        <div class="card">
+          <div class="cat-title">5. 클릭률 극대화 썸네일 4대 공식</div>
+          <div class="orj-box"><b>오르제이 실행:</b> 베네치아식 한국 썸네일 도감연구소 적용 + ① 배경 심도 블러(명도 -15% 톤다운) ② 인물 외곽 림 라이트(역광 윤곽 분리) ③ 3D 드롭 섀도우(공간감) ④ 얼굴 극초선명 S-Curve + Real-ESRGAN 눈빛 콘트라스트 + 2줄 레드(#FF1E1E) 극태고딕.</div>
+          <div class="steps"><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_5_1"><span>https://kr-thumbnail-lab-switching2.vercel.app (암호 switching2012) 북마크 및 벤치마크 구도 추출 활용</span></label><label class="step-row"><input type="checkbox" class="cb" data-id="cp_2026-11-20_5_2"><span>내 썸네일 생성기에 &#x27;배경 블러 -15% + 림 라이트 + 3D 드롭 섀도우 + Real-ESRGAN 눈빛 보정 + #FF1E1E 극태고딕&#x27; 프리셋 등록</span></label></div>
+        </div>
+  </section>
+
+  <section id="room">
+    <h2>방 전체 주요 인사이트 · 도구/파일/링크</h2>
+    <ul class="clean"><li><b>안@혜(베네치아) — 한국 썸네일 도감연구소 웹앱</b> <a href="https://kr-thumbnail-lab-switching2.vercel.app" target="_blank" rel="noopener">링크 열기 ↗</a><br><span class="muted">국내+해외 1,000만 스타일 썸네일 구도 분석·복제 지시문 생성·한영일스 4개국어·로고/글자 제거 원클릭·고클릭 문구 5종 추천 (입장 암호: switching2012, 스위칭 2기 전용).</span></li><li><b>김@미(포시즌) — 볼케이노킷 플로우 20장 세팅가이드 &amp; 채널 파인더</b> <code>볼케이노킷_플로우_완전세팅가이드_2026-11-20.txt / 떡상채널파인더v8.html / nexlev_hunter_공유용.zip</code><br><span class="muted">플로우 UI 변경 후 에이전트로 20장씩 생성 세팅 가이드 + 떡상채널파인더v8 + nexlev_hunter(버프 죽은 100만 채널 포함 태그별 떡상 검색기).</span></li><li><b>오르제이 — 카페 세팅 글 (25편 6시간 생산)</b> <a href="https://cafe.naver.com/aiswitchingshorts2/2293" target="_blank" rel="noopener">링크 열기 ↗</a><br><span class="muted">카페 2293번 글 세팅 + 잡도리 추가 시 25분 롱폼 21~25편을 6시간 만에 뽑는 세팅.</span></li><li><b>오르제이 / 신@현(킷켓) — 볼케이노 예능 자막 도구 활성화</b> <code>volcano_subtitle_guide.html</code><br><span class="muted">/mcp 볼케이노 선택 후 Re-authenticate 실행 시 volcano_subtitle 도구 목록 노출 + 가이드 HTML 공유.</span></li><li><b>김@민(호호브로스) — 일본 시니어 거실 TV 타겟 검증</b><br><span class="muted">일본 시니어층은 거실 스마트 TV 유입 비율이 압도적 → 20분 영상 6개로 2,000시간 단기 돌파 실측.</span></li><li><b>조@원(눕방사업가) — 클로드↔AGY 자동 연동 관제탑</b> <code>관제탑_꾸러미.zip (삭제됨)</code><br><span class="muted">VSCode에서 클로드가 AGY 검수 필요 시 자동으로 AGY 터미널을 열어 이어받고 다시 클로드로 복귀하는 꾸러미(삭제됨: 커멘드센터 테스트.zip / 관제탑_꾸러미.zip).</span></li><li><b>서@택(변갸님) — 2PC 테일스케일 GPU 분산 클러스터 실측</b><br><span class="muted">노트북 GPU 1순위(GTX 1050 4GB) + 메인 PC 3순위 폴백 + tar_chunk_pipeline + FFmpeg/Real-ESRGAN 투명 프록시 구조 상세 공유.</span></li></ul>
   </section>
 </div>
 <script>
