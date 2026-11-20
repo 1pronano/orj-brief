@@ -1,0 +1,660 @@
+<meta charset="utf-8"><title>스위칭쇼츠 11/19 서울 2회차 오프특강</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 단일 읽기 컬럼(780px) + 넓은 도식(1040px). 상단 고정 파트 내비. 역할색(강의안 원본) 코드=파랑 / 클로드=주황 / jev=보라 / 사람=초록 */
+:root{
+  --paper:#f5f6f2; --card:#ffffff; --ink:#17202a; --muted:#5a6570; --line:#d8dcd4; --soft:#eceee8;
+  --code:#2f6fc4; --code-bg:#e4eefa; --claude:#c2621a; --claude-bg:#fbeadc; --jev:#6c4bc9; --jev-bg:#ece6fa; --human:#17803f; --human-bg:#e3f3e8;
+  --hot:#ad2257; --hot-bg:#f8e4ec;
+  --good:#17803f; --good-bg:#e6f4ea; --bad:#b4321f; --bad-bg:#fbe9e5;
+  --mark:#fff0a0; --pre-bg:#151c23; --pre-ink:#e6ebef; --pre-hi:#d9f26a;
+  --f-display:"Black Han Sans","Noto Sans CJK KR","Noto Sans KR",sans-serif;
+  --f-body:"IBM Plex Sans KR","Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  --f-mono:"JetBrains Mono","D2Coding",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11161b; --card:#182028; --ink:#e6eae5; --muted:#9ba6af; --line:#2b343c; --soft:#1e262e;
+  --code:#6aa3ef; --code-bg:#172638; --claude:#f0a356; --claude-bg:#33241a; --jev:#a58cf0; --jev-bg:#251f3d; --human:#5ccb84; --human-bg:#16301f;
+  --hot:#f0699a; --hot-bg:#33192a;
+  --good:#5ccb84; --good-bg:#16301f; --bad:#f2836f; --bad-bg:#371d18; --mark:#4b4514; --pre-bg:#0b0f13;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11161b; --card:#182028; --ink:#e6eae5; --muted:#9ba6af; --line:#2b343c; --soft:#1e262e;
+  --code:#6aa3ef; --code-bg:#172638; --claude:#f0a356; --claude-bg:#33241a; --jev:#a58cf0; --jev-bg:#251f3d; --human:#5ccb84; --human-bg:#16301f;
+  --hot:#f0699a; --hot-bg:#33192a;
+  --good:#5ccb84; --good-bg:#16301f; --bad:#f2836f; --bad-bg:#371d18; --mark:#4b4514; --pre-bg:#0b0f13;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7;margin:0;word-break:keep-all;overflow-wrap:anywhere}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:780px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.25;text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,4.4vw,38px)}
+h3{font-size:22px;margin-top:8px}
+p{margin:0}
+mark{background:var(--mark);color:inherit;padding:0 3px;border-radius:2px}
+b,strong{font-weight:700}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--code);outline-offset:2px}
+header.top{padding-block:40px 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--muted);font-weight:600}
+header.top h1{font-size:clamp(32px,6.4vw,56px);margin-top:10px}
+header.top h1 .c{color:var(--code)} header.top h1 .j{color:var(--jev)} header.top h1 .h{color:var(--hot)} header.top h1 .g{color:var(--human)}
+.lede{margin-top:14px;font-size:18px;max-width:740px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:var(--card);color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;font-size:14px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.tag-deck,.tag-lec{font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 7px;border-radius:4px;white-space:nowrap}
+.tag-deck{background:var(--ink);color:var(--paper)}
+.tag-lec{background:var(--soft);color:var(--ink);border:1px solid var(--line)}
+.r{font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:4px}
+.r::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.r-c{color:var(--code);background:var(--code-bg)} .r-l{color:var(--claude);background:var(--claude-bg)} .r-j{color:var(--jev);background:var(--jev-bg)} .r-h{color:var(--human);background:var(--human-bg)}
+nav.parts{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.parts .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.parts a{flex:0 0 auto;text-decoration:none;font-size:14px;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+nav.parts a.d{color:var(--code)} nav.parts a.l{color:var(--hot)}
+section{padding-block:48px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:end;margin-bottom:26px}
+.sec-head .glyph{font-family:var(--f-display);font-size:64px;line-height:.9;color:var(--code)}
+.sec-head .sub{color:var(--muted);margin-top:6px}
+.part-l .sec-head .glyph{color:var(--hot)}
+h2 em{font-style:normal;color:var(--code)} .part-l h2 em{color:var(--hot)}
+.block{margin-top:34px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.note{color:var(--muted);font-size:15px}
+.vs{display:grid;grid-template-columns:1fr 44px 1fr;margin-top:14px;align-items:stretch}
+.vs .side{border-radius:10px;padding:16px 18px;min-width:0}
+.vs .bad{background:var(--bad-bg)} .vs .good{background:var(--good-bg)}
+.vs .lbl{font-size:12px;font-weight:700;letter-spacing:.03em}
+.vs .bad .lbl{color:var(--bad)} .vs .good .lbl{color:var(--good)}
+.vs .t{font-weight:700;margin-top:4px;font-size:17px;line-height:1.45}
+.vs .d{font-size:15px;margin-top:6px}
+.vs .arrow{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--muted)}
+@media (max-width:640px){.vs{grid-template-columns:1fr}.vs .arrow{transform:rotate(90deg);height:34px}}
+.grid{display:grid;gap:12px;margin-top:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:860px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}}
+@media (max-width:560px){.g2,.g4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.card .k{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.03em}
+.card .t{font-weight:700;font-size:16.5px;margin-top:3px;line-height:1.45}
+.card .d{font-size:14.5px;margin-top:6px}
+.card ul{margin:6px 0 0;padding-left:20px;font-size:14.5px}
+.card.top-c{border-top:5px solid var(--code)} .card.top-l{border-top:5px solid var(--claude)} .card.top-j{border-top:5px solid var(--jev)} .card.top-h{border-top:5px solid var(--human)}
+.card.fill-c{background:var(--code-bg);border-color:transparent} .card.fill-j{background:var(--jev-bg);border-color:transparent} .card.fill-hot{background:var(--hot-bg);border-color:transparent}
+.card.dark{background:var(--ink);color:var(--paper);border-color:transparent} .card.dark .k{color:var(--pre-hi)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.kv{display:grid;grid-template-columns:44px 1fr;gap:4px 10px;font-size:14.5px;margin-top:10px}
+.kv dt{font-weight:700;color:var(--muted)} .kv dd{margin:0}
+.steps{display:grid;gap:10px;margin-top:14px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.step .n{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-display);font-size:20px;color:var(--paper);background:var(--code)}
+.part-l .step .n{background:var(--hot)}
+.step .t{font-weight:700;display:flex;flex-wrap:wrap;gap:6px;align-items:center} .step .d{font-size:15px}
+.step ul{margin:4px 0 0;padding-left:20px;font-size:15px}
+.step.hi{background:var(--mark);border-color:transparent}
+.tbl-wrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;color:var(--muted);font-weight:700;letter-spacing:.03em;background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.w{font-family:var(--f-mono);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.sc{font-family:var(--f-mono);font-weight:600;color:var(--hot);white-space:nowrap}
+.bar{display:flex;height:36px;border-radius:8px;overflow:hidden;font-size:12.5px;font-weight:700;color:#fff}
+.bar span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;padding:0 3px}
+.barrow{display:grid;grid-template-columns:145px 1fr 78px;gap:10px;align-items:center;margin:8px 0}
+.barrow .rr{font-family:var(--f-mono);font-size:13px;color:var(--muted);text-align:right}
+@media (max-width:560px){.barrow{grid-template-columns:1fr}.barrow .rr{display:none}}
+.k1{background:#d4534b}.k2{background:#3a8fd0}.k3{background:#e2862c}.k4{background:#b8961d}.k5{background:#7d5ccc}.k6{background:#2f9a6a}.k7{background:#c9548e}.k8{background:#5e6b7d}
+.rule{border:1px dashed var(--jev);background:var(--jev-bg);border-radius:10px;padding:14px 18px;font-size:15px;margin-top:14px}
+.rule div+div{margin-top:4px}
+figure{margin:18px 0 0}
+figure svg{width:100%;height:auto;display:block}
+.fig-scroll{overflow-x:auto}
+.fig-scroll svg{min-width:620px}
+figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+svg text{font-family:var(--f-body)}
+.prompt{margin-top:14px;border-radius:10px;overflow:hidden;background:var(--pre-bg);color:var(--pre-ink)}
+.prompt .pbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;background:#00000040;font-size:13px}
+.prompt .ttl{font-weight:600;color:#c9d3db}
+.prompt .pid{font-family:var(--f-mono);font-weight:600;color:var(--pre-hi);margin-right:6px}
+.prompt .when{font-family:var(--f-mono);color:#8796a3;margin-left:6px}
+.prompt button{flex:0 0 auto;font:600 12.5px var(--f-body);background:var(--pre-hi);color:#151c23;border:0;border-radius:6px;padding:5px 10px;cursor:pointer}
+.prompt pre{margin:0;padding:14px 16px;white-space:pre-wrap;font-family:var(--f-body);font-size:15px;line-height:1.75;overflow-x:auto}
+.lec-box{margin-top:16px;border-left:4px solid var(--muted);background:var(--card);border-radius:0 10px 10px 0;padding:14px 18px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lec-box h4{margin:0 0 6px;font-size:15px;display:flex;gap:8px;align-items:center}
+.lec-box ul{margin:4px 0 0;padding-left:20px;font-size:15px}
+.lec-box li+li{margin-top:4px}
+.ts{font-family:var(--f-mono);font-size:12.5px;color:var(--code);margin-right:4px}
+.warn{background:var(--bad-bg);border-radius:10px;padding:14px 18px;margin-top:14px}
+.warn .t{font-weight:700;color:var(--bad)}
+.pidx{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pidx a{font-size:13px;text-decoration:none;border-radius:6px;padding:3px 9px;border:1px solid var(--line);background:var(--card)}
+.pidx a .pid{font-family:var(--f-mono);font-weight:600;margin-right:4px;color:var(--hot)}
+footer{padding-block:36px 60px;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<header class="top">
+ <div class="wrap">
+  <div class="eyebrow">AI 스위칭쇼츠 2기 · 오프라인 피드백 특강 (서울 2회차) · 2026.11.19(목) 15:00~20:30 · 5시간 9분 · 강사 쇼츠대폭발</div>
+  <h1>잡도리 없는 자동화와 롱폼 대전환<br><span class="j">하네스2</span> · <span class="c">REA 역설계</span> · <span class="g">다국어·폰트</span> · <span class="h">리믹스파인더</span></h1>
+  <p class="lede">공통 강의안 56장(하네스2 · REA×agy · 다국어 언어 추가 · 칼카피 폰트 · VolcanoTube RemixFinder)과 5시간 9분 현장 녹취·필기·수강생 40명 실측 진단을 한 글자도 놓치지 않고 정리했습니다.</p>
+  <div class="meta">
+   <span class="chip">공통 강의안 56장 전부 반영</span>
+   <span class="chip">현장 녹취 4개 파일 (5시간 9분)</span>
+   <span class="chip">현장 필기 PDF 11쪽 + 40명 채널 진단</span>
+   <span class="chip">복붙 명령어 16개</span>
+  </div>
+  <div class="legend">
+   <span><span class="tag-deck">강의안</span> 스위칭쇼츠2기_오프라인특강.html · 08_서울_11월19일_2회차.html 원문</span>
+   <span><span class="tag-lec">현장녹취</span> 11/19 현장 녹음(1~4부) + 필기 PDF에서 나온 실전 인사이트</span>
+  </div>
+  <div class="legend">
+   <span class="r r-j">PART 01 하네스2</span>
+   <span class="r r-c">PART 02 REA×agy</span>
+   <span class="r r-h">PART 03 다국어 · PART 04 폰트</span>
+   <span class="r" style="color:var(--hot);background:var(--hot-bg)">PART 05 리믹스파인더 · 롱폼 대전환</span>
+  </div>
+ </div>
+</header>
+
+<nav class="parts" aria-label="파트 이동"><div class="wrap">
+ <a href="#overview">전체 그림</a>
+ <a class="d" href="#p1">01 하네스2</a>
+ <a class="d" href="#p2">02 REA×agy</a>
+ <a class="d" href="#p3">03 다국어</a>
+ <a class="d" href="#p4">04 칼카피 폰트</a>
+ <a class="d" href="#p5">05 리믹스파인더</a>
+ <a class="l" href="#lec-longform">롱폼 대전환</a>
+ <a class="l" href="#lec-niche">고속수창·블루오션</a>
+ <a class="l" href="#diag">40명 진단 처방</a>
+ <a class="l" href="#prompts">명령어 16개</a>
+</div></nav>
+
+<main>
+<!-- ============ OVERVIEW ============ -->
+<section id="overview"><div class="wrap">
+ <div class="col">
+  <div class="kicker"><span class="tag-deck">강의안</span> <span class="tag-lec">현장녹취</span> OVERVIEW · 서울 2회차 오프라인 특강 핵심 지도</div>
+  <h2 style="margin-top:8px">2026~2027 생존 공식: <em>5대 기술 무기 × 롱폼 대전환</em></h2>
+  <p style="margin-top:12px">현장 5시간은 두 축으로 관통합니다. <b>① 기술 축(강의안 56장)</b>: 하네스2로 잡도리를 없애고, REA로 남의 도구를 해부해 내 것으로 만들고, 다국어·칼카피 폰트·리믹스파인더로 퀄리티와 소재를 압도한다. <b>② 전략 축(현장 진단·녹취)</b>: 숏폼 냉동기를 넘어 <b>롱폼·보이스 클로닝·영화 구작 고속 수창·해외 수출</b>로 피벗한다.</p>
+ </div>
+ <figure class="fig-scroll" aria-label="오프라인 특강 5대 무기 구조도">
+  <svg viewBox="0 0 1000 220" role="img">
+   <rect x="8" y="24" width="186" height="172" rx="12" style="fill:var(--jev-bg);stroke:var(--jev)" stroke-width="2"/>
+   <text x="101" y="54" text-anchor="middle" style="fill:var(--jev)" font-size="13" font-weight="700">PART 01 · 자동 기억</text>
+   <text x="101" y="86" text-anchor="middle" style="fill:var(--ink)" font-size="20" font-weight="700">하네스2</text>
+   <text x="101" y="114" text-anchor="middle" style="fill:var(--ink)" font-size="13">1KB 안내판 + 마스터 정본</text>
+   <text x="101" y="134" text-anchor="middle" style="fill:var(--ink)" font-size="13">파이썬 관문 + agy 훅 5단</text>
+   <text x="101" y="172" text-anchor="middle" style="fill:var(--muted)" font-size="12">정정 3,200번 자동 학습</text>
+
+   <rect x="208" y="24" width="186" height="172" rx="12" style="fill:var(--code-bg);stroke:var(--code)" stroke-width="2"/>
+   <text x="301" y="54" text-anchor="middle" style="fill:var(--code)" font-size="13" font-weight="700">PART 02 · 역설계</text>
+   <text x="301" y="86" text-anchor="middle" style="fill:var(--ink)" font-size="20" font-weight="700">REA × agy</text>
+   <text x="301" y="114" text-anchor="middle" style="fill:var(--ink)" font-size="13">해부 → 설계도 → 제작·시험</text>
+   <text x="301" y="134" text-anchor="middle" style="fill:var(--ink)" font-size="13">255개 도구 · ev_ 증거</text>
+   <text x="301" y="172" text-anchor="middle" style="fill:var(--muted)" font-size="12">웹·크롬확장·맥앱 구조</text>
+
+   <rect x="408" y="24" width="186" height="172" rx="12" style="fill:var(--human-bg);stroke:var(--human)" stroke-width="2"/>
+   <text x="501" y="54" text-anchor="middle" style="fill:var(--human)" font-size="13" font-weight="700">PART 03 · 글로벌</text>
+   <text x="501" y="86" text-anchor="middle" style="fill:var(--ink)" font-size="20" font-weight="700">다국어 확장</text>
+   <text x="501" y="114" text-anchor="middle" style="fill:var(--ink)" font-size="13">롱폼 6언어 · 플리 20언어</text>
+   <text x="501" y="134" text-anchor="middle" style="fill:var(--ink)" font-size="13">3겹 관문 + 볼케이노킷 등록</text>
+   <text x="501" y="172" text-anchor="middle" style="fill:var(--muted)" font-size="12">오가닉 글로벌 점프업</text>
+
+   <rect x="608" y="24" width="186" height="172" rx="12" style="fill:var(--claude-bg);stroke:var(--claude)" stroke-width="2"/>
+   <text x="701" y="54" text-anchor="middle" style="fill:var(--claude)" font-size="13" font-weight="700">PART 04 · 디테일</text>
+   <text x="701" y="86" text-anchor="middle" style="fill:var(--ink)" font-size="20" font-weight="700">칼카피 폰트</text>
+   <text x="701" y="114" text-anchor="middle" style="fill:var(--ink)" font-size="13">폰트폰트 → 눈누 → agy</text>
+   <text x="701" y="134" text-anchor="middle" style="fill:var(--ink)" font-size="13">.ttf 절대경로 + 화소 실측</text>
+   <text x="701" y="172" text-anchor="middle" style="fill:var(--muted)" font-size="12">원본 화소 겹침 90.7%</text>
+
+   <rect x="808" y="24" width="184" height="172" rx="12" style="fill:var(--hot-bg);stroke:var(--hot)" stroke-width="2"/>
+   <text x="900" y="54" text-anchor="middle" style="fill:var(--hot)" font-size="13" font-weight="700">PART 05 · 소재</text>
+   <text x="900" y="86" text-anchor="middle" style="fill:var(--ink)" font-size="20" font-weight="700">리믹스파인더</text>
+   <text x="900" y="114" text-anchor="middle" style="fill:var(--ink)" font-size="13">최초 해외 원본 + 한국 빈집</text>
+   <text x="900" y="134" text-anchor="middle" style="fill:var(--ink)" font-size="13">누운 소재 (100만+ &amp; ≤100/h)</text>
+   <text x="900" y="172" text-anchor="middle" style="fill:var(--muted)" font-size="12">한국 빈집 68 · 일본 70</text>
+  </svg>
+ </figure>
+</div></section>
+
+<!-- ============ PART 1: 하네스2 ============ -->
+<section id="p1"><div class="wrap">
+ <div class="sec-head"><div class="glyph">01</div><div><div class="kicker"><span class="tag-deck">강의안 p01~13</span> PART 1 · 하네스2 (Harness²)</div><h2>AI를 매번 혼내지 않아도 <em>어제 배운 걸 오늘 지키는 구조</em></h2><p class="sub">«매일 새로 오는 알바생에게 인수인계 노트를 쥐여 주는 일 · 기억은 AI 머리가 아니라 노트에 둔다»</p></div></div>
+
+ <div class="vs">
+  <div class="side bad"><div class="lbl">도입 전 · 노트 없는 가게</div><div class="t">폴더마다 두꺼운 규칙 파일 (최대 208KB)</div><div class="d">사장님이 매일 같은 잔소리(«포스기 이렇게 찍으라니까!»). 지침서가 길어질수록 AI가 핵심을 흘려듣고 결과가 들쭉날쭉.</div></div>
+  <div class="arrow">➔</div>
+  <div class="side good"><div class="lbl">도입 후 · 하네스2 (Harness²)</div><div class="t">입구 1KB 안내판 + 마스터 정본 + 파이썬 관문 코드</div><div class="d">모델(엔진)은 그대로 두고 둘레(입구·관문·기억·훅)를 다듬음. 혼날수록 노트가 두꺼워지고, 노트가 두꺼울수록 덜 혼남.</div></div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p02</span> 전 폴더 정정 기록 자동 집계 (2026-11-13 · 59개 폴더 · 총 3,200번)</div>
+  <h3>AI에게 같은 지적을 3,200번 한 유형별 실측</h3>
+  <div class="barrow"><div>땜질·대충</div><div class="bar"><span class="k1" style="width:100%">959건 (최다)</span></div><div class="rr">959</div></div>
+  <div class="barrow"><div>끝까지 안 하고 멈춤</div><div class="bar"><span class="k3" style="width:19%">181</span></div><div class="rr">181</div></div>
+  <div class="barrow"><div>확인 없이 «됐다»</div><div class="bar"><span class="k4" style="width:11.5%">110</span></div><div class="rr">110</div></div>
+  <div class="barrow"><div>기록 누락</div><div class="bar"><span class="k5" style="width:8.6%">82</span></div><div class="rr">82</div></div>
+  <div class="barrow"><div>저장·커밋 안 함</div><div class="bar"><span class="k2" style="width:5.5%">53</span></div><div class="rr">53</div></div>
+  <div class="barrow"><div>엉뚱한 대상 건드림</div><div class="bar"><span class="k7" style="width:4.2%">40</span></div><div class="rr">40</div></div>
+  <div class="barrow"><div>알려준 걸 또 물음</div><div class="bar"><span class="k8" style="width:2.5%">20</span></div><div class="rr">20</div></div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p05~11</span> 핵심 메커니즘 3가지</div>
+  <div class="grid g3">
+   <div class="card top-j"><div class="k">① 1KB 안내판 + 마스터 정본</div><div class="t">275개 폴더 입구 → 평균 1.0KB</div><div class="d">작업 폴더 `AGENTS.md`는 «정본은 저기 있다»만 적는 1KB 안내판. 전역 입구 56.9KB → 24.5KB 압축. 마스터 창고에 세션 원문 <b>8,200개</b>, 정정 카드 <b>2,433장</b>, 세 줄 교훈 <b>2,273개</b>, 절대규칙 정본 <b>25개</b> 자동 축적(2026-09-02~11-13).</div></div>
+   <div class="card top-c"><div class="k">② 규칙은 글 대신 파이썬 관문(gate.py)</div><div class="t">끝내기 전 7+1가지 자동 차단</div><div class="d">AI 기억에 맡기지 않고 코드가 차단: <b>커밋 · 기록 · 실행 확인(«완료» 전) · 기록 찾기 · 미완료(미루는 말) · 땜질 표현(임시·우회) · 일꾼 놀림 · 안내판 보호</b>. 조건을 통과해야 다음 단계로 진행.</div></div>
+   <div class="card top-h"><div class="k">③ 판정 모델로 맞는 교훈 3개 선판정</div><div class="t">94개 지시 테스트: 낱말 48 → 판정 모델 76</div><div class="d">교훈 2,273개를 다 읽히지 않고 지금 일에 맞는 <b>상위 3개</b>만 뽑아 자동 주입(맨 위 1개 정답도 25 → 40). 카드 한 장 = <b>상황 · 잘못 · 맞는 방법</b> 3줄. 사람은 «그게 아니라» 한마디만 하면 자동 카드화.</div></div>
+  </div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p09</span> Antigravity(agy 단독 모드) 공식 훅 5단계</div>
+  <div class="steps">
+   <div class="step"><div class="n">1</div><div><div class="t">SessionStart (세션 시작 · 주입)</div><div class="d">반복 지적 · git 상태 · 이전 작업 기록 세 덩어리를 첫 화면에 자동 주입.</div></div></div>
+   <div class="step"><div class="n">2</div><div><div class="t">PreInvocation (말할 때 · 선판정)</div><div class="d">지시가 들어오는 순간 판정 모델이 교훈장에서 지금 일에 맞는 교훈 3개를 골라 붙임.</div></div></div>
+   <div class="step"><div class="n">3</div><div><div class="t">PreToolUse (고치기 전 · 검사)</div><div class="d">해당 폴더·채널 정본을 이번 세션에 안 읽었으면 파일 수정·실행을 기계 차단.</div></div></div>
+   <div class="step"><div class="n">4</div><div><div class="t">PostToolUse (읽은 뒤 · 추적)</div><div class="d">정본 열람·도구 실행 여부를 실시간 기록해 관문 통과 근거로 사용.</div></div></div>
+   <div class="step hi"><div class="n">5</div><div><div class="t">Stop (턴·세션 끝 · 게이트 &amp; 저장)</div><div class="d">끝내기 전 7가지(커밋·기록·실행확인·기록찾기·미완료·땜질·일꾼놀림) 검사 → 걸리면 종료 막음. 압축 전·세션 끝에 대화 원문 저장 및 정정 카드·집계 갱신.</div></div></div>
+  </div>
+ </div>
+
+ <div class="prompt" id="P01"><div class="pbar"><span><span class="pid">P01</span><span class="ttl">하네스2 세팅 묶음 한 줄 설치 (내가 직접 연 agy 창)</span><span class="when">강의안 p13</span></span><button type="button" data-copy>복사</button></div><pre>하네스2_세팅묶음.zip 풀어서 install.py 로 하네스2 세팅 설치해줘</pre></div>
+ <div class="prompt" id="P02"><div class="pbar"><span><span class="pid">P02</span><span class="ttl">하네스2 교훈·정본 즉시 검색 (터미널)</span><span class="when">강의안 p10</span></span><button type="button" data-copy>복사</button></div><pre># (세팅 묶음) 규칙·프리셋·교훈 한 번에 찾기
+python3 ~/harness2_master/local_harness.py search "키워드"
+
+# (프로젝트 정본) 지금 폴더에 맞는 정본 바로 보기
+python3 ~/harness2_master/local_harness.py preset "채널이름"</pre></div>
+ <p class="note" style="margin-top:8px">설치 3단계: ① <code>하네스2_세팅묶음.zip</code> 아무 폴더에 받기 → ② 터미널에서 <code>agy</code> 직접 실행 후 P01 붙여넣기(<code>~/harness2_master</code> 생성 + <code>install.py --selftest</code> 자동 시험) → ③ 새 agy 창 열기.</p>
+</div></section>
+
+<!-- ============ PART 2: REA x agy ============ -->
+<section id="p2"><div class="wrap">
+ <div class="sec-head"><div class="glyph">02</div><div><div class="kicker"><span class="tag-deck">강의안 p14~25</span> <span class="tag-lec">현장녹취 4부</span> PART 2 · REA × agy 실전 레시피</div><h2>남의 도구를 <em>해부 → 설계도 → 내 도구 제작·시험</em>까지 agy 창 하나로</h2><p class="sub">REA 6.9.0 (2026-11-12 배포 · 255개 도구) · 단계 사이를 잇는 건 같은 작업 폴더의 RESULT.md → 설계도.md → 내 도구</p></div></div>
+
+ <figure class="fig-scroll" aria-label="REA 3단계 파이프라인">
+  <svg viewBox="0 0 1000 170" role="img">
+   <rect x="10" y="20" width="290" height="130" rx="12" style="fill:var(--code-bg);stroke:var(--code)" stroke-width="2"/>
+   <text x="155" y="52" text-anchor="middle" style="fill:var(--code)" font-size="14" font-weight="700">① 해부 (agy 창 + REA)</text>
+   <text x="155" y="82" text-anchor="middle" style="fill:var(--ink)" font-size="15" font-weight="700">대상: 웹 주소 · 확장 폴더 · .app</text>
+   <text x="155" y="108" text-anchor="middle" style="fill:var(--muted)" font-size="13">출력: RESULT.md + ev_ 증거 묶음</text>
+   <text x="155" y="130" text-anchor="middle" style="fill:var(--muted)" font-size="12">확인(ev_) / 추정 / 확인 필요 3칸</text>
+   <text x="328" y="92" text-anchor="middle" style="fill:var(--muted)" font-size="24">➔</text>
+   <rect x="355" y="20" width="290" height="130" rx="12" style="fill:var(--jev-bg);stroke:var(--jev)" stroke-width="2"/>
+   <text x="500" y="52" text-anchor="middle" style="fill:var(--jev)" font-size="14" font-weight="700">② 설계도 (같은 agy 창)</text>
+   <text x="500" y="82" text-anchor="middle" style="fill:var(--ink)" font-size="15" font-weight="700">출력: 설계도.md</text>
+   <text x="500" y="108" text-anchor="middle" style="fill:var(--muted)" font-size="13">화면·데이터·규칙(ev_)·제작 순서 1~N</text>
+   <text x="500" y="130" text-anchor="middle" style="fill:var(--muted)" font-size="12">남의 코드·그림·글 빼고 원리만</text>
+   <text x="673" y="92" text-anchor="middle" style="fill:var(--muted)" font-size="24">➔</text>
+   <rect x="700" y="20" width="290" height="130" rx="12" style="fill:var(--human-bg);stroke:var(--human)" stroke-width="2"/>
+   <text x="845" y="52" text-anchor="middle" style="fill:var(--human)" font-size="14" font-weight="700">③ 제작·시험 (같은 agy 창)</text>
+   <text x="845" y="82" text-anchor="middle" style="fill:var(--ink)" font-size="15" font-weight="700">만들기 → 돌려 보기 → 시험 → 고치기</text>
+   <text x="845" y="108" text-anchor="middle" style="fill:var(--muted)" font-size="13">설계도 숫자 규칙 = 시험 파일 고정</text>
+   <text x="845" y="130" text-anchor="middle" style="fill:var(--muted)" font-size="12">맥 · 윈도우 실행 결과 표 보고</text>
+  </svg>
+ </figure>
+
+ <div class="prompt" id="P03"><div class="pbar"><span><span class="pid">P03</span><span class="ttl">REA 6.9.0 설치 → 계획 보기 → agy 연결 → 점검 (터미널)</span><span class="when">강의안 p16</span></span><button type="button" data-copy>복사</button></div><pre># 준비 확인 (Node 22.23.4+ · 24.22.1+ · 26.12.1+)
+node -v
+# 01 설치 → 6.9.0 확인
+npm install -g rea-agents@latest
+rea --version
+# 02 계획 보기 (바뀔 파일만 보여 줌)
+rea setup --client antigravity --dry-run
+# 03 agy 에 연결 (~/.gemini/config/mcp_config.json 에 rea 등록)
+rea setup --yes --client antigravity
+# 04 점검 → healthy: true 면 agy 창 새로 열기
+rea doctor --client antigravity</pre></div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p17~18</span> agy 창 REA 255개 도구 — 갈래별 비율 &amp; 대상별 먼저 부를 도구</div>
+  <div class="tbl-wrap"><table>
+   <thead><tr><th>대상 · 궁금한 것</th><th>먼저 부를 REA 도구</th><th>나오는 것</th></tr></thead>
+   <tbody>
+    <tr><td><b>웹 서비스 화면 규칙</b> (웹 주소)</td><td class="w">capture_browser_scenario → export_web_scripts → analyze_javascript_application</td><td>요청 목록 · 배치·잠금 규칙</td></tr>
+    <tr><td><b>크롬 확장 숫자 출처</b> (확장 폴더)</td><td class="w">analyze_javascript_application · trace_javascript_semantics</td><td>서버 주소 · 보내는 시점</td></tr>
+    <tr><td><b>맥 앱 기술 구조</b> (.app)</td><td class="w">inspect_artifact → project_apple_application_graph · identify_flutter_build</td><td>층 구조 (밀리의서재 = Flutter 3.35.7 + WebView + SQLite)</td></tr>
+    <tr><td><b>윈도우 앱 구조</b> (.exe)</td><td class="w">inspect_pe_resources · project_managed_application_graph</td><td>부품 · 리소스 목록</td></tr>
+    <tr><td><b>일렉트론 데스크톱 웹앱</b></td><td class="w">list_electron_targets → inspect_electron_page · capture_electron_scenario</td><td>화면 · 요청 기록</td></tr>
+    <tr><td><b>안드로이드 앱</b> (.apk)</td><td class="w">inspect_android_package · project_android_application_graph</td><td>화면 · 권한 지도</td></tr>
+    <tr><td><b>두 버전 비교</b> (옛·새 파일)</td><td class="w">compare_application_versions · find_changed_behavior</td><td>새로 생김 · 사라짐 · 바뀜</td></tr>
+    <tr><td><b>버튼 하나의 뒷길</b> (기능 이름)</td><td class="w">trace_application_feature</td><td>클릭 → 요청 → 저장 경로</td></tr>
+    <tr><td><b>증거 묶음 저장</b></td><td class="w">export_evidence_bundle</td><td><code>ev_</code> 증거 묶음 파일</td></tr>
+   </tbody>
+  </table></div>
+  <p class="note" style="margin-top:8px">갈래별 개수(255개): 네이티브·디버거 108 · 안드로이드 36 · 웹·자바스크립트 22 · 맥·iOS 11 · 증거·검증 10 · 두 버전 비교 8 · 윈도우·.NET 8 · 일렉트론 4. <b>자주 쓰는 3갈래 = 웹·JS / 맥·iOS / 증거·검증</b>.</p>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p17~23</span> REA 복붙 지시문 6종 (내가 직접 연 agy 창)</div>
+  <div class="prompt" id="P04"><div class="pbar"><span><span class="pid">P04</span><span class="ttl">REA 연결 확인 (도구 255개 확인)</span><span class="when">강의안 p17</span></span><button type="button" data-copy>복사</button></div><pre>REA 도구가 연결됐는지 확인해 줘.
+1) 지금 쓸 수 있는 rea 도구 개수
+2) 웹 · 크롬 확장 · 맥 앱 · 윈도우 앱 · 안드로이드
+   갈래별 대표 도구 3개씩 이름만
+3) 도구 목록이 0개면 rea doctor --client antigravity
+   결과를 읽고 고칠 곳 한 줄로</pre></div>
+
+  <div class="prompt" id="P05"><div class="pbar"><span><span class="pid">P05</span><span class="ttl">웹 서비스 해부 (읽기만 · ev_ 증거)</span><span class="when">강의안 p19</span></span><button type="button" data-copy>복사</button></div><pre>REA 로 [웹 주소] 페이지를 해부해 줘. 읽기만.
+1) capture_browser_scenario 로 화면·요청·스크립트 기록
+2) export_web_scripts → analyze_javascript_application
+   화면 배치 규칙(몇 개씩·순서·무료와 유료 차이)
+3) [궁금한 버튼] 을 누르면 어떤 요청이 어디로 가는지
+4) 문장마다 증거 번호(ev_), 증거가 모자라면 «추정» 칸
+5) RESULT.md 저장 → export_evidence_bundle</pre></div>
+
+  <div class="prompt" id="P06"><div class="pbar"><span><span class="pid">P06</span><span class="ttl">크롬 확장 해부</span><span class="when">강의안 p19</span></span><button type="button" data-copy>복사</button></div><pre>내 크롬에 깔린 [확장 이름] 폴더를 찾아 REA 로 해부해 줘.
+1) analyze_javascript_application 으로
+   화면 숫자·그래프가 어느 서버 주소에서 오는지
+2) 보내는 주소 / 받아 오는 주소를 표로 (언제 · 무엇을)
+3) 압축 코드라 관계가 0개로 나오면
+   주소 문자열을 직접 따라가기
+4) «확인(ev_) / 추정» 칸을 나눠 RESULT.md 저장</pre></div>
+
+  <div class="prompt" id="P07"><div class="pbar"><span><span class="pid">P07</span><span class="ttl">맥 앱 구조 해부 (밀리의서재 등)</span><span class="when">강의안 p23</span></span><button type="button" data-copy>복사</button></div><pre>REA 로 /Applications/[앱 이름].app 구조를 해부해 줘. 읽기만.
+1) inspect_artifact 로 층 구조
+   (껍데기 · 본체 · 화면 · 저장)
+2) Flutter 면 identify_flutter_build 로 버전
+3) 앱 안 웹 화면이 있으면 그 HTML 위치
+4) 잠긴 파일 · 암호 장치는 이름만 적고 그대로
+5) RESULT.md 저장 → export_evidence_bundle</pre></div>
+
+  <div class="prompt" id="P08"><div class="pbar"><span><span class="pid">P08</span><span class="ttl">② 설계도 작성 + ③ 내 도구 제작·시험</span><span class="when">강의안 p20</span></span><button type="button" data-copy>복사</button></div><pre>RESULT.md 와 증거 묶음을 끝까지 읽고 [내 도구 이름] 설계도.md 를 써 줘.
+1) 화면: 칸·버튼·순서를 그림 한 장으로
+2) 데이터: 어디서 받아 어디에 저장하는지
+3) 규칙: 숫자·문턱·정렬을 표로, 근거는 ev_
+4) 남의 코드·그림·글은 빼고 원리만
+5) «확인 필요» 칸 + 맥·윈도우 둘 다
+6) 맨 끝에 제작 순서 1~N, 단계마다 시험 1개
+
+--- (설계도 완성 후 이어서) ---
+설계도.md 를 읽고 이 작업 폴더에 그대로 만들어 줘.
+1) 제작 순서대로 한 단계씩, 단계마다 직접 실행
+2) 설계도의 숫자 규칙은 시험 파일로 고정
+3) «확인 필요» 칸은 실제로 1번 돌려 보고 결과를 설계도.md 에 적기
+4) 맥 · 윈도우 실행 결과를 표로 보고</pre></div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p22~25</span> 자주 막히는 곳 6가지 &amp; 지킬 선</div>
+  <div class="grid g2">
+   <div class="card"><div class="k">트러블슈팅 6가지</div><ul>
+    <li><b>도구 목록 0개</b>: <code>setup</code> 뒤 agy 창 새로 열기 · <code>rea doctor --client antigravity</code></li>
+    <li><b>Node 버전 오류</b>: Node 26.12.1+ (또는 22.23.4+ · 24.22.1+) 업그레이드 후 <code>setup</code></li>
+    <li><b>provider_unavailable</b>: env에 <code>JAVA_HOME</code>·<code>GHIDRA_INSTALL_DIR</code> 등록 → <code>open_binary</code></li>
+    <li><b>두 칩용 앱(Universal)</b>: <code>lipo -thin arm64</code>로 arm64 한 조각만 떼어 <code>open_binary</code></li>
+    <li><b>첫 분석 3분 소요</b>: 결과를 <code>snapshot</code> 저장 → 두 번째부터 즉시 재사용</li>
+    <li><b>일부만 읽고 «다 봤다»</b>: 읽은 범위를 숫자로(예: 335,803 마디) · 확인(<code>ev_</code>)/추정/확인 필요 3칸 분리</li>
+   </ul></div>
+   <div class="card top-h"><div class="k">지킬 선 (저작권법 제104조의2) &amp; 현장 활용</div><ul>
+    <li><b>대상</b>: 내 컴퓨터에 정식으로 깐 앱 · 공개 웹 페이지 · 내가 만든 프로그램.</li>
+    <li><b>보호 장치는 그대로</b>: 암호·잠금·결제 우회·크랙 절대 금지(저작권법 제104조의2 위반).</li>
+    <li><b>목적</b>: 원리만 배워 내 코드로 새로 제작.</li>
+    <li><span class="tag-lec">현장</span> «만개의 레시피» 같은 앱·웹 구조를 파악해 내 레시피/정보화 도구로 만들고 쿠팡파트너스 연결 가능. 모르는 개념은 <b>ELI5 스킬</b>로 쉽게 풀기.</li>
+   </ul></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- ============ PART 3: 다국어 ============ -->
+<section id="p3"><div class="wrap">
+ <div class="sec-head"><div class="glyph">03</div><div><div class="kicker"><span class="tag-deck">강의안 p26~40</span> <span class="tag-lec">현장녹취 1부</span> PART 3 · 다국어 언어 추가 &amp; 글로벌 점프업</div><h2>영상 한 편에 언어마다 <em>제목·설명·자막·태그</em>를 무인 등록</h2><p class="sub">«가게 하나에 나라별 간판을 다는 것 · 한국어 시각표 하나 + 3겹 관문 + 볼케이노킷 자동 등록»</p></div></div>
+
+ <div class="grid g2" style="margin-top:0">
+  <div class="card top-h"><div class="k">🏠 한국 채널 · 이미 만든 영상</div><div class="t">같은 영상에 언어 줄 추가 (오가닉 글로벌 점프업)</div><ul><li><b>롱폼 기본 6개 언어</b>: 영·스·일·태·중 간체·번체 (한 편 약 30분)</li><li><b>플리 20개 언어</b>: 가사 자막·제목·설명 다국어 (해외 유입 폭증)</li><li><span class="tag-lec">현장</span> 인물형 롱폼·팬튜브에 다국어 CC 상위 국가(일본·태국·호주·미국 등) 적용 시 외국 유입 3~5만+ 점프업 필수!</li></ul></div>
+  <div class="card top-c"><div class="k">✈️ 해외 전용 채널</div><div class="t">볼케이노에 그 나라 말로 처음부터 제작</div><ul><li>«일본어로 만들어 줘» → 대본부터 일본어 · 제목·설명·해시태그까지 현지어</li><li>목소리는 타입캐스트·제미나이 TTS 둘 다 듣고 고정</li><li><span class="tag-lec">현장</span> 에이티즈·투바투 등 아이돌 팬튜브는 <b>오디오 한국어 + 자막 스페인어/영어</b>로 미국·멕시코·스페인 직수출(단가↑).</li></ul></div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p29</span> 최초 1회 사전 준비 (가장 중요한 함정 차단)</div>
+  <div class="rule">
+   <div><b>① 자동 더빙 허용 끄기 (필수!)</b>: 스튜디오 설정 ➔ 채널 ➔ 고급 설정. 켜져 있으면 이름·곡명 틀린 기계 더빙과 «영어(미국)» 자동 줄이 미국 시청자에게 먼저 나감.</div>
+   <div><b>② vidIQ 끄기</b>: 업로드용 크롬 프로필에서 제거(디버거 연결 끊김 <code>Debugger is not attached</code> 방지).</div>
+   <div><b>③ 채널별 크롬 프로필 + 볼케이노킷(<code>127.0.0.1:8777/status</code>) + 파이썬 3.10+</b> (<code>pywinauto · pywin32 · opencc · typesafe-sdk</code>).</div>
+  </div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p32</span> 6개국 넷플릭스 자막 규칙 &amp; 세 겹 관문</div>
+  <div class="tbl-wrap"><table>
+   <thead><tr><th>언어 · 코드</th><th>한 줄 × 줄 수</th><th>초당 글자</th><th>핵심 표기 규칙</th></tr></thead>
+   <tbody>
+    <tr><td><b>영어</b> <code>en</code></td><td class="w">42자 × 2줄</td><td class="w">24자</td><td>다큐 내레이션 톤 · 줄바꿈은 코드가 문법 경계에서 자동</td></tr>
+    <tr><td><b>스페인어</b> <code>es</code></td><td class="w">42자 × 2줄</td><td class="w">24자</td><td>중남미 중립 스페인어 · <code>ustedes</code></td></tr>
+    <tr><td><b>일본어</b> <code>ja</code></td><td class="w">전각 13자 × 2줄</td><td class="w">14자</td><td>「。」「、」 자리는 공백 · 한 자리 숫자 전각 <code>５人</code></td></tr>
+    <tr><td><b>태국어</b> <code>th</code></td><td class="w">42자 × 2줄</td><td class="w">24자</td><td>42자 넘으면 구절 경계 공백 1개 · 이름은 로마자</td></tr>
+    <tr><td><b>중국어(간체)</b> <code>zh-Hans</code></td><td class="w">전각 16자 × 2줄</td><td class="w">11자</td><td><code>，。</code> 자리는 반각 공백 · 곡 제목 <code>《 》</code></td></tr>
+    <tr><td><b>중국어(번체)</b> <code>zh-Hant</code></td><td class="w">전각 16자 × 2줄</td><td class="w">11자</td><td>검수 끝난 간체에서 대만 표기로 · 인용 <code>「 」</code></td></tr>
+   </tbody>
+  </table></div>
+  <div class="grid g3">
+   <div class="card"><div class="k">관문 ① 코드 관문</div><div class="t">lang_tool.py check</div><div class="d">빠진 카드·겹침·글자 수·초당 글자·부호·간체 섞임 전수 검사(수정·재검 2회차까지).</div></div>
+   <div class="card"><div class="k">관문 ② 원어민 검수</div><div class="t">applyja · applyzh · zhdiff</div><div class="d">일본어·태국어·중국어 검수본 반영, 간체↔번체 대조.</div></div>
+   <div class="card"><div class="k">관문 ③ 제브 뜻·사실 관문</div><div class="t">jev_check.py run · report</div><div class="d">확정본 1회만 호출. <b>같은 뜻 ≥ 0.5</b> 통과 · <b>사실 바뀜 ≤ 0.5</b> 통과.</div></div>
+  </div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">강의안 p34~37</span> 조립·등록 숫자 규격 &amp; 실전 함정 6가지</div>
+  <div class="grid g2">
+   <div class="card"><div class="k">필수 숫자 규격</div><ul>
+    <li><b>카드 묶음</b>: 시각은 적지 말고 카드 번호 <code>n:[1,2]</code>만(0.7~7초), URL은 <code>⟦U1⟧</code> 보호.</li>
+    <li><b>자막 간격</b>: 앞 자막 끝은 다음 시작보다 <b>0.034초(60fps 2프레임)</b> 앞에서 끊기.</li>
+    <li><b>설명 상한</b>: <b>4,998자 이하</b>(정확히 5,000자면 스튜디오 게시 거부 · 이모지=2자).</li>
+    <li><b>태그 셈</b>: 글자 합 + 띄어쓰기 든 태그마다 2 + 쉼표 수 ≤ <b>500자</b>.</li>
+   </ul></div>
+   <div class="card"><div class="k">실전 함정 6가지 ➔ 해결</div><ul>
+    <li><b>영어가 동영상 언어로 박힘</b> ➔ <code>spec</code> 맨 위 <code>"orig":{"name":"한국어"}</code> 먼저 지정</li>
+    <li><b>스튜디오 탭 hidden</b> ➔ 같은 주소 중복 탭 닫고 창 되돌리기</li>
+    <li><b>setfile 반응 없음</b> ➔ «계속» 실제 마우스 클릭(<code>/browser click</code>) → 열기 창에 경로</li>
+    <li><b>«게시됨»인데 자동 자막</b> ➔ 출처 «자동» 줄 덮어쓰기 · 미국 자동 더빙은 <code>--force</code></li>
+    <li><b>5,000자 게시 막힘</b> ➔ 괄호 날짜 → 중복 주소 → 출처 날짜 순 덜어내 4,998자 이하</li>
+    <li><b>Debugger not attached</b> ➔ <code>kit_reload.py</code> 확장 재로딩 + vidIQ 끄기</li>
+   </ul></div>
+  </div>
+ </div>
+
+ <div class="prompt" id="P09"><div class="pbar"><span><span class="pid">P09</span><span class="ttl">다국어 ① 시각표 · 번역 · 세 관문 · SRT 조립 (agy 창)</span><span class="when">강의안 p38</span></span><button type="button" data-copy>복사</button></div><pre>[볼케이노킷_다국어_언어추가_프로세스 폴더] 의 00 총정리 문서와 01 번역지침을 먼저 끝까지 읽고 그 순서 그대로 해 줘.
+내 영상은 [완성본 폴더] 이고 넣을 언어는 [영어, 스페인어, 일본어, 중국어(간체), 중국어(번체)] 야.
+도구 안 작업 폴더와 방 목록(ROOMS)은 내 영상 기준으로 맞춰.
+1) lang_tool.py meta·src 로 한국어 카드 시각표와 제목·설명(주소는 ⟦U1⟧ 표로 가림)을 src.json 으로 뽑아.
+2) 언어마다 번역 일꾼을 동시에 띄워 번역 JSON 을 써. 시각은 적지 말고 카드 묶음 n 만, 0.7~7초, 그 나라 넷플릭스 자막 규칙대로.
+3) lang_tool.py check ➔ (일본어·중국어) 원어민 검수 반영 ➔ jev_check.py run·report 세 관문을 통과시켜. 걸린 건 한 번에 전부 고쳐.
+4) lang_tool.py build 로 언어별 SRT 와 spec.json 을 만들고, 언어마다 자막 수·설명 글자 수(4,998 이하)를 표로 보여 줘.</pre></div>
+
+ <div class="prompt" id="P10"><div class="pbar"><span><span class="pid">P10</span><span class="ttl">다국어 ② 볼케이노킷 스튜디오 등록 · 태그 · 게시됨 확인 (agy 창)</span><span class="when">강의안 p39</span></span><button type="button" data-copy>복사</button></div><pre>같은 프로세스 폴더의 02 업로드 도구로 이어 가 줘. 크롬 프로필은 [채널 프로필 이름] , 영상 ID 는 [영상 ID] 야.
+1) 127.0.0.1:8777/status 로 볼케이노킷 연결을 확인하고 open_profile.py 로 스튜디오 창 핸들을 받아.
+2) 내 프로필·내 채널을 환경 변수 VK_PROFILE · YT_CHANNEL 로 넣어 도구 안 기본값을 대신해. 그다음 yt_langs.py 에 spec.json 과 --hwnd 를 줘서 언어마다 제목·설명·자막을 등록해.
+3) add_tags.py 로 [다국어 태그 목록] 을 태그 칸에 더해. 500자 셈은 넣기 전에 먼저 해.
+4) 자막 화면을 새로고침해서 전 언어 «제목·설명 게시됨 · 자막 게시됨(자동 아님)» 을 표로 보여 주고, 함정이 나오면 총정리 5절 해결표대로 고쳐.</pre></div>
+</div></section>
+
+<!-- ============ PART 4: 칼카피 폰트 ============ -->
+<section id="p4"><div class="wrap">
+ <div class="sec-head"><div class="glyph">04</div><div><div class="kicker"><span class="tag-deck">강의안 p41~49</span> PART 4 · 칼카피 폰트 3단계</div><h2>폰트는 눈대중이 아니라 <em>이름표와 .ttf 절대경로</em>로 가져온다</h2><p class="sub">«AI에게 "이 폰트 뭐야" 맡기면 닮은꼴 몽타주가 온다 · 이름 특정 → 무료 파일 → 경로 지정으로 화소 겹침 90.7%»</p></div></div>
+
+ <div class="grid g3" style="margin-top:0">
+  <div class="card top-l"><div class="k">STEP 1 · 폰트폰트 (fontfont.app)</div><div class="t">글자 줄만 바짝 잘라 이름 특정</div><div class="d">산돌 무료 앱/웹(22,000+ 폰트, 로그인 불필요). 실측 일치율: 검은 바탕 민트 한 줄 <b>97.7%</b>, 흰 한 줄 <b>86.7%</b> vs 배경 섞인 예능 자막 통째로 <b>30.2%</b>.</div></div>
+  <div class="card top-h"><div class="k">STEP 2 · 눈누 (noonnu.cc)</div><div class="t">«영상» 사용 가능 무료 .ttf 받기</div><div class="d">핵심 낱말로 검색(예: SB 어그로 02 Medium → 어그로체 500 M). 라이선스 요약표 <b>«영상(유튜브·자막)» 사용 가능</b> 확인. 방송국 유료 폰트면 같은 갈래 최유사 무료체 선택.</div></div>
+  <div class="card top-c"><div class="k">STEP 3 · 직접 연 agy 창</div><div class="t">이름 말고 .ttf 절대경로 + 화소 실측</div><div class="d">맥 <code>우클릭+Option → 경로 이름으로 복사</code> / 윈도우 <code>Shift+우클릭 → 경로로 복사</code>. 채널지구별 실측: <code>SBAggroM.ttf</code> · 104/108px · 자간 +2/+3px · 띄어쓰기 +6px · 줄사이 23px · 2줄 기울기 11° · <code>#FFFFFF/#00FDB7</code>.</div></div>
+ </div>
+
+ <div class="prompt" id="P11"><div class="pbar"><span><span class="pid">P11</span><span class="ttl">레퍼런스 폰트 칼카피 지시문 (내가 직접 연 agy 창)</span><span class="when">강의안 p49</span></span><button type="button" data-copy>복사</button></div><pre>레퍼런스 화면 캡처는 [캡처_파일_경로] 야.
+제목 폰트는 폰트폰트(fontfont.app)로 확인한 [폰트_이름] 이고, 눈누에서 받은 파일은 [폰트_파일_절대경로.ttf] 야.
+1) 글자는 반드시 이 파일 하나로만 그려. 폰트 선택은 이걸로 확정이야.
+2) 캡처에서 글자 크기, 자간, 띄어쓰기 폭, 행간, 기울기, 색을 화소로 직접 재서 숫자로 적어.
+3) 그 숫자로 같은 문구를 그려 원본 위·내 것 아래로 붙인 비교 그림을 만들고, 어긋난 숫자를 고쳐.
+4) 확정한 폰트 경로와 숫자를 하나도 빠짐없이 정본 파일에 적고, 이 agy 창에서 그대로 영상 렌더까지 적용해.</pre></div>
+</div></section>
+
+<!-- ============ PART 5: 리믹스파인더 ============ -->
+<section id="p5"><div class="wrap">
+ <div class="sec-head"><div class="glyph">05</div><div><div class="kicker"><span class="tag-deck">강의안 p50~56</span> <span class="tag-lec">현장녹취 1부 04:26~10:50</span> PART 5 · VolcanoTube · RemixFinder</div><h2>최초 해외 원본을 족보로 캐고 <em>한국 빈집 · 누운 소재</em>만 줍는다</h2><p class="sub">vidIQ · TikHub · 구글 렌즈 · 볼케이노킷 4개 연동 · 2기 수강생 우선 배포 예정</p></div></div>
+
+ <div class="grid g4" style="margin-top:0">
+  <div class="card fill-hot"><div class="k">한국 빈집 (검색 후 0개)</div><div class="t">68개 확인됨</div><div class="d">직접 검색해 한국 유통 0건 도장 찍은 집만 빈집. 일본 빈집 70개 · 한국 진출 10개.</div></div>
+  <div class="card fill-c"><div class="k">최초 원본 족보</div><div class="t">78개 1+N 그룹</div><div class="d">유튜브 원본 33 · 틱톡 30 · 릴스 15. 마우스 오버 미리보기 + 1:1 비교 지원.</div></div>
+  <div class="card fill-j"><div class="k">😴 누운 소재 잣대</div><div class="t">100만+ &amp; ≤100회/시간</div><div class="d">크게 터졌다가 지금 멈춘 원본 = 다시 살릴 대박 후보. 315편 중 <b>233편</b> 누움 실측.</div></div>
+  <div class="card dark"><div class="k">6가지 수집 통로</div><div class="t">인스타 저장 · 틱톡 영감</div><div class="d">✨자동 · 🔤검색어 · 🔗링크 · 🗂️열린 탭 · 📌인스타 저장됨 · 🔥틱톡 스튜디오 아이디어.</div></div>
+ </div>
+
+ <div class="lec-box col">
+  <h4><span class="tag-lec">현장녹취</span> 볼케이노튜브 · 틱톡 아이디어 · 해짜 실전 타율</h4>
+  <ul>
+   <li><span class="ts">1부 05:40</span>지인이 쇼츠 3개 채널 합산 월 1,800만~3,000만 원 수익 — 다른 거 안 하고 <b>«터진 거 또 터진다 + 중복도 없는 해외 빈집»</b>만 죽어라 판다. 쇼핑은 태그가 달려서 10편 중 4편(4할)만 터져도 대박.</li>
+   <li><span class="ts">1부 07:55</span><b>인스타 저장됨</b>: 자기 전에 신기하고 조회수 높은 릴스를 구분 없이 저장해 두면, 볼케이노킷 로그인 브라우저에서 자동으로 긁어와 한국 빈집만 판별.</li>
+   <li><span class="ts">1부 08:40</span><b>틱톡 스튜디오 → 아이디어 탭</b>: 전 세계에서 터진 영상이 카테고리별(아웃도어·라이프스타일·소셜)로 모여 있음. 강사 본인도 세차 용품 영상 10분 편집 후 쿠팡 태그로 <b>3주 만에 600만 원</b>, 포켓몬 희귀 카드 영상 10분 편집으로 <b>900만~1,000만 뷰</b> 달성.</li>
+   <li><span class="ts">1부 07:20</span>아직 한국에 덜 들어온 음악/바이럴 빈집 키워드: <b>플래시몹</b>, 일본 악기·발레·댄스 시리즈.</li>
+   <li><span class="ts">강의안 p54</span><b>누운 소재 판정</b>: vidIQ 일별/시간별/월별 기록(2일 미만 시간별 · 2년 미만 일별 · 2년+ 월별)으로 «지금 조회수 − 24시간~7일 전 기록 ÷ 경과 시간 ≤ 100회/시간»이면 누운 소재. 아기 나오는 영상은 자동 숨김.</li>
+  </ul>
+ </div>
+</div></section>
+
+<!-- ============ 현장 전략 1: 롱폼 대전환 ============ -->
+<section id="lec-longform" class="part-l"><div class="wrap">
+ <div class="sec-head"><div class="glyph">롱</div><div><div class="kicker"><span class="tag-lec">현장녹취 1~3부</span> <span class="tag-lec">필기 PDF</span> 2026~2027 최상위 전략 기조</div><h2>2기의 기조는 <em>무조건 롱폼</em> — 보이스 클로닝과 사람 말투가 답이다</h2><p class="sub">«대부분 강의는 숏폼이다 · 내년엔 숏폼 유효조회수 2천만 안 되면 돈 안 줄 수도 · 남들이 안 하는 롱폼에서 승부하라»</p></div></div>
+
+ <div class="vs">
+  <div class="side bad"><div class="lbl">포화 · 레드오션 (지금 들어가면 박살)</div><div class="t">정치 쇼츠 · 일반 커뮤 쇼츠 · 한국 예능 쇼츠</div><div class="d">강의가 풀린 카테고리는 수강생이 몰려 즉각 박살(정치 쇼츠·이영지/신민아 예능·지식창식 중복 소재). 데이터센터에 숏폼이 쏟아져 구글 정책도 갈수록 빡빡.</div></div>
+  <div class="arrow">➔</div>
+  <div class="side good"><div class="lbl">2026~2027 정답지 (진입장벽 = 내 해자)</div><div class="t">롱폼 피벗 + 보이스 클로닝(본인 육성) + 다국어/해외</div><div class="d">롱폼은 <b>시그널이 명확</b>하다(조회수로 결이 바로 보임). 편집에 힘 빼고 <b>나레이션(사람 냄새) + 실사 이미지/공공 데이터</b>로 끌고 가도 하루 4편씩 채널이 다 받아줌.</div></div>
+ </div>
+
+ <div class="grid g3">
+  <div class="card top-h"><div class="k">보이스 클로닝 · 나레이션이 절반</div><div class="t">본인 목소리 변조(피시오디오 등)</div><div class="d">군림보·강석주·또치킨의 킥은 <b>자기 목소리</b>. 목소리에 자신 없어도 피시오디오·일레븐랩스 등 클로닝+변조로 사람 냄새 구현. 사투리·가제트 같은 개성 목소리도 강력.</div></div>
+  <div class="card top-c"><div class="k">롱폼 대본 카피의 철칙</div><div class="t">얼굴 내밀고 육성으로 말하는 채널 카피</div><div class="d">AI 티 나는 나레이션 대신, 실제 사람이 일상적으로 말하고 시그니처 멘트를 넣는 채널(예: 경제왕 김피비·다이켄 테크인사이트·KNN·이슈왕)의 대본 문법을 카피. 이제는 <b>agy가 클로드보다 대본을 잘 쓴다</b>.</div></div>
+  <div class="card top-l"><div class="k">롱폼 썸네일 황금 규칙</div><div class="t">원톤 또는 투톤 + 지마켓산스 깔끔체</div><div class="d"><b>너굴경제</b> 썸네일 카피 추천: 6조각 과밀 썸네일 금지, <b>5어절 역설</b>, 강조 단어 1~2개만 색상 처리. 단순 사진 나열 + 인사이트만 있어도 클릭·시청 지속.</div></div>
+ </div>
+</div></section>
+
+<!-- ============ 현장 전략 2: 고속 수창 & 블루오션 ============ -->
+<section id="lec-niche" class="part-l"><div class="wrap">
+ <div class="sec-head"><div class="glyph">수창</div><div><div class="kicker"><span class="tag-lec">현장녹취 1~4부</span> <span class="tag-lec">필기 PDF</span> 고속 수익창출 치트키 &amp; 돈 되는 블루오션 10선</div><h2>시청시간은 <em>영화 구작 롱폼</em>, 구독자는 <em>구매</em> — 가장 빠른 수창 테크</h2></div></div>
+
+ <div class="card dark" style="margin-top:0">
+  <div class="k">★ 고속 수창 치트키 (현장 반복 강조)</div>
+  <div class="t" style="font-size:19px">① 영화 구작 롱폼(180~200% 얼빡)으로 4,000시간 1~2편 돌파 + ② 구독자 구매(SMM 패널 · 밍구링링 등) + ③ 수창 후 저작권 영상은 비공개 X 반드시 삭제</div>
+  <div class="d" style="margin-top:6px">• <b>CID 걸려도 시청시간은 100% 인정</b>된다(수익만 안 날 뿐). 180~200% 얼빡 빡세게 하면 CID도 상당수 벗겨짐.<br>• 구작 추천: 한국 <b>넘버3</b> 등 / 해외 <b>스피드</b> 등(둥둥아빠 자료로 권리사·배급사 먼저 확인). 강사 테스트 채널 «띵작헌터»(일레븐랩스 TTS), 수강생 «무비콘자» 첫 영상 1편으로 시청시간 완주.<br>• 수창 후 롱폼을 지우면 시청시간이 날아가지만, <b>수창 승인 이후 쇼츠는 전부 삭제해도 무방</b>. 저작권 걸린 영상은 비공개가 아니라 <b>완전 삭제</b>. 정치 채널(진중권·전원책 치트키)도 구독자 초고속 확보용으로 강력.</div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-lec">현장녹취 + 필기 PDF</span> 강사가 직접 찍어 준 돈 되는 블루오션 &amp; 벤치마크 채널 총정리</div>
+  <div class="tbl-wrap"><table>
+   <thead><tr><th>분야 · 블루오션</th><th>레퍼런스 채널 · 소스</th><th>핵심 실행 전략</th></tr></thead>
+   <tbody>
+    <tr><td><b>경제 · 부동산 · 정책</b><br>(대한민국 최다 연령 50대 · 돈 본질)</td><td>너굴경제 · 다이켄 테크인사이트 · 경제왕 김피비 · 퀸즈리의 경제학</td><td>수강생 <b>8일 만에 수창</b>(강남 3구 아파트). <b>제브서치</b>로 오늘 기준 부동산·국민연금·퇴직금·복지로·정부정책알리미·주요공시알리미 10개 뽑아 <b>팟캐스트 프리셋</b>으로 제작.</td></tr>
+    <tr><td><b>정치 롱폼 · 인물 계보</b></td><td>보수본색 · 박정희 전문 채널 · 민주당 홈페이지</td><td>정치 쇼츠 금지(포화). <b>보수/좌파 화제성 국회의원 50명</b> 제브서치 추출 → 인물형 롱폼 계보 파기. 원로배우(최불암·김혜자·나문희·여성중앙 재벌 며느리) 시니어 인물형도 강력.</td></tr>
+    <tr><td><b>국제정세 · 로컬 몰락</b></td><td>센서스튜디오 · 강호의 발바닥(제주 중국자본) · 부산 전문 채널</td><td>센서스튜디오는 자료 읽는 수준인데 <b>하루 4편</b> 올려도 다 받아줌(해외 소스는 제브서치). 제주도 중국자본·초고령화·지방 몰락 키워드 팟캐스트 프리셋 추천.</td></tr>
+    <tr><td><b>프랜차이즈 · 기업 미담</b></td><td>정보의 신 · 비즈니스 스토리즈(brand story) · 그때그기업</td><td>여신금융협회·법제처·특허청·국토부 오픈 API 데이터 + 픽사베이/실사 이미지 + 나레이션(줄폐업·몰락). 국내 식품·재벌(농심·오뚜기·남양·매일·롯데·대우 등) 미담.</td></tr>
+    <tr><td><b>범죄 · 호러 · 해외 소식</b></td><td>디바제시카 · 안협소(일본 범죄) · 재즈감귤(야쿠자/마피아) · 박가네 · 세상요정 밋돌세(미국)</td><td>영상 클립(틱톡 등) + 실사 이미지 + 본인 보이스 클로닝 나레이션만으로 롱폼 완결. 롱폼도 관점 비틀기·꼬꼬무 그대로 적용.</td></tr>
+    <tr><td><b>더러운 그림체 역사물</b></td><td>궁금하단 말이야 · 딥호라이즌</td><td>로마전투·세계사·지정학·미군 걸프전/이라크전 해외 롱폼. 플로우 대신 <b>에보링크 그록(Grok)</b> 가성비 최고(480p 픽셀 깨져도 상관없음 · 병렬 대량 생성).</td></tr>
+    <tr><td><b>지구별식 쇼츠 칼카피</b></td><td>채널 지구별 · 깔끔맨 · 방구석지구촌 · 쿠키토리(무음제거)</td><td>자막 바뀔 때마다 매번 다른 색 + 클라우드플레어 누끼 + 네온 효과 + 모바일 해시태그 좋아요 유도(«화면 두 번 터치하면…») + 레딧 유튜버 팁 수집. <b>카본(Carbon)</b>이 예술로 칼카피.</td></tr>
+    <tr><td><b>해외 수출 팬튜브 · 쇼핑</b></td><td>케이팝있쥬 · kdramreality · 잇템로그</td><td>아이돌 팬튜브(에이티즈·투바투)는 <b>스페인어/영어 자막</b>으로 미국·멕시코·스페인 수출. 쇼핑은 K-뷰티·편의점 푸드 국뽕+리액션+쿠팡태그(틱허브 소스).</td></tr>
+    <tr><td><b>인물 다큐 · 음악 · 심리학</b></td><td>빅맨(넷플릭스 다큐 폼) · 힙풀밈(흑인 힙합) · 일사에프/크랩 · 이혼숙려캠프</td><td>인물형은 달빛부부 말고 <b>빅맨</b> 카피, 개봉 1주 전 빌드업. 클래식보다 <b>힙합·락(올뮤직닷컴)</b>. <b>이혼숙려캠프</b> 구간 캡처 → 그림체 변환 + 누끼 → 남편/아내 시점 심리학 롱폼.</td></tr>
+    <tr><td><b>대량화 · 분산 작업</b></td><td>유라짱님 방식 · 테일스케일(Tailscale) · Vast.ai</td><td>구작 영화 정액제 연도별 다운로드 → 볼케이노킷 300개 폴더 자동 배치(드라마 쇼츠는 2~3편 컷). 노는 PC는 <b>테일스케일</b> 연결(저사양 PC=채팅 지시, 고사양 PC/맥미니=렌더).</td></tr>
+   </tbody>
+  </table></div>
+ </div>
+
+ <div class="prompt" id="P12"><div class="pbar"><span><span class="pid">P12</span><span class="ttl">제브서치 경제·부동산·연금·정치 롱폼 키워드 발굴</span><span class="when">현장 필기 PDF</span></span><button type="button" data-copy>복사</button></div><pre># 부동산·경제 롱폼
+제브 서치로 오늘 날짜 기준으로 부동산(강남 3구·국토부 정책) 가장 핫한 키워드 10개와 공신력 있는 근거 자료 찾아줘!
+
+# 연금·시니어 경제 롱폼 (→ 팟캐스트 프리셋 제작)
+퇴직금, 국민연금, 정책지원금 키워드로 콘텐츠를 만들려고 해. 현재 가장 검색량과 키워드가 많은 연관 주제 10개를 제브 서치로 공신력 있는 기관 자료까지 최대한 빠르게 찾아와 줘.
+
+# 정치 인물 계보 롱폼
+제브 서치로 화제성 있고 언론 노출이 많았던 국회의원 50명 리스트 뽑아줘.</pre></div>
+
+ <div class="prompt" id="P13"><div class="pbar"><span><span class="pid">P13</span><span class="ttl">터또터 누운 소재 역추적 지시문</span><span class="when">현장 필기 PDF</span></span><button type="button" data-copy>복사</button></div><pre>3개월이 경과됐으면서 100만 회 이상 터진 영상인데 조회수 그래프가 누운 영상을 파악해서, 그 원본을 틱허브에서 찾아와 줘.</pre></div>
+</div></section>
+
+<!-- ============ 40명 실측 진단 처방전 ============ -->
+<section id="diag" class="part-l"><div class="wrap">
+ <div class="sec-head"><div class="glyph">진단</div><div><div class="kicker"><span class="tag-deck">08_서울_11월19일_2회차.html</span> 수강생 40명 실측 진단 핵심 패턴 &amp; 처방전</div><h2>40개 채널을 까 보니 <em>막히는 자리와 뚫는 공식</em>은 똑같았다</h2></div></div>
+
+ <div class="grid g4" style="margin-top:0">
+  <div class="card top-c"><div class="k">초보 A to Z (수강생 #01·12·13)</div><div class="t">4단계 15편 완주 로드맵</div><div class="d">① agy 단독+하네스2 → ② 한국 빈집(0개) → ③ 기본 프리셋 무자막 1층 → ④ 단일 카테고리 <b>15편 완주</b> 후 데이터로 꼬꼬무. 처음부터 커스텀 욕심 금지.</div></div>
+  <div class="card top-j"><div class="k">자가 정밀 점검 (#02·41)</div><div class="t">숫자 2개 + 0.0초 훅</div><div class="d">조회수만 보지 말고 <b>시청 선택 비율(75%+)</b>과 <b>자막 덧방</b>부터 점검. 천벽은 저품질이 아니라 첫 1~2.5초 중복 제목·무음·잡탕 주제 때문.</div></div>
+  <div class="card top-h"><div class="k">다계정 격리 표준 (#03·35)</div><div class="t">1채널 = 1크롬 프로필 = 1폴더</div><div class="d">세션 섞기·10개 동시 살포 금지(연쇄 정지·동반 천벽). 3~4개 씨앗 15편 테스트 → 자력 수창 채널만 애드센스 결합. 똑같은 중드 5쌍둥이 금지.</div></div>
+  <div class="card top-l"><div class="k">단독 agy 안전 원칙 (#04·09·33·39)</div><div class="t">외부 자동 호출 절대 금지</div><div class="d">Codex·외부 스크립트가 agy를 호출하면 구글 약관 정지 직격탄(막힌 건 계정을 살려준 안전 관문). 오직 사람이 직접 연 단독 agy 창 + 1KB 헌법 + 파이썬 관문.</div></div>
+ </div>
+
+ <div class="block">
+  <div class="kicker"><span class="tag-deck">08_서울_11월19일_2회차.html</span> 대표 공개 채널 실측 진단 &amp; 처방 요약</div>
+  <div class="tbl-wrap"><table>
+   <thead><tr><th>채널명 (수강생)</th><th>실측 병목 ❌</th><th>즉시 실행 처방 ⭕</th></tr></thead>
+   <tbody>
+    <tr><td><b>sunset rounge st music</b> (#05)</td><td>초반 0.64초 무음·검정 화면 · 단일 언어 · 구독자 부족</td><td><b>0.0초 첫 비트 커팅</b> + «600마일 영화 서사» 거리·숫자·사연 제목 공식화 + <b>20개국 다국어</b> + 구독자 구매로 즉시 수창</td></tr>
+    <tr><td><b>나야나클래식</b> (#07 · 7.79만)</td><td>클래식 소재 고갈 · 첫 1초 귀 인지도 병목</td><td>87만 뷰 공식(1초 멜로디 × 반전 복수극)을 <b>영화/CF OST · 한국 7090 전설 · 8~12분 미드폼 · 일본 전용 선곡</b>으로 확장</td></tr>
+    <tr><td><b>뭣이</b> (#08 · 110편)</td><td>첫 1초 흰 커뮤 제목 캡처 중복 + 잡탕 주제(1~2천 뷰 정체)</td><td>하얀 커뮤 제목 캡처 삭제 → 0.0초 승부 반전 직행 · 스포츠 한 우물 고정 또는 롱폼 피벗</td></tr>
+    <tr><td><b>뭐지이거</b> (#11)</td><td>커뮤 쇼츠+경제 롱폼 혼재 · 첫 2.5초 중복 · 페페 짤 · 저음량(-15.7 LUFS)</td><td>쇼츠/롱폼 채널 완전 분리 · 화풍 통일(플로우 10묶음) · 경제 롱폼은 독립 채널 5어절 역설 썸네일</td></tr>
+    <tr><td><b>와그르노</b> (#29)</td><td>35초 펀치라인 필력 최상이나 백화점식 잡탕 + 상단 중복 띠</td><td>상단 중복 띠 제거 · 주제 1가지 단일화 · 롱폼 피벗(가제트 등 개성 TTS 활용)</td></tr>
+    <tr><td><b>그때그기업</b> (#31)</td><td>본편 퀄리티 상위 5%인데 <b>6조각 과밀 썸네일</b> + 첫 15초 순서</td><td>썸네일 글자 5개 덜어내고 원톤/투톤 정리 + 첫 15초 반전 순서 뒤집기 + 국내 식품·재벌 미담</td></tr>
+    <tr><td><b>어서와K</b> (#34)</td><td>20만·11만 터진 대한외국인 금맥 버리고 007 잡탕 + <b>-22.3 LUFS 저음량</b></td><td>외국인 한국 공감 한 우물 복귀 + 음량 -14 LUFS 즉시 정상화</td></tr>
+    <tr><td><b>하루한편 외 7곳</b> (#35)</td><td>똑같은 중드 채널 5쌍둥이 화력 분산</td><td>중드 5쌍둥이 압축 → 13만 뷰 터진 인물 채널에 화력 80% 집중 + 연관 인물 꼬꼬무</td></tr>
+    <tr><td><b>사물의 질서</b> (#36)</td><td>4편 올리고 꼬였다고 고민 · 창작 소재 고갈 우려</td><td>창작 퀄리티 최상급. 지식형 창작도 <b>해짜·볼케이노튜브 검증 히트작</b>에서 소재 가져와 내 그림체 입히기</td></tr>
+    <tr><td><b>알고보즘</b> (#40 · 3.77천)</td><td>첫 수창 달성 후 백과사전 주제 혼입 · 롱폼 만벽 정체</td><td>백과사전 주제 제거 → 터진 <b>스포츠 인물 서사 DNA</b>로 위성 채널 2개 복제(축구·야구)</td></tr>
+   </tbody>
+  </table></div>
+ </div>
+
+ <div class="prompt" id="P14"><div class="pbar"><span><span class="pid">P14</span><span class="ttl">잘 돌아가던 폴더 안전 보호 — 기준판 금고 격리 (#10)</span><span class="when">08_서울 #10</span></span><button type="button" data-copy>복사</button></div><pre>잘 뽑히는 원본 작업 폴더는 절대 직접 건드리지 말고 기준판 금고로 복제 격리해 줘.
+상위 1KB 불변식(첫 1.5초·컷 길이·자막 줄수·-14 LUFS)만 분리해서 파이썬 관문 코드로 잠가 줘.</pre></div>
+
+ <div class="prompt" id="P15"><div class="pbar"><span><span class="pid">P15</span><span class="ttl">이혼숙려캠프 심리학 롱폼 제작 아이디어</span><span class="when">현장 녹취 4부 · PDF</span></span><button type="button" data-copy>복사</button></div><pre>이혼숙려캠프 원본 영상에서 핵심 구간을 캡처해 그림체로 변환하고 누끼를 딴 뒤,
+남편 시점과 아내 시점으로 나눠 심리학 관점으로 분석하는 롱폼 대본과 구성을 짜 줘.</pre></div>
+
+ <div class="prompt" id="P16"><div class="pbar"><span><span class="pid">P16</span><span class="ttl">밀리의 서재 등 앱 구조 역설계 질문 (현장 시연 흐름)</span><span class="when">현장 필기 PDF</span></span><button type="button" data-copy>복사</button></div><pre>1. AGY 창에서 REA 최신버전(6.9.0+) 확인·연결해 줘. (모르는 용어는 ELI5로 쉽게 설명)
+2. 내 컴퓨터에 설치된 도서 뷰어 앱 구조를 읽기 전용으로 해부해 줘.
+3. 앱의 껍데기·본체(Flutter 등)·웹 뷰어 화면·저장 구조를 RESULT.md 와 ev_ 증거 번호로 정리해 줘. (암호·잠금 장치는 건드리지 말고 구조만 기록)</pre></div>
+</div></section>
+
+<!-- ============ PROMPT INDEX ============ -->
+<section id="prompts"><div class="wrap">
+ <div class="kicker">PROMPT INDEX</div>
+ <h2 style="margin-top:8px">복붙 명령어 16개 한눈에 보기</h2>
+ <p class="note" style="margin-top:6px">P01~P11은 공통 강의안 56장의 명령어 상자 원문 그대로, P12~P16은 서울 2회차 현장 녹취·필기·40명 진단에서 추출한 실전 지시문입니다.</p>
+ <div class="pidx">
+  <a href="#P01"><span class="pid">P01</span>하네스2 한 줄 설치</a>
+  <a href="#P02"><span class="pid">P02</span>하네스2 교훈·정본 검색</a>
+  <a href="#P03"><span class="pid">P03</span>REA 6.9.0 설치·연결</a>
+  <a href="#P04"><span class="pid">P04</span>REA 255개 도구 확인</a>
+  <a href="#P05"><span class="pid">P05</span>REA 웹 서비스 해부</a>
+  <a href="#P06"><span class="pid">P06</span>REA 크롬 확장 해부</a>
+  <a href="#P07"><span class="pid">P07</span>REA 맥 앱 구조 해부</a>
+  <a href="#P08"><span class="pid">P08</span>REA 설계도 → 제작·시험</a>
+  <a href="#P09"><span class="pid">P09</span>다국어 번역·3관문·SRT</a>
+  <a href="#P10"><span class="pid">P10</span>다국어 볼케이노킷 등록</a>
+  <a href="#P11"><span class="pid">P11</span>칼카피 폰트 절대경로</a>
+  <a href="#P12"><span class="pid">P12</span>제브서치 롱폼 키워드</a>
+  <a href="#P13"><span class="pid">P13</span>터또터 누운 소재 역추적</a>
+  <a href="#P14"><span class="pid">P14</span>원본 폴더 금고 격리</a>
+  <a href="#P15"><span class="pid">P15</span>이혼숙려캠프 심리학 롱폼</a>
+  <a href="#P16"><span class="pid">P16</span>앱 구조 역설계 흐름</a>
+ </div>
+ <div class="warn" style="margin-top:20px"><div class="t">수업 자료 · 개인 학습용 안내</div><p style="margin-top:6px">본 요약본은 AI 스위칭쇼츠 2기 오프라인 특강(2026-11-19 서울 2회차) 강의안 및 현장 녹취를 개인 복습·실행용으로 정리한 자료입니다. 저작권법 제136조 제1항에 따라 무단 외부 유포·상업적 재판매를 금합니다.</p></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">공통 강의안 56장 + 서울 2회차 40명 진단표 + 현장 녹취 4개 파일(5시간 9분) + 필기 PDF 11쪽 통합 정리 · 개인 학습용</div></footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+ b.addEventListener('click',function(){
+  var pre=b.closest('.prompt').querySelector('pre'); var t=pre.innerText;
+  var done=function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사'},1500)};
+  var fb=function(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='선택됨 · ⌘C'};
+  try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}
+ });
+});
+</script>
