@@ -39,13 +39,45 @@
 
   .search-box { position:relative; }
   .search-box input {
-    width:100%; padding:9px 12px 9px 32px; border-radius:10px;
+    width:100%; padding:9px 30px 9px 32px; border-radius:10px;
     border:1px solid var(--border); background:var(--surface);
-    color:#fff; font-size:13px; outline:none;
+    color:#fff; font-size:13px; outline:none; transition:border-color .15s, box-shadow .15s;
   }
-  .search-box input:focus { border-color:var(--accent); }
-  .search-box .icon { position:absolute; left:10px; top:9px; font-size:13px; color:var(--muted); }
-  .search-count { font-size:11px; color:var(--accent); margin-top:4px; min-height:16px; }
+  .search-box input:focus { border-color:var(--accent); box-shadow:0 0 0 2px rgba(94,234,212,.18); }
+  .search-box .icon { position:absolute; left:10px; top:9px; font-size:13px; color:var(--muted); pointer-events:none; }
+  .search-clear {
+    position:absolute; right:7px; top:6px; width:22px; height:22px;
+    border:none; border-radius:6px; background:transparent; color:var(--muted);
+    font-size:15px; line-height:1; cursor:pointer; display:none;
+    align-items:center; justify-content:center; padding:0;
+  }
+  .search-clear:hover { background:var(--surface3); color:#fff; }
+  .search-clear.visible { display:inline-flex; }
+  .search-controls {
+    display:flex; align-items:center; justify-content:space-between; gap:6px;
+    margin-top:6px; min-height:22px;
+  }
+  .search-count { font-size:11.5px; color:var(--accent); font-weight:700; line-height:1.3; }
+  .search-count.zero { color:#fda4af; }
+  .search-nav { display:none; align-items:center; gap:4px; flex-shrink:0; }
+  .search-nav.visible { display:inline-flex; }
+  .search-nav-btn {
+    padding:2px 7px; border-radius:6px; border:1px solid var(--border);
+    background:var(--surface2); color:#e2e8f0; font-size:11px; font-weight:700;
+    cursor:pointer; line-height:1.4; transition:all .12s;
+  }
+  .search-nav-btn:hover { border-color:var(--accent); color:var(--accent); background:var(--surface3); }
+  .search-empty-notice {
+    display:none; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    background:rgba(244,63,94,.08); border:1px solid rgba(244,63,94,.38);
+    border-radius:14px; padding:16px 20px; margin-bottom:20px; color:#fecdd3;
+  }
+  .search-empty-notice.visible { display:flex; }
+  .search-empty-notice button {
+    padding:6px 12px; border-radius:8px; border:1px solid rgba(244,63,94,.5);
+    background:rgba(244,63,94,.18); color:#fff; font-size:12.5px; font-weight:700; cursor:pointer;
+  }
+  .search-empty-notice button:hover { background:rgba(244,63,94,.32); }
 
   .progress-card {
     background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:11px 12px;
@@ -112,7 +144,7 @@
     background:var(--surface); border:1px solid var(--border);
     border-radius:var(--radius); padding:18px 20px; margin-bottom:14px;
   }
-  .card.hidden-search { display:none; }
+  .hidden-search { display:none !important; }
 
   .badge {
     display:inline-block; font-size:11px; font-weight:800; padding:2px 8px;
@@ -236,7 +268,51 @@
   ul.clean { margin:6px 0 0; padding-left:18px; }
   ul.clean li { margin-bottom:6px; color:#dbe5f4; }
   mark { background:rgba(245,158,11,.35); color:#fff; border-radius:3px; padding:0 2px; }
+  mark.search-hl {
+    background:#fde047; color:#090c12; font-weight:800; border-radius:3px;
+    padding:0 2px; box-shadow:0 0 0 1px rgba(250,204,21,.45);
+  }
+  mark.search-hl.active {
+    background:#f97316; color:#fff;
+    box-shadow:0 0 0 2px #fde047, 0 0 12px rgba(249,115,22,.75);
+  }
   .muted { color:var(--muted); font-size:12.5px; }
+
+  /* Daily Auto-Updates */
+  .daily-meta-bar {
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    background:linear-gradient(90deg,rgba(16,185,129,.12),rgba(56,189,248,.07));
+    border:1px solid rgba(16,185,129,.38); border-radius:12px; padding:11px 15px; margin-bottom:14px;
+    font-size:12.8px; color:#dbe5f4;
+  }
+  .daily-meta-left { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .daily-meta-kpis { display:flex; gap:12px; flex-wrap:wrap; font-size:12.3px; color:var(--muted); }
+  .daily-meta-kpis b { color:#fff; }
+  .daily-day {
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    margin-bottom:14px; overflow:hidden;
+  }
+  .daily-day[open] { border-color:rgba(94,234,212,.45); }
+  .daily-day-head {
+    list-style:none; cursor:pointer; padding:14px 18px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    background:linear-gradient(180deg,#141d2e,#111622);
+  }
+  .daily-day-head::-webkit-details-marker { display:none; }
+  .daily-day-left { display:flex; align-items:center; gap:8px; flex-wrap:wrap; color:#fff; font-size:14.5px; }
+  .daily-day-pills { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .daily-day-body { padding:16px 18px 18px; border-top:1px solid var(--border); }
+  .daily-hl-box {
+    background:rgba(94,234,212,.06); border:1px solid rgba(94,234,212,.3);
+    border-radius:12px; padding:13px 16px; margin-bottom:14px;
+  }
+  .daily-hl-title { font-size:12px; font-weight:800; color:var(--accent); margin-bottom:8px; letter-spacing:.03em; }
+  .daily-cat-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  .daily-cat-card {
+    background:var(--surface2); border:1px solid var(--border); border-radius:12px; padding:13px 15px;
+  }
+  .daily-cat-card h4 { margin:0 0 8px; font-size:13.8px; color:#fff; display:flex; align-items:center; gap:6px; }
+  .daily-ctx { font-size:12px; color:#94a3b8; margin-top:4px; padding-left:8px; border-left:2px solid #475569; }
 
   @media (max-width:960px) {
     .layout { grid-template-columns:1fr; }
@@ -253,13 +329,22 @@
     <div class="brand">
       <div class="eyebrow">SWITCHING SHORTS 2ND · FULL AUDIT</div>
       <h2>오르제이 A to Z 대시보드</h2>
-      <p>2026-09-08 ~ 11-20 (74일 전수 분석)</p>
+      <p><!-- ORJ_LAST_UPDATE_SIDEBAR_START -->
+2026-09-08 ~ 현재 · 최근 갱신 2026-11-21 14:00
+<!-- ORJ_LAST_UPDATE_SIDEBAR_END --></p>
     </div>
 
     <div class="search-box">
       <span class="icon">🔍</span>
-      <input id="searchInput" type="text" placeholder="키워드 실시간 검색 (예: 둔갑, 틱톡, CTV...)">
-      <div id="searchCount" class="search-count"></div>
+      <input id="searchInput" type="text" placeholder="키워드 실시간 검색 (예: 둔갑, 틱톡, CTV...)" autocomplete="off">
+      <button id="searchClear" class="search-clear" type="button" title="검색 초기화 (ESC)" aria-label="검색 초기화">×</button>
+      <div class="search-controls">
+        <div id="searchCount" class="search-count"></div>
+        <div id="searchNav" class="search-nav">
+          <button id="searchPrev" class="search-nav-btn" type="button" title="이전 결과 (Shift+Enter)" aria-label="이전 결과">▲</button>
+          <button id="searchNext" class="search-nav-btn" type="button" title="다음 결과 (Enter)" aria-label="다음 결과">▼</button>
+        </div>
+      </div>
     </div>
 
     <div class="progress-card">
@@ -271,6 +356,7 @@
     </div>
 
     <nav class="toc">
+      <a href="#daily-updates"><span class="num">🔄</span> 매일 12시·24시 실시간 업데이트</a>
       <a href="#stats"><span class="num">0</span> 실측 데이터 &amp; 핵심 결론</a>
       <a href="#part1"><span class="num">1</span> 대도약 &amp; 7대 깨달음 변곡점</a>
       <a href="#part2"><span class="num">2</span> 소재 발굴 &amp; 선정 기준</a>
@@ -283,8 +369,15 @@
   </aside>
 
   <main>
+    <div id="searchEmptyNotice" class="search-empty-notice" role="status">
+      <span id="searchEmptyText">검색 결과가 없습니다.</span>
+      <button id="searchEmptyReset" type="button">검색 초기화</button>
+    </div>
     <div id="stats" class="hero searchable">
       <span class="tag">2기 프리미엄방 전수 · 삭제 복원 17건 · 캡처 40장 · 카페 6편 · 11/19 오프특강 교차</span>
+      <!-- ORJ_LAST_UPDATE_HERO_START -->
+<span class="tag" style="margin-left:6px;background:rgba(16,185,129,.14);border-color:rgba(16,185,129,.45);color:#6ee7b7">🔄 최종 업데이트: 2026-11-21 14:00 (낮 12시) · 매일 12시·24시 자동</span>
+<!-- ORJ_LAST_UPDATE_HERO_END -->
       <h1>오르제이 초고속 수창 · 다채널 시스템화 완전 정복 A to Z</h1>
       <p class="lead">생초보(09/08)에서 74일 만에 <b>7일간 4,000시간 수창 3개 돌파 · 단 1편 39만 뷰 원샷 수창 · 48시간 201만 뷰 · 유튜브 50채널 + 틱톡 46채널</b>을 만든 모든 깨달음, 소재 기준, 롱폼·숏폼 제작 세팅, 다PC 자동화, 그리고 <b>현재 우리 시스템이 놓치고 있는 10대 공백(Gap)</b>까지 빠짐없이 해부했습니다.</p>
       <div class="kpi-grid">
@@ -299,6 +392,52 @@
       <div class="tldr-label">⚡ 한 줄 핵심 공식 (오르제이 폭발의 본질)</div>
       <p>① 1~3개월 최소영상·최대조회수 '무주공산/공공재' 스캔 → ② 잡도리보다 1~5위 '틀(Frame)' 100% 칼카피 우선 → ③ 1발 간보기 후 조회수 신호등(100 가열 · 1천 신호탄 · 2~3천 폭격) 판독 → ④ 터진 1개 소재를 <code>원형 + 둔갑(70% 변주)</code>으로 5~20채널 융단폭격 → ⑤ 4PC 크롬 물리 분리 · 틱톡 46채널 62초 리워드 · 거실 TV 락으로 완성한 <b>확률게임 공장</b></p>
     </div>
+
+    <!-- DAILY UPDATES -->
+    <section id="daily-updates">
+      <h2 class="sec-title">🔄 매일 낮 12시 · 밤 24시 실시간 누적 업데이트 <span class="badge ok">AUTO 2x/DAY</span></h2>
+      <!-- ORJ_DAILY_UPDATES_START -->
+<div class="daily-meta-bar searchable">
+  <div class="daily-meta-left">
+    <span class="badge ok">자동 동기화 LIVE</span>
+    <span>최종 반영: <b>2026-11-21 14:00</b> (낮 12시 회차) · 매일 <b>12:00 / 24:00</b> 자동 누적</span>
+  </div>
+  <div class="daily-meta-kpis">
+    <span>누적 <b>1일</b></span>
+    <span>오르제이 발화 <b>252건</b></span>
+    <span>핵심 노하우 <b>38묶음</b></span>
+    <span>캡처 <b>8장</b></span>
+    <span>삭제포착 <b>1건</b></span>
+  </div>
+</div>
+<details class="daily-day searchable" open>
+  <summary class="daily-day-head">
+    <div class="daily-day-left">
+      <span class="tl-date">2026-11-21</span>
+      <b>오르제이 실시간 노하우 · 꿀팁 업데이트</b>
+      <span class="muted">(08:46~13:54)</span>
+    </div>
+    <div class="daily-day-pills">
+      <span class="badge p2">발화 252건</span>
+      <span class="badge ok">노하우 38묶음</span>
+      <span class="badge purple">캡처 8장</span>
+      <span class="badge del">삭제포착 1건</span>
+      <span class="muted" style="font-size:11.5px">낮 12시(160건) · 밤 24시(92건)</span>
+    </div>
+  </summary>
+  <div class="daily-day-body">
+    <div class="daily-hl-box"><div class="daily-hl-title">⚡ 오늘의 핵심 노하우 · 꿀팁 TOP 요약</div><ul class="clean"><li><span class="badge p2">⚙️ 롱폼 · 제작 · AI 세팅</span> <span class="q-meta">11:19~11:22</span> <b>링크를 붙여서 이틀에서 같은소재 2개 더 만들어 라고</b></li><li><span class="badge p0">🏆 수창 · 조회수 인증</span> <span class="q-meta">11:31~11:36</span> <b>9개씩 로켓 발사</b></li><li><span class="badge p1">🎯 소재 · 트렌드 · 벤치마킹</span> <span class="q-meta">08:46~08:50</span> <b>이걸로 수창시간 5개 채웠습니다</b></li><li><span class="badge p0">🏆 수창 · 조회수 인증</span> <span class="q-meta">08:50~08:57</span> <b>바디캠 - 수창시간 임박 1개, 3주까지 2개 스카프 -5개 숏폼 - 1000만회 -1개 다른 소재 - 1개 뚫고 있는 - 2개 넉넉히 2~4주</b></li><li><span class="badge p0">🏆 수창 · 조회수 인증</span> <span class="q-meta">09:15~09:19</span> <b>이제 롱폼 구독자 만명 채워서 수창 10개 , 12월 까지 추가 수창 10개 2개월에 20개가 가능할 수 있는지 도전 해볼게요~^^</b></li><li><span class="badge p1">🎯 소재 · 트렌드 · 벤치마킹</span> <span class="q-meta">10:22~10:23</span> <b>내가 경험해보지도 않고 , 100%라 믿는 그 고정관념 의 틀 을 깨십쇼</b></li></ul></div>
+    <div class="daily-cat-grid">
+      <div class="daily-cat-card searchable"><h4><span class="badge del">🚨 삭제 전 포착 · 주의</span> <span class="muted">(1건)</span></h4><div class="quote del-q"><span class="badge del">삭제 전 포착</span> <span class="q-meta">밤 24시 · 13:37</span> <span class="badge purple">📷 이미지 1장</span><div style="margin-top:4px">[사진]</div></div></div><div class="daily-cat-card searchable"><h4><span class="badge p0">🏆 수창 · 조회수 인증</span> <span class="muted">(7건)</span></h4><div class="quote"><span class="q-meta">낮 12시 · 08:50~08:57</span><div class="daily-ctx">↳ 직전 질문: 방@숙(필드야): 옆 사람과 친해지려면 노트북 가져가야하나요?</div><div style="margin-top:4px">목도리 사장님으로 변신중 / 이번에 한가지 느낀것 정리 해드리면요 / 제가 자랑하려고 조회수 찍어서 올리는게 아니라 / 진짜 안된다 생각 마시고 / 되는걸 찾으면 그때 확 뽑으시라고 6일간 보여드린거고요 / 바디캠 - 수창시간 임박 1개, 3주까지 2개 스카프 -5개 숏폼 - 1000만회 -1개 다른 소재 - 1개 뚫고 있는 - 2개 넉넉히 2~4주 / 한달동안 수창시간만 채우는게 11개 까지도 가능합니다 / 이제 구독자 채울게요 / 꼭 도움되시길 바랍니다. 열정적으로 긍정적인 시선으로 나도 해보자 라고 생각해보시면 그 때는 나도 할 수있는 것 같습니다 . 쇼츠 대폭발에서 전부 배운 것이니 고된 수창시간 채우는 전략을 다음길 바라겠습니다.~~~^^ / 이거 전해드릴려고 , 한 주 좀 더 까불 었습니다.</div></div><div class="quote"><span class="q-meta">낮 12시 · 09:05</span><div class="daily-ctx">↳ 직전 질문: 이@희(나링): 2번째 줄이요?</div><div style="margin-top:4px">스카프로만 5개 수창시간 채었어요</div></div><div class="quote"><span class="q-meta">낮 12시 · 09:15~09:19</span><div style="margin-top:4px">어제 처음 구독자 만명 넘었습니다 / 이제 롱폼 구독자 만명 채워서 수창 10개 , 12월 까지 추가 수창 10개 2개월에 20개가 가능할 수 있는지 도전 해볼게요~^^ / 현재 11개 구독자만 채우면 됨 오프라인강의 까지 듣고 , 화요일 부터 벌어진 일입니다 5일 만에 / 고도의 몰입과 집중이면 되십니다.^^진짜로 / 무조건 더 잘되실거에요^^</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:31~11:36</span> <span class="badge purple">📷 이미지 3장</span><div class="daily-ctx">↳ 직전 질문: 안@숙(가네쑥공업): 근데 그 터진 영상 형식 그대로 변형만한거에여?</div><div style="margin-top:4px">다하시면 갈라 먹으실 거에요 / 영상 제작 6분 / 9개씩 로켓 발사 / 이원리만 하시면 수창시간 까지는 개꿀 입니다 / 기죽지 마시고 / 그대로 내것으로 민들어서 고고요 / 디하클에 조만간 인증 할게요 / 12월쯤 수창 20~25개 만들었다고 / 안될 수도 있는데 확률 90% / 200만 우리십쇼 이걸로 잘하면 5~10개 나와요</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:53~11:55</span><div style="margin-top:4px">지금 니가 탑재한 기술 조회수와 연관있어? / 영상 시간 줄이실때 / 소재가 먼저 터지는 걸 집중 하십쇼 / 그다음 퀄리티 입니다 / 소재가 터지면 어벤져스 1 2 3 4 5 마블 시리즈를 만드셔요 / 그래애 수창시간을 제일 빨리 깹니다 / 정리 해드릴게요 / 오늘 공주 장모님댁을 기니까 / 가서 정리해서 드릴게요 / 낙담할 여유도 없어요</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:58~11:59</span><div style="margin-top:4px">23시간 일하게 하고 1시간 업그레이드 시키고 / 이루틴을 매일 매일 / 조회수 안나오는건 잠시 멈추세요 / 두번 째 영상 1천회이상 준비 하세요 / 더밀어야죠 / 방법이 없죠</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:01~12:02</span><div class="daily-ctx">↳ 답장 원문: 그러면 소재 &gt;&gt;&gt;&gt; 카테고리 인가요??</div><div style="margin-top:4px">무조건이죠 / 둘다 해요 / 쇼츠 유효 천만돌파 오늘 내일 / 100만을 바라지 마세요 / 1만 나오면 4개 / 5천 나오면 8개 / 2만나오면 2개 / 4만나오면1개 / 10분 짜리면 6만나와야 하니까 / 덧셈하시면 됩니다</div></div></div><div class="daily-cat-card searchable"><h4><span class="badge p1">🎯 소재 · 트렌드 · 벤치마킹</span> <span class="muted">(9건)</span></h4><div class="quote"><span class="q-meta">낮 12시 · 08:46~08:50</span><div style="margin-top:4px">공유 하나 드릴게요~~~~~~ / 아 원하시면 드릴게요~~~ / 발사포 원인 / 충격적인 결과 / 진짜 놀랬어요 / 카테고리와 결도 깨부시는게 소재 이슈였는데요 / 남대문 스카프 사장님 아시죠? / 이걸로 수창시간 5개 채웠습니다 / 지금 약빨이 떨어진거 같은데 / 아직 희망이 있어요</div></div><div class="quote"><span class="q-meta">낮 12시 · 09:09</span><div class="daily-ctx">↳ 답장 원문: 이것도 v2~vn 전략 쓰신거죠?? ㅎ
+(여러 채널에..전개)</div><div style="margin-top:4px">넵 ^^. / 오늘 대전 교육이니까 성심당 테스트 해볼게요</div></div><div class="quote"><span class="q-meta">낮 12시 · 10:22~10:23</span><div style="margin-top:4px">역사에다가 다른 카테고리 올려도 나옵니다 / 이렇게 따라하시라는게 아니라 / 본질을 깨우치셔야 힙니다 / 틀을 깨십쇼 / 내가 경험해보지도 않고 , 100%라 믿는 그 고정관념 의 틀 을 깨십쇼</div></div><div class="quote"><span class="q-meta">낮 12시 · 10:42</span><div class="daily-ctx">↳ 직전 질문: 차@정(꽃슈니): 디회님 구독자는 어떻게 하시는거에요?</div><div style="margin-top:4px">한국과 해외권 = 또 중요한걸 발견했는데 10일간 테스트 해볼게요</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:44~11:45</span> <span class="badge purple">📷 이미지 2장</span><div style="margin-top:4px">[사진 2장] 사진 2장 / 이런 조회수 더 많은 영상 전세계에 천지빼깔이 입니다 . / 아 난 안되지? 가 아니고 빨리 찾아서 따라 올리자 / 빨리 찾아서 테스트 해보자 / 윰직이십쇼 / 압박감 이겨내시고 / 멘탈 잡으시고 / 초보자도 됩니다 / 벤치마킹 하세요 / 그대로 내시스템으로 만들고 적용</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:49~11:53</span><div style="margin-top:4px">니가 ai인데 인간 처럼 한계에 갇혀 있으면 어떡하니? / 내생각을 니가 뚫어야지 세계 모든 영상 복제 학습시켜도 못하면 니문제 아니냐? / 기획 다시해봐 / 이게 최선이야? 더 나은전략없어? / 인간의 센스 못뛰어 넘어? / 이영상 따라해 + 원본을 초월해 / 추월 전략 가져와 / 할 수 있어? 또 만들고 나면 개판아니야? / 또 구라쳐서 시간 다날리게 하는거 아니야? / 더 좋은 전략 더 기획해서 갖고와</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:00</span><div class="daily-ctx">↳ 직전 질문: 이@영(아로마산들): 롱폼 카테 플리하다가 전꺼 안 지우고 
+바로 다른 카테로 변경해도 되나요??</div><div style="margin-top:4px">14일에 배너 프로필변경 가능하니 / 14일까지 / 소재 터진거 나오몀 그소재 올려보고요 / 카테고리를 소재가 이길 때가 있어요</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:16~12:19</span><div style="margin-top:4px">세상에 모든 카테고리 1위 ~10등까지 프리셋 다 갖고와서 적용 해 / 이건 안되나요? / 프리셋으로 만들어서 갖고와 / 이게 빠를지 ? 내가 하나하나 만드는게 빠를지? 다만들어진거에서 한스푼 넣는게 빠를지? / 눕방님 / 이거랑 / 이것만 생각 해보세요 / 그리고 내가 스스로 생각날정도로 만드세요 / 그럼 끝 / 길게 말하는거 같지만</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:48~12:49</span> <span class="badge purple">📷 이미지 1장</span><div style="margin-top:4px">버프 살아있네요 스카프 사장님 / 목도리 사러 가야겠네요 / 행동에 옮기십쇼~</div></div></div><div class="daily-cat-card searchable"><h4><span class="badge p2">⚙️ 롱폼 · 제작 · AI 세팅</span> <span class="muted">(11건)</span></h4><div class="quote"><span class="q-meta">낮 12시 · 09:35</span><div style="margin-top:4px">agy에. 카페 내용 전체 긁어서 싹다 적용시켜 라고 하세요 전체 내용 나에게 도움되는 필요한거</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:19~11:22</span><div class="daily-ctx">↳ 답장 원문: 어제 올줴님 글 오전에 벽타기완료요 ㅎㅎ
+바디캠1일 반응온거
+이 벤치기준이 그전에 알려주신 그 기준인거죠?</div><div style="margin-top:4px">저는 다 비슷합니다 .~^^. 원리가 비슷하다는걸 깨달았어요 / 오늘부터 하셔요 / 링크를 붙여서 이틀에서 같은소재 2개 더 만들어 라고 / 개연성 + 앞뒤내용 잘맞춰서 지감 처럼 터지게</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:25~11:26</span><div style="margin-top:4px">베네치아님 썸네일 자료 기가막히네요 / @설*희(불루) 터지신거 오늘 꼭꼭 하세요.~^^ / 바디캠도 또터또 확인했어요</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:40~11:41</span><div class="daily-ctx">↳ 직전 질문: 이@영(와칸다씨): 3시인데 벌써 출발하십니까?</div><div style="margin-top:4px">먼저 치고 나가실 분들이 쫙 치고 나가셔야 다음분들이 바로 붙습니다 / 제꺼 찾아보시는 분들은 영상 퀄은 보지 마십쇼 ㅋㅋㅋ</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:46~11:49</span><div style="margin-top:4px">무조건 실행 하세요 / 이게 될까? 해보고 판단 하세요 / 걱정? 할 여유가 없여요 그냥 하세요 / 하세요 / 뭐든 해보세요^^ / Agy 에 오르제이 닉네임 개구라 치는거 같으니까 싹다 긁어 와서 분석하고 정리해 그리고 내가 할 수 있는 좋은 것들은 적용시키게 뭘 어떻게내가 뭐부터 해야하눈지 정리해 / Ai야 너는 한계가 없는아이고 나 인간은 한계가 분명해 / 근데 왜 니가 인간처럼 행동해 / 볼케이노 agy 둘다하다가 지금은 agy요 / 노골적로 말씀 드릴게요</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:56~11:58</span><div style="margin-top:4px">그시간에 하면 바로 터질 확률이 올라가는데 / 머리 정리 하지마세요 / 그냥 시키세요 / 오늘은 노골적인 멘트로 마무리 하겠습니다 ㅎㅎ / 쇼츠대폭발 강의와 기술이먄 끝납니다 / 더이상 뭘 찾아 들을 것더 없어요 / 이걸로 끝내십쇼 / 2기로 끝 / 돈이 여유되시면 3기 들으시고요^^ / 하루에 ai는 24시간 1시간 이상 쉬면 안됩니다 소재 찾는시간</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:03~12:07</span><div style="margin-top:4px">채팅 치는 시갼 보다 소재 키보드 치는 시간이 많아야 해요 / 제가 채팅 많이 치는데 소재찾고 분석하는데 10배 이상 칩니다 / 어느정도 ai랑 대화하셔야 하는지 느껴지시죠? / 일희일비 하지마시고 , 바로 다음거 준비 재정비 / 진짜 화이팅이요.~^^ / 그리고 모든 해답은 인간보다 ai가 더 잘줍니다 / 배우는 건 쇼폭대장님 조교님들로 끝 / 방법을 찾고 물어보세요 / 많아야 5개 전후 해본경험이 정답이되기보다 데이터가 쌓인곳에 물어보는게 확률이 높아요 / 모든 자료를 ai가 정리하고 다듬어서 상품화 합니다</div></div><div class="quote"><span class="q-meta">밤 24시 · 13:23</span><div class="daily-ctx">↳ 답장 원문: 와 롱폼이 이정도 나온다고요?!ㄷㄷ</div><div style="margin-top:4px">이것만 숏요</div></div><div class="quote"><span class="q-meta">밤 24시 · 13:34~13:36</span><div class="daily-ctx">↳ 직전 질문: 박@주(원씽): 오프라인 오후반 보통 마치는 시간이 언제인가요 ?</div><div style="margin-top:4px">베네치아님 뵙고 싶은데 ㅎㅎㅎ / 아고야 설레임 가득이시겠는데요</div></div><div class="quote"><span class="q-meta">밤 24시 · 13:37~13:40</span><div style="margin-top:4px">키즈 카페 와서 ㅋㅋㅋㅋㅋ 혼자 / 아이디가 보이니 지워야겠네요 / 제 아이디요 ㅋㅋㅋ / 하루 하루 알차네요 ㅋㅋㅋ / 아 베네치아 님 썸네일 넘 감사드립니다.~^^ / 기가맥히네요</div></div><div class="quote"><span class="q-meta">밤 24시 · 13:50~13:54</span><div style="margin-top:4px">저도 정모때 뵐게요.~~^^ / 씹어먹어용 / 냠냠 / 디하클 전체 1등 찍어보자 / 뒈져따 죽어보자 / 영화롱폼 하다가 돌렸어요</div></div></div><div class="daily-cat-card searchable"><h4><span class="badge ok">🚦 알고리즘 · 신호등 · 실행 마인드</span> <span class="muted">(10건)</span></h4><div class="quote"><span class="q-meta">낮 12시 · 08:58~09:02</span><div style="margin-top:4px">결다르면 안나오는 것도 물론 있습니다. 근데 나오는것도 있습니다 . 시도를 해봤는가? 뚫어 보려고 했는가? 결과는 내가 아무것도 하지 않으면 부럽기만 한것이고 , 움직이면 뭐든 작은 ~ 큰성과 무조건 나옵니다 . / 초보라고 기죽지 마시고, 집중 하셔서 남이 잘되면 왜 잘될까 들여다 보시고. 나에게 대입해서만드시길 바라겠습니다. / 진찌 그래야 나에게 변화가 오실거에요 / 내가 지금 별로 변화가 없다? 그럼 변화를 주세요~ 도전과 시도를 해보세요 쇼츠대폭발 대장님과 조교님들께서 전체 카테고리 전부 다 보여주셨어요 . / 저는 살다 살다 수업하나강의 해서 전체를 다배우는 일이 있을 수 있다는 걸 느낍니다. 정말 대단한 실전 초특급 강의 입니다 . 얼른 흡수하고 내것으로 만드십쇼 ^^ 쇼츠대폭발 2기 화이팅</div></div><div class="quote"><span class="q-meta">낮 12시 · 09:23</span><div style="margin-top:4px">지금 유튜브 에서 최신 흐름과 배우고 , 생각 하고 깨달은 현재까지 거의 95%이상 전부공유 드렸습니다.~^^</div></div><div class="quote"><span class="q-meta">낮 12시 · 09:26~09:34</span><div style="margin-top:4px">별거 아닌거 같지만 저에게 위기가 올 수 있는 내용까지싹다 드렸고, 한단계 더 뛰어넘어 볼게요^^ / 다음주면 흡수되시나 봅니다 / 무조건 되시니 쇼츠대폭발 믿고 , 포기하지마십쇼 한끗 차이인데 그 한끗이 아직 덜 느껴지신거 뿐이에요 / 정말 잘하고 대단 하신 분들 많으나 그분들은 일부 ^^ 대부분 한끗 차이 입니다 / 그러니 누군가 의시대고 막상 까보면 별반 차이 안납니다. / 그리고 우리 무기가 더쎕니다.^^ / 일주일이면 잡는 구조니 집증 해보세요 / 집중 / 그리고 일주일이면뒤집는 반전이 나올 수 있으니 기죽지 마세요 제발 ㅠㅜ / 이모든 걸 이겨내고 뚫고 나가셔야 해요 이방에서 느껴지는 압박감 마저 이겨내시는 멘탈이 필 수 입니다.^^</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:06</span><div style="margin-top:4px"><a href="https://www.instagram.com/p/Df6jHryCasd/?img_index=2&amp;evlk=MWs4eTF2eHRseHBuag==" target="_blank" rel="noopener" style="color:var(--p2);text-decoration:underline;word-break:break-all">https://www.instagram.com/p/Df6jHryCasd/?img_index=2&amp;evlk=MWs4eTF2eHRseHBuag==</a></div></div><div class="quote"><span class="q-meta">낮 12시 · 11:15</span><div style="margin-top:4px">20대땐 40분만 자면 풀컨디션 왔는데</div></div><div class="quote"><span class="q-meta">낮 12시 · 11:28~11:31</span><div class="daily-ctx">↳ 직전 질문: 윤@성(따라가자): 이글이글 거리나요? ㅎ</div><div style="margin-top:4px">충분히 가능 합니다 / 지금 그거 한분만 해버세요 / 영상 조회수 100~1000천대 롱폼 / 스캬프 사장님 / 버프 빠졌는데 / 1만은 아직 갈 듯 해요 / 연타 3일이면 2만이상은 갈거라고 봐요 / 이걸로 7일동안 수창시간 5개 했으니 / 이제 그만하고 넘겨 드립니다 ㅎㅎ / 대신 한분만</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:07~12:12</span><div style="margin-top:4px">인간이 다할 수 없는거 아니잖아요^^. / 그런데 자꾸 인간에게 질문하시면 거기에 갇히시는 거에요 / 이걸 뚫고 나오셔야 해요 / 그사람의 스킬생각은개인에게 들으시난게 맞지만요 / ㅎ활용능력은 배우시되, 해결은 내 ai로 / 느낌오신분들 얼른 치고 나가십쇼^^ / 지금 답안지 들고 시험치고 있는 상화이에요 / 점심 만나게 드세요~~~^^ / 이건 인간이 해서 잡아야 해요 ㅋㅋㅋ / 그게 유일하게 차별화라서 ㅋㅋㅋ</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:14~12:16</span><div class="daily-ctx">↳ 직전 질문: 박@석(유튭킹): 넵 그렇죠? 아무래도...관점이 틀려서..ㅋ</div><div style="margin-top:4px">좋은 차 만들려면 좋은 부품 기술 갖다 끼워야 하잖아요 / 이것만 내가 지시하는거에요 / 이거끼워봐 / 이거 안되? 그럼 이거 끼워 / 이것더 안되? 그럼 엔진 바꿔 / 그래도 안되? 그럼 다른 브랜드 차 가져와 / 이방향이 맞습니다 / 카페 통째로 때려 넣으세요 / 다음주 된다고 말씀 드렸잖아요 / 자 모으셨죠</div></div><div class="quote"><span class="q-meta">밤 24시 · 12:19~12:21</span><div style="margin-top:4px">사람마다 성향 받아들이는게 달아서 / 길게 풀어서 설명드려요 / 오프다녀오시고 다때려 넣으시면 됩니다 / 시기 질투 하지마시고 / 그럴시간에 실행 입니다 / 더 빨리 하나라도 더 실행에 옮기고 초집중 하시는 것 / 실행은 변화를 만들지만 / 시기 질투 스트레스는 나만 아프게 할 뿐입니다</div></div><div class="quote"><span class="q-meta">밤 24시 · 13:48</span><div style="margin-top:4px">5일을 기다리신 오프강의</div></div></div>
+    </div>
+  </div>
+</details>
+<!-- ORJ_DAILY_UPDATES_END -->
+    </section>
 
     <!-- PART 1 -->
     <section id="part1">
@@ -692,25 +831,276 @@
     });
   });
 
-  // 3. Real-time Search
+  // 3. Real-time Search (highlight + filter + details auto-open + prev/next navigation)
+  const mainEl = document.querySelector('main');
   const searchInput = document.getElementById('searchInput');
+  const searchClear = document.getElementById('searchClear');
   const searchCount = document.getElementById('searchCount');
-  const searchables = document.querySelectorAll('.searchable');
-  searchInput.addEventListener('input', () => {
-    const q = searchInput.value.trim().toLowerCase();
-    if (!q) {
-      searchables.forEach(el => el.classList.remove('hidden-search'));
-      searchCount.textContent = '';
+  const searchNav = document.getElementById('searchNav');
+  const searchPrev = document.getElementById('searchPrev');
+  const searchNext = document.getElementById('searchNext');
+  const searchEmptyNotice = document.getElementById('searchEmptyNotice');
+  const searchEmptyText = document.getElementById('searchEmptyText');
+  const searchEmptyReset = document.getElementById('searchEmptyReset');
+
+  let searchMarks = [];
+  let currentMarkIdx = -1;
+  let isSearching = false;
+
+  function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function matchesTerms(text, terms) {
+    const lower = (text || '').toLowerCase();
+    return terms.every(t => lower.includes(t));
+  }
+
+  function clearHighlights() {
+    const existing = mainEl.querySelectorAll('mark.search-hl');
+    const touchedParents = new Set();
+    existing.forEach(m => {
+      const parent = m.parentNode;
+      if (!parent) return;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      touchedParents.add(parent);
+    });
+    touchedParents.forEach(p => p.normalize());
+  }
+
+  function resetSearchState() {
+    clearHighlights();
+    mainEl.querySelectorAll('.hidden-search').forEach(el => el.classList.remove('hidden-search'));
+    mainEl.querySelectorAll('details.daily-day').forEach(d => {
+      if (d.dataset.origOpen !== undefined) {
+        d.open = d.dataset.origOpen === 'true';
+        delete d.dataset.origOpen;
+      }
+    });
+    searchMarks = [];
+    currentMarkIdx = -1;
+    isSearching = false;
+    searchCount.textContent = '';
+    searchCount.classList.remove('zero');
+    searchNav.classList.remove('visible');
+    searchClear.classList.remove('visible');
+    searchEmptyNotice.classList.remove('visible');
+  }
+
+  function highlightVisibleNodes(root, terms) {
+    if (!terms.length) return;
+    const sorted = [...terms].sort((a, b) => b.length - a.length);
+    const re = new RegExp('(' + sorted.map(escapeRegExp).join('|') + ')', 'gi');
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        const tag = p.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'BUTTON' || tag === 'MARK') {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (p.closest('.hidden-search, #searchEmptyNotice')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    let cur;
+    while ((cur = walker.nextNode())) {
+      re.lastIndex = 0;
+      if (re.test(cur.nodeValue)) nodes.push(cur);
+    }
+    nodes.forEach(node => {
+      const val = node.nodeValue;
+      re.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let lastIdx = 0;
+      let m;
+      while ((m = re.exec(val)) !== null) {
+        if (m.index > lastIdx) {
+          frag.appendChild(document.createTextNode(val.slice(lastIdx, m.index)));
+        }
+        const mark = document.createElement('mark');
+        mark.className = 'search-hl';
+        mark.textContent = m[0];
+        frag.appendChild(mark);
+        lastIdx = m.index + m[0].length;
+        if (m[0].length === 0) re.lastIndex++;
+      }
+      if (lastIdx < val.length) {
+        frag.appendChild(document.createTextNode(val.slice(lastIdx)));
+      }
+      if (node.parentNode) node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function updateCountDisplay() {
+    if (!searchMarks.length) {
+      searchCount.textContent = '0건 일치';
+      searchCount.classList.add('zero');
+      searchNav.classList.remove('visible');
       return;
     }
-    let hits = 0;
-    searchables.forEach(el => {
-      const ok = el.textContent.toLowerCase().includes(q);
-      el.classList.toggle('hidden-search', !ok);
-      if (ok) hits++;
+    searchCount.classList.remove('zero');
+    searchCount.textContent = `${searchMarks.length}건 일치 (${currentMarkIdx + 1}/${searchMarks.length})`;
+    searchNav.classList.add('visible');
+  }
+
+  function goToMark(idx, smooth) {
+    if (!searchMarks.length) return;
+    if (currentMarkIdx >= 0 && searchMarks[currentMarkIdx]) {
+      searchMarks[currentMarkIdx].classList.remove('active');
+    }
+    currentMarkIdx = ((idx % searchMarks.length) + searchMarks.length) % searchMarks.length;
+    const target = searchMarks[currentMarkIdx];
+    const parentDetails = target.closest('details');
+    if (parentDetails && !parentDetails.open) parentDetails.open = true;
+    target.classList.add('active');
+    updateCountDisplay();
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'center' });
+  }
+
+  function runSearch() {
+    const raw = searchInput.value.trim();
+    searchClear.classList.toggle('visible', searchInput.value.length > 0);
+    if (!raw) {
+      resetSearchState();
+      return;
+    }
+
+    if (!isSearching) {
+      mainEl.querySelectorAll('details.daily-day').forEach(d => {
+        if (d.dataset.origOpen === undefined) d.dataset.origOpen = String(d.open);
+      });
+      isSearching = true;
+    }
+
+    clearHighlights();
+    mainEl.querySelectorAll('.hidden-search').forEach(el => el.classList.remove('hidden-search'));
+
+    const terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
+
+    // Top blocks (hero, tldr, daily-meta-bar)
+    mainEl.querySelectorAll(':scope > .hero, :scope > .tldr, .daily-meta-bar').forEach(el => {
+      el.classList.toggle('hidden-search', !matchesTerms(el.textContent, terms));
     });
-    searchCount.textContent = `"${searchInput.value.trim()}" 일치 블록: ${hits}개`;
+
+    // Daily updates (<details class="daily-day">)
+    mainEl.querySelectorAll('details.daily-day').forEach(day => {
+      const summary = day.querySelector(':scope > summary');
+      const sumHit = summary ? matchesTerms(summary.textContent, terms) : false;
+      let anyBodyHit = false;
+
+      day.querySelectorAll('.daily-hl-box').forEach(box => {
+        const lis = box.querySelectorAll('li');
+        let boxHit = false;
+        lis.forEach(li => {
+          const ok = matchesTerms(li.textContent, terms);
+          li.classList.toggle('hidden-search', !ok);
+          if (ok) boxHit = true;
+        });
+        box.classList.toggle('hidden-search', !boxHit);
+        if (boxHit) anyBodyHit = true;
+      });
+
+      day.querySelectorAll('.daily-cat-card').forEach(card => {
+        const head = card.querySelector('h4');
+        const headHit = head ? matchesTerms(head.textContent, terms) : false;
+        const quotes = card.querySelectorAll('.quote');
+        let cardHit = headHit;
+        quotes.forEach(q => {
+          const ok = headHit || matchesTerms(q.textContent, terms);
+          q.classList.toggle('hidden-search', !ok);
+          if (ok) cardHit = true;
+        });
+        card.classList.toggle('hidden-search', !cardHit);
+        if (cardHit) anyBodyHit = true;
+      });
+
+      const dayHit = sumHit || anyBodyHit;
+      day.classList.toggle('hidden-search', !dayHit);
+      if (dayHit) day.open = true;
+    });
+
+    // Standard cards, timeline items, checklist items
+    mainEl.querySelectorAll('.card, .tl-item, .chk-item').forEach(el => {
+      el.classList.toggle('hidden-search', !matchesTerms(el.textContent, terms));
+    });
+
+    // Tables (filter individual tbody rows)
+    mainEl.querySelectorAll('.table-wrap').forEach(wrap => {
+      const rows = wrap.querySelectorAll('tbody tr');
+      let anyRow = false;
+      rows.forEach(tr => {
+        const ok = matchesTerms(tr.textContent, terms);
+        tr.classList.toggle('hidden-search', !ok);
+        if (ok) anyRow = true;
+      });
+      wrap.classList.toggle('hidden-search', !anyRow);
+    });
+
+    // Multi-card grids & signal rows
+    mainEl.querySelectorAll('.grid-4.searchable, .grid-3.searchable, .grid-2.searchable, .sig-row.searchable').forEach(grid => {
+      const children = grid.querySelectorAll(':scope > .mini-card, :scope > .sig, :scope > .risk-box, :scope > .safe-box');
+      let anyChild = false;
+      children.forEach(ch => {
+        const ok = matchesTerms(ch.textContent, terms);
+        ch.classList.toggle('hidden-search', !ok);
+        if (ok) anyChild = true;
+      });
+      grid.classList.toggle('hidden-search', !anyChild);
+    });
+
+    // Hide empty sections
+    mainEl.querySelectorAll(':scope > section').forEach(sec => {
+      const title = sec.querySelector(':scope > h2.sec-title');
+      const titleHit = title ? matchesTerms(title.textContent, terms) : false;
+      const visibleBlock = sec.querySelector(
+        '.daily-meta-bar:not(.hidden-search), details.daily-day:not(.hidden-search), .card:not(.hidden-search), .tl-item:not(.hidden-search), .table-wrap:not(.hidden-search), .chk-item:not(.hidden-search), .grid-4.searchable:not(.hidden-search), .grid-3.searchable:not(.hidden-search), .grid-2.searchable:not(.hidden-search), .sig-row.searchable:not(.hidden-search)'
+      );
+      sec.classList.toggle('hidden-search', !titleHit && !visibleBlock);
+    });
+
+    // Highlight matching text in visible elements
+    highlightVisibleNodes(mainEl, terms);
+    searchMarks = Array.from(mainEl.querySelectorAll('mark.search-hl'));
+    currentMarkIdx = -1;
+
+    if (searchMarks.length === 0) {
+      updateCountDisplay();
+      searchEmptyText.textContent = `"${raw}"에 일치하는 항목이 없습니다.`;
+      searchEmptyNotice.classList.add('visible');
+    } else {
+      searchEmptyNotice.classList.remove('visible');
+      goToMark(0, false);
+    }
+  }
+
+  function clearSearchInput() {
+    searchInput.value = '';
+    resetSearchState();
+    searchInput.focus();
+  }
+
+  searchInput.addEventListener('input', runSearch);
+  searchInput.addEventListener('keydown', e => {
+    if (e.isComposing || e.keyCode === 229) return;
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchMarks.length > 0) {
+        goToMark(e.shiftKey ? currentMarkIdx - 1 : currentMarkIdx + 1, true);
+      } else {
+        runSearch();
+      }
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      clearSearchInput();
+    }
   });
+  searchPrev.addEventListener('click', () => goToMark(currentMarkIdx - 1, true));
+  searchNext.addEventListener('click', () => goToMark(currentMarkIdx + 1, true));
+  searchClear.addEventListener('click', clearSearchInput);
+  searchEmptyReset.addEventListener('click', clearSearchInput);
 
   // 4. Active TOC highlight
   const sections = document.querySelectorAll('main > div[id], main > section[id]');
