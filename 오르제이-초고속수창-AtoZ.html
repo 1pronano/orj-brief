@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>오르제이 초고속 수창 · 다채널 자동화 완전 정복 A to Z</title>
+<style>
+  :root {
+    --bg:#090c12; --surface:#111622; --surface2:#171f30; --surface3:#1e2940;
+    --text:#e8edf5; --muted:#94a3b8; --dim:#64748b;
+    --accent:#5eead4; --accent-dim:rgba(94,234,212,.14);
+    --p0:#f43f5e; --p1:#f59e0b; --p2:#38bdf8; --ok:#10b981; --purple:#a855f7;
+    --border:#232f46; --radius:14px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo",sans-serif;
+    line-height:1.68; font-size:14.5px;
+  }
+  .layout { display:grid; grid-template-columns:270px 1fr; min-height:100vh; }
+
+  /* Sidebar */
+  .sidebar {
+    position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0c1018; border-right:1px solid var(--border);
+    padding:20px 16px 32px; display:flex; flex-direction:column; gap:14px;
+  }
+  .brand {
+    padding:12px 14px; border-radius:12px;
+    background:linear-gradient(135deg,rgba(94,234,212,.14),rgba(56,189,248,.06));
+    border:1px solid rgba(94,234,212,.3);
+  }
+  .brand .eyebrow { font-size:11px; font-weight:800; color:var(--accent); letter-spacing:.05em; }
+  .brand h2 { margin:4px 0 2px; font-size:16px; color:#fff; border:none; padding:0; }
+  .brand p { margin:0; font-size:11.5px; color:var(--muted); }
+
+  .search-box { position:relative; }
+  .search-box input {
+    width:100%; padding:9px 12px 9px 32px; border-radius:10px;
+    border:1px solid var(--border); background:var(--surface);
+    color:#fff; font-size:13px; outline:none;
+  }
+  .search-box input:focus { border-color:var(--accent); }
+  .search-box .icon { position:absolute; left:10px; top:9px; font-size:13px; color:var(--muted); }
+  .search-count { font-size:11px; color:var(--accent); margin-top:4px; min-height:16px; }
+
+  .progress-card {
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:11px 12px;
+  }
+  .progress-head { display:flex; justify-content:space-between; font-size:12px; font-weight:700; margin-bottom:6px; }
+  .progress-bar { height:7px; background:var(--surface3); border-radius:999px; overflow:hidden; }
+  .progress-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--accent),var(--p2)); transition:width .25s ease; }
+
+  .toc { display:flex; flex-direction:column; gap:4px; }
+  .toc a {
+    display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:9px;
+    color:#cbd5e1; text-decoration:none; font-size:12.8px; font-weight:600;
+    border:1px solid transparent; transition:all .15s;
+  }
+  .toc a:hover, .toc a.active {
+    background:var(--surface2); border-color:rgba(94,234,212,.35); color:var(--accent);
+  }
+  .toc .num {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:20px; height:20px; border-radius:6px; font-size:11px; font-weight:800;
+    background:var(--surface3); color:var(--accent); flex-shrink:0;
+  }
+
+  /* Main */
+  main { padding:26px 32px 90px; max-width:1120px; width:100%; margin:0 auto; }
+
+  .hero {
+    background:linear-gradient(135deg,#121a2d,#1b1433 60%,#0f232c);
+    border:1px solid var(--border); border-radius:18px; padding:26px 26px 22px;
+    margin-bottom:22px;
+  }
+  .hero .tag {
+    display:inline-block; font-size:11.5px; font-weight:800; color:var(--accent);
+    background:rgba(94,234,212,.12); border:1px solid rgba(94,234,212,.35);
+    padding:3px 10px; border-radius:999px; margin-bottom:10px;
+  }
+  .hero h1 { margin:0 0 10px; font-size:26px; line-height:1.3; color:#fff; }
+  .hero .lead { margin:0 0 18px; color:#dbeafe; font-size:14.5px; }
+
+  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .kpi {
+    background:rgba(255,255,255,.04); border:1px solid var(--border);
+    border-radius:12px; padding:12px 10px; text-align:center;
+  }
+  .kpi b { display:block; font-size:18px; color:#fff; }
+  .kpi span { font-size:11.5px; color:var(--muted); }
+
+  .tldr {
+    background:linear-gradient(90deg,rgba(94,234,212,.13),rgba(56,189,248,.05));
+    border:1px solid rgba(94,234,212,.4); border-radius:14px;
+    padding:16px 20px; margin-bottom:26px;
+  }
+  .tldr-label { font-size:11.5px; font-weight:800; color:var(--accent); letter-spacing:.06em; margin-bottom:6px; }
+  .tldr p { margin:0; font-size:14.8px; font-weight:600; color:#fff; }
+
+  section { margin-top:34px; scroll-margin-top:20px; }
+  h2.sec-title {
+    font-size:20px; color:#fff; margin:0 0 14px; padding-left:12px;
+    border-left:4px solid var(--accent); display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  h3 { font-size:15.5px; color:var(--accent); margin:0 0 8px; }
+
+  .card {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:18px 20px; margin-bottom:14px;
+  }
+  .card.hidden-search { display:none; }
+
+  .badge {
+    display:inline-block; font-size:11px; font-weight:800; padding:2px 8px;
+    border-radius:6px; white-space:nowrap; vertical-align:middle;
+  }
+  .badge.p0 { background:var(--p0); color:#fff; }
+  .badge.p1 { background:var(--p1); color:#111; }
+  .badge.p2 { background:var(--p2); color:#111; }
+  .badge.ok { background:var(--ok); color:#052e16; }
+  .badge.purple { background:var(--purple); color:#fff; }
+  .badge.del { background:rgba(244,63,94,.2); color:#fda4af; border:1px solid rgba(244,63,94,.45); }
+
+  /* Timeline */
+  .timeline { position:relative; padding-left:26px; }
+  .timeline::before {
+    content:""; position:absolute; left:9px; top:8px; bottom:8px; width:2px;
+    background:linear-gradient(180deg,var(--accent),var(--p2),var(--p0));
+  }
+  .tl-item {
+    position:relative; background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:16px 18px; margin-bottom:14px;
+  }
+  .tl-item::before {
+    content:""; position:absolute; left:-22px; top:20px; width:12px; height:12px;
+    border-radius:50%; background:var(--accent); border:3px solid var(--bg);
+  }
+  .tl-item.major { border-color:rgba(94,234,212,.45); background:linear-gradient(180deg,#131b2b,#111622); }
+  .tl-item.major::before { background:var(--p0); box-shadow:0 0 10px rgba(244,63,94,.6); }
+  .tl-head { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+  .tl-date {
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; font-weight:800;
+    color:#93c5fd; background:#1d2840; padding:2px 8px; border-radius:6px;
+  }
+  .tl-title { font-size:15.5px; font-weight:800; color:#fff; }
+
+  .quote {
+    background:var(--surface2); border-left:3px solid var(--accent);
+    border-radius:8px; padding:10px 13px; margin:10px 0 6px; font-size:13.3px; color:#e2e8f0;
+  }
+  .quote.del-q { border-left-color:var(--p0); background:rgba(244,63,94,.07); }
+  .quote .q-meta {
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px;
+    color:#93c5fd; margin-right:6px;
+  }
+
+  /* Grids */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+
+  .mini-card {
+    background:var(--surface2); border:1px solid var(--border);
+    border-radius:12px; padding:14px;
+  }
+  .mini-card b { display:block; color:#fff; font-size:14.2px; margin-bottom:5px; }
+  .mini-card p { margin:0; font-size:13px; color:#cbd5e1; }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius);
+    background:var(--surface); margin-bottom:14px;
+  }
+  table { width:100%; border-collapse:collapse; font-size:13.3px; min-width:640px; }
+  th {
+    background:var(--surface2); color:var(--accent); text-align:left;
+    padding:11px 13px; border-bottom:1px solid var(--border); font-size:12.5px;
+  }
+  td {
+    padding:11px 13px; border-bottom:1px solid rgba(35,47,70,.65);
+    vertical-align:top; color:#dbe5f4;
+  }
+  tr:last-child td { border-bottom:none; }
+
+  /* Signal lights */
+  .sig-row { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:14px; }
+  .sig {
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 12px;
+  }
+  .sig .range { font-size:14px; font-weight:800; color:#fff; margin:6px 0 4px; }
+  .sig p { margin:0; font-size:12.3px; color:#cbd5e1; }
+
+  /* Split risk/safe */
+  .risk-box {
+    background:rgba(244,63,94,.06); border:1px solid rgba(244,63,94,.38);
+    border-radius:var(--radius); padding:16px 18px;
+  }
+  .safe-box {
+    background:rgba(16,185,129,.06); border:1px solid rgba(16,185,129,.38);
+    border-radius:var(--radius); padding:16px 18px;
+  }
+  .risk-box h3 { color:#fda4af; }
+  .safe-box h3 { color:#6ee7b7; }
+
+  /* Tabs & Checklist */
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .tab-btn {
+    padding:7px 14px; border-radius:999px; border:1px solid var(--border);
+    background:var(--surface); color:#cbd5e1; font-size:12.5px; font-weight:700; cursor:pointer;
+  }
+  .tab-btn.active { background:var(--accent-dim); border-color:var(--accent); color:var(--accent); }
+
+  .chk-list { display:flex; flex-direction:column; gap:8px; }
+  .chk-item {
+    display:flex; gap:11px; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:13px 15px; cursor:pointer; transition:border-color .15s;
+  }
+  .chk-item:hover { border-color:rgba(94,234,212,.4); }
+  .chk-item input[type=checkbox] {
+    width:18px; height:18px; margin-top:2px; accent-color:var(--accent); flex-shrink:0; cursor:pointer;
+  }
+  .chk-item.done { opacity:.58; }
+  .chk-item.done .chk-title { text-decoration:line-through; }
+  .chk-title { font-weight:800; color:#fff; font-size:14px; margin-bottom:3px; }
+  .chk-desc { font-size:12.8px; color:#cbd5e1; }
+
+  code {
+    background:#1e293b; color:#e2e8f0; padding:1px 6px; border-radius:5px;
+    font-size:12.3px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  ul.clean { margin:6px 0 0; padding-left:18px; }
+  ul.clean li { margin-bottom:6px; color:#dbe5f4; }
+  mark { background:rgba(245,158,11,.35); color:#fff; border-radius:3px; padding:0 2px; }
+  .muted { color:var(--muted); font-size:12.5px; }
+
+  @media (max-width:960px) {
+    .layout { grid-template-columns:1fr; }
+    .sidebar { position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border); }
+    main { padding:18px 14px 60px; }
+    .kpi-grid, .grid-4 { grid-template-columns:repeat(2,1fr); }
+    .grid-2, .grid-3, .sig-row { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="eyebrow">SWITCHING SHORTS 2ND · FULL AUDIT</div>
+      <h2>오르제이 A to Z 대시보드</h2>
+      <p>2026-09-08 ~ 11-20 (74일 전수 분석)</p>
+    </div>
+
+    <div class="search-box">
+      <span class="icon">🔍</span>
+      <input id="searchInput" type="text" placeholder="키워드 실시간 검색 (예: 둔갑, 틱톡, CTV...)">
+      <div id="searchCount" class="search-count"></div>
+    </div>
+
+    <div class="progress-card">
+      <div class="progress-head">
+        <span>실전 적용 로드맵</span>
+        <span id="progText">0 / 10 완료</span>
+      </div>
+      <div class="progress-bar"><div id="progFill" class="progress-fill"></div></div>
+    </div>
+
+    <nav class="toc">
+      <a href="#stats"><span class="num">0</span> 실측 데이터 &amp; 핵심 결론</a>
+      <a href="#part1"><span class="num">1</span> 대도약 &amp; 7대 깨달음 변곡점</a>
+      <a href="#part2"><span class="num">2</span> 소재 발굴 &amp; 선정 기준</a>
+      <a href="#part3"><span class="num">3</span> 초고속 롱폼·숏폼 제작 세팅</a>
+      <a href="#part4"><span class="num">4</span> 다계정 50~100개·자동화·틱톡</a>
+      <a href="#part5"><span class="num">5</span> 오르제이 6대 비기 &amp; 안전선</a>
+      <a href="#part6"><span class="num">6</span> 팩트체크: 내가 놓치는 Gap 10선</a>
+      <a href="#roadmap"><span class="num">✓</span> 즉시 실행 체크리스트</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div id="stats" class="hero searchable">
+      <span class="tag">2기 프리미엄방 전수 · 삭제 복원 17건 · 캡처 40장 · 카페 6편 · 11/19 오프특강 교차</span>
+      <h1>오르제이 초고속 수창 · 다채널 시스템화 완전 정복 A to Z</h1>
+      <p class="lead">생초보(09/08)에서 74일 만에 <b>7일간 4,000시간 수창 3개 돌파 · 단 1편 39만 뷰 원샷 수창 · 48시간 201만 뷰 · 유튜브 50채널 + 틱톡 46채널</b>을 만든 모든 깨달음, 소재 기준, 롱폼·숏폼 제작 세팅, 다PC 자동화, 그리고 <b>현재 우리 시스템이 놓치고 있는 10대 공백(Gap)</b>까지 빠짐없이 해부했습니다.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><b>8,263건+</b><span>오르제이 발화 전수 (74일)</span></div>
+        <div class="kpi"><b>40장 / 17건</b><span>11/20 캡처 판독 / 삭제 전 복원</span></div>
+        <div class="kpi"><b>6편 + 특강</b><span>카페 지침서 &amp; 11/19 오프특강</span></div>
+        <div class="kpi"><b>10대 Gap</b><span>우리 시스템 즉시 보완 항목</span></div>
+      </div>
+    </div>
+
+    <div class="tldr searchable">
+      <div class="tldr-label">⚡ 한 줄 핵심 공식 (오르제이 폭발의 본질)</div>
+      <p>① 1~3개월 최소영상·최대조회수 '무주공산/공공재' 스캔 → ② 잡도리보다 1~5위 '틀(Frame)' 100% 칼카피 우선 → ③ 1발 간보기 후 조회수 신호등(100 가열 · 1천 신호탄 · 2~3천 폭격) 판독 → ④ 터진 1개 소재를 <code>원형 + 둔갑(70% 변주)</code>으로 5~20채널 융단폭격 → ⑤ 4PC 크롬 물리 분리 · 틱톡 46채널 62초 리워드 · 거실 TV 락으로 완성한 <b>확률게임 공장</b></p>
+    </div>
+
+    <!-- PART 1 -->
+    <section id="part1">
+      <h2 class="sec-title">PART 1. 오르제이님의 대도약 &amp; 깨달음의 7대 변곡점</h2>
+      <p class="muted" style="margin:-6px 0 14px">2026년 9월 8일 <i>"수창 조건이 구독 1000, 시청시간 4000인가요?"</i>를 묻던 완전 입문자에서 11월 20일 주 1~2개 수창 공장으로 진화한 7번의 결정적 사고 전환입니다.</p>
+
+      <div class="timeline">
+        <div class="tl-item searchable">
+          <div class="tl-head">
+            <span class="tl-title">① 생초보 물량 돌파 &amp; 계정 100개 선확보</span>
+            <span class="tl-date">2026-09-08 ~ 09-21</span>
+          </div>
+          <p>25년 사기 피해금 약 32억·경매 3채라는 절박함에서 새벽 3시 취침·8시 기상(등하원+샵 병행)으로 돌입. <b>"노출 경쟁이 심하니 양부터 깔아야 한다"</b>를 체득하고 초반 2주 만에 가족·지인 폰으로 <b>계정 100개(유튜브 50 + 틱톡 50)</b> 선확보 및 7일 숙성. 뇌전구 하루 50~100개 생산 → 9/17 30.4만 → 9/19 80.3만 → 9/21 123.6만 돌파.</p>
+          <div class="quote"><span class="q-meta">09/10 15:31</span> "수창 조건이 구독 1000, 시청시간 4000 인가요? 그래서 롱폼 하나면 가능한거군요"<br><span class="q-meta">09/21 02:14</span> "계정 가족 지인 통해서 100개는 구한거 같은데... 유튜브 틱톡 한세트로"</div>
+        </div>
+
+        <div class="tl-item searchable">
+          <div class="tl-head">
+            <span class="tl-title">② '롱폼 수창 + 숏폼 구독자' 이원화 &amp; 첫 수창·자동화 개안</span>
+            <span class="tl-date">2026-10-01 ~ 10-26</span>
+          </div>
+          <p>쇼츠 1,000만 벽에 막히자 <b>롱폼=4,000시간 수창 / 숏폼=구독자 1,000명</b>으로 역할을 분리. 10/15 아르곤 도입, 10/20 크롬 자동업로드 + 채널 현황판 구축, 10/22 PC 4대 증설, <b>10/26 쇼츠 300만 첫 수창 달성</b>.</p>
+          <div class="quote"><span class="q-meta">10/01 22:14</span> "롱폼으로 수창하고, 숏폼으로 구독자 늘리고, 수창 이후 숏롱 둘 다 때리는 걸로"<br><span class="q-meta">10/26 02:17</span> "강의 듣는 도중에 쇼츠 3백만 수창 달성 했네요"</div>
+        </div>
+
+        <div class="tl-item searchable">
+          <div class="tl-head">
+            <span class="tl-title">③ '하고 싶은 채널' 폐기 → '수창 빠른 채널' 올인 + 한국→해외</span>
+            <span class="tl-date">2026-11-01 ~ 11-05</span>
+          </div>
+          <p>부동산 등 하고 싶은 채널에서 고전하며 깨달음: <b>"수창 전에는 취향을 버린다. 수창이 가장 빠른 채널로 수창부터 찍고, 한국에서 뚫리면 해외로 전환한다."</b> 동시에 AI 거짓 보고(구라) 적발 → 교차감시 시작.</p>
+          <div class="quote"><span class="q-meta">11/01 13:58</span> "수창 지점까지는 하고 싶은 채널보단 수창이 빠르게 가능한 채널들로 수창채널 만드는 데 집중하고, 만들고 나서 카테고리·숏츠·롱폼 재설정."</div>
+        </div>
+
+        <div class="tl-item major searchable">
+          <div class="tl-head">
+            <span class="tl-title">④ [대도약 #1] 상방 1,000만 리셋 · 100% 칼카피 3연승 · 파이썬 검문소</span>
+            <span class="tl-date">2026-11-07 ~ 11-08</span>
+          </div>
+          <p><b>① 시장 상방 10배 리셋:</b> 100만 시장 대신 <b>1,000만 시장의 1/10</b>을 노리자 조회수 벽이 깨짐.<br>
+          <b>② 100% 칼카피 먼저:</b> "영상 센스가 없으니 먼저 토씨 하나 안 틀리게 100% 칼카피로 조회수 뜨는 감부터 느껴라 → 그다음 순서 재배열(4,3,5,2,1) + 새 요소(11,12,13) 추가로 재창작."<br>
+          <b>③ 코드 자물쇠 &amp; 예시 80개:</b> 말 대신 파이썬 검문소로 차단, 좋은 링크 80개 학습으로 AI 감각 이식.</p>
+          <div class="quote"><span class="q-meta">11/04 01:49</span> "100만짜리를 따라 가자 했다가 1000만짜리 1/10 나오는 게 쉽겠는데?"<br><span class="q-meta">11/08 02:00</span> "100% 똑같이 썸네일까지 다 똑같도록 영상 만들어. 제가 이걸 3번 해봤는데 3번 다 터졌어요."</div>
+        </div>
+
+        <div class="tl-item major searchable">
+          <div class="tl-head">
+            <span class="tl-title">⑤ [대도약 #2] 카테 미지정 '47채널 확률게임' · V1~V5 변신 · 구라 0% 5일 정복</span>
+            <span class="tl-date">2026-11-10 ~ 11-16</span>
+          </div>
+          <p><b>영상 2개로 5일 만에 롱폼 수창</b>을 맛본 즉시 쇼츠 23개 중 22개를 롱폼으로 전면 전환 → <b>롱폼 46채널 + 쇼츠 1채널 = 하루 47번(월 1,400번) 확률게임!</b><br>
+          카테고리를 미리 정하지 않고 올리며 결을 맞추고, <b>1대박→V1~V5 변신(#2255, 5~6분 컷)</b> + <b>2세대 롱폼 5종(#2267)</b> + <b>5분×6 구간 검수</b>로 3일을 날리게 한 AI 거짓말을 5일 만에 완전 제압.</p>
+          <div class="quote"><span class="q-meta">11/16 01:35</span> "가장 잘못한 게 너무 정하고서 만들려고 했다는 거. 올리다가 결을 맞춰가면 되는데. 47×30일 = 1,400번이 한 달 동안의 기회네요."</div>
+        </div>
+
+        <div class="tl-item major searchable">
+          <div class="tl-head">
+            <span class="tl-title">⑥ [대도약 #3] 3단계 공식(빈집→확률→몰아주기) &amp; 7일 1등 버프 종료 20편 폭격</span>
+            <span class="tl-date">2026-11-17 ~ 11-18</span>
+          </div>
+          <p><b>빈집 독점 → 다채널 확률게임 → 터진 놈 몰아주기</b> 3단계 정립. 카테고리 7일 1~10등만 보고 11등 이하는 폐기, <b>1등 버프가 꺼지는 타이밍에 20편 폭탄 투하</b>. "조회수 나오는지 1번, 퀄리티 2번 / 잡도리보다 칼카피 틀 먼저". <b>11/18 하루 만에 4,000시간 2개 돌파 + 유효조회수 750만!</b></p>
+          <div class="quote"><span class="q-meta">11/18 19:14</span> "오늘 4천시간 2개 돌파 끝! 3시간에 1.6만이라 TV 시청 유튜브 홈화면 탄 거 같아요. 정답 95%까지 맞는 듯."</div>
+        </div>
+
+        <div class="tl-item major searchable">
+          <div class="tl-head">
+            <span class="tl-title">⑦ [최종 완전체] 공공재·미러·쉴드 + 원샷 수창 + 원형·둔갑 34편 + 틱톡 46채널 + CTV 락</span>
+            <span class="tl-date">2026-11-19 ~ 11-20</span>
+          </div>
+          <p>11/19 오프특강 직후 <b>「공공재·미러·쉴드(미러반사)」</b> 관점 전환 + 카페 <code>#2293</code> 네온 3단계 세팅(6시간 25편). 11/20 새벽 <b>단 1편 39만 뷰 / 한국 단 1편 6.4만 뷰 원샷 수창(7일간 3개 돌파)</b>, 저녁 한 타임에 <b>원형+둔갑(70% 변주) 34편 사출</b>, <b>거실 스마트 TV 락 4규칙</b>, <b>틱톡 46채널 62~68초 리워드(10배 단가)</b> 동시 가동!</p>
+          <div class="quote del-q"><span class="badge del">삭제 전 포착</span> <span class="q-meta">11/20 04:06~04:50</span> "영상 1개로 수창 나와있었네요(39만 뷰)... 한국 영상 하나로 수창(6.4만 뷰)... 7일간 시청시간 4천시간 3개 통과, 이번 달 4개. 소재만 계속 찾으면 주에 수창 1~2개가 가능해요."</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 2 -->
+    <section id="part2">
+      <h2 class="sec-title">PART 2. 소재 발굴 &amp; 선정 기준 A to Z</h2>
+      <div class="card searchable">
+        <h3>🎯 오르제이 1순위 소재 발굴 마스터 프롬프트 (11/20 원문)</h3>
+        <div class="quote" style="margin-top:6px">
+          <b>"1개월 ~ 3개월 동안 가장 적은 영상에 가장 많은 조회수(버프 끝난 거, 버프 안 끝난 거) 독식 가능한 or 무주공산 영상 — 영어권, 일본어, 한국 싹 다 긁어와."</b>
+        </div>
+      </div>
+
+      <div class="table-wrap searchable">
+        <table>
+          <thead><tr><th>평가 항목</th><th>합격 (진입) 기준</th><th>탈락 (폐기) 기준</th><th>실전 활용 포인트</th></tr></thead>
+          <tbody>
+            <tr><td><b>업로드 기간</b></td><td>최근 <b>1~3개월</b> (정밀 스캔 30일 이내)</td><td>오래된 구식 트렌드</td><td>버프 끝난 '누운 소재(100만+·VPH≤100)'는 역공 1순위</td></tr>
+            <tr><td><b>채널 총 영상수</b></td><td><b>최소 영상 (1~35개 이하)</b> 신생 채널</td><td>영상 수백 개 대형 채널</td><td>영상 1~5개로 터졌다 = 포맷과 소재의 힘 100%</td></tr>
+            <tr><td><b>조회수 · 상방</b></td><td>최소 <b>10만+</b>, 상방 <b>100만~1,000만+</b></td><td>상방 1만~10만 소형 시장</td><td>1,000만 시장의 1/10(100만)이 훨씬 쉽다</td></tr>
+            <tr><td><b>속도 &amp; 배수</b></td><td><b>VPH ≥ 400</b> · <b>구독자 대비 5배+</b></td><td>구독자 빨 조회수</td><td><code>#2281</code> <code>level10_gate --mode find-outliers</code></td></tr>
+            <tr><td><b>카테 7일 순위</b></td><td>카테고리 7일 조회수 <b>1~10등</b></td><td><b>11등 이하 전부 폐기</b></td><td>1등 버프 종료 시점에 <b>20편 폭탄 투하</b></td></tr>
+            <tr><td><b>소재 유형</b></td><td>실사·공공재·풍부한 원판 보유</td><td><b>AI 생성 영상 소재</b></td><td>"AI 소재는 채널 나락, 추천 자체 차단"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-4 searchable">
+        <div class="mini-card">
+          <span class="badge p0">바디캠 50분</span>
+          <b style="margin-top:6px">미국 실화 바디캠</b>
+          <p>3~5일 잠복 후 폭발 (6일 403 → 4.2만 우상향). 토큰 적게 먹고 한국 검증 → 해외 10채널 확장.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge p1">CTV 거실 TV</span>
+          <b style="margin-top:6px">정치 · 시니어 · 역사</b>
+          <p>6070 거실 스마트 TV 자동 연속재생 타겟. 일본 시니어 20분 6편=2,000시간 검증.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge p2">이슈 · 쇼츠</span>
+          <b style="margin-top:6px">논란 인물 (남대문 등)</b>
+          <p>원본 많으면 해짜·이슈형 48h 100만 → 200~300만, 원본 풍부하면 롱폼까지 파생.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge purple">틱톡 62초+</span>
+          <b style="margin-top:6px">팬튜브 · 중국배우</b>
+          <p>BTS/블핑/변우석 + 중국배우 출퇴근(장릉혁·샤오잔·왕이보·디리러바) 62~68초 리워드.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 3 -->
+    <section id="part3">
+      <h2 class="sec-title">PART 3. 초고속 롱폼 · 숏폼 제작 노하우 &amp; 세팅 A to Z</h2>
+      <div class="grid-2">
+        <div class="card searchable">
+          <h3>① '틀(Frame)' 칼카피 우선 &amp; 좌우 비교 V2</h3>
+          <ul class="clean">
+            <li><b>잡도리보다 칼카피 먼저:</b> 채널 전체 분석 + 베스트 3~5개 원본으로 1등 틀부터 100% 복제.</li>
+            <li><b>좌우 비교 V2 고정:</b> 한 창에 <code>좌=100% 칼카피(1황)</code> vs <code>우=30% 변형본</code>을 나란히 띄워 확인 후 V2 고정.</li>
+            <li><b>라디오·다큐 1등 틀 템플릿:</b> 틀을 뽑아두고 소재만 넣으면 <b>롱폼 1편 6~12분, 1시간 5편</b> 사출!</li>
+            <li><b>예시 80개 &amp; 링크 30개 루틴:</b> 말로 잔소리 대신 타 채널 링크 30~80개를 분석시켜 공식화.</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>② 네온 3단계 다이어트 (#2293 · 6시간 25편)</h3>
+          <ul class="clean">
+            <li><b>1단계 (스캔·수집):</b> <code>Flash / Flash-Lite</code> (초고속, 비용 1/10)</li>
+            <li><b>2단계 (대본·칼카피):</b> <code>Neon (Thinking High)</code> 또는 <code>Carbon (Medium)</code> — 네온 창 2개로 <b>25분 롱폼 21~25편 6시간 완성</b>.</li>
+            <li><b>3단계 (렌더·규격):</b> 로컬 파이썬 스크립트 (<b>토큰 0원</b>)</li>
+            <li><b>세션 다이어트:</b> 50~100턴 쌓이면 토큰 폭발 → 주제 바뀔 때마다 새 창 오픈 + 3단 질문 사다리(최선이야?→다른 방법?→관점 비틀기).</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>③ 거실 스마트 TV(CTV) 체류 락 4규칙 (완주율 70%+)</h3>
+          <ul class="clean">
+            <li><b>0.00초 콜드오픈:</b> 날짜 낭독 0% → 가장 분노/충격적인 <b>4초 원음·설전 폭격</b> 직행.</li>
+            <li><b>4~5분 차 2차 도파민:</b> 첫 이탈 구간에 후반 스모킹건 예고 배치.</li>
+            <li><b>TV 자동 연속재생 강제:</b> 우측 상단 카드 + <b>종료 20초 전 최종화면 '몰아보기 재생목록'</b> 필수 연동.</li>
+            <li><b>엔딩 멘트 0% 영구 차단:</b> "구독/좋아요/댓글" 금지 → 여운 있는 팩트 한 줄로 즉시 컷.</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>④ 구라 0% 물리 차단 (C07) &amp; 2세대 롱폼 5종 (#2267)</h3>
+          <ul class="clean">
+            <li><b>C07 실측 강제:</b> 문장 보고 금지 — 콘솔 실측 출력(<code>ffprobe</code>·<code>tailscale status</code>·실물 이미지)만 인정.</li>
+            <li><b>원판 분량 1:1 매칭:</b> 25분 롱폼엔 25분치 원판 필수(부족하면 AI가 반복·창작 구라).</li>
+            <li><b>2세대 5종 최적화:</b> ① 1080p+<code>cas=0.86</code>+GPU ② 2-Pass(<code>base.mp4</code>+<code>.ass</code>, 수정 3분 컷) ③ 720p 미리보기+<code>concat -c copy</code> ④ <b><code>tts_cache</code> 문장 해시 캐시(크레딧 80% 절감)</b> + 일레븐랩스 조각 재활용 ⑤ CPU 70~80% 상한.</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>⑤ 베네치아식 썸네일 + 4대 시각 기법</h3>
+          <ul class="clean">
+            <li><b>도감 웹앱:</b> <code>kr-thumbnail-lab-switching2.vercel.app</code> (암호 <code>switching2012</code>)</li>
+            <li><b>4대 시각 기법:</b> ① 배경 심도 블러 &amp; 명도 <code>-15%</code> ② 인물 외곽 림 라이트 ③ 3D 드롭 섀도우 ④ 얼굴 S-Curve + Real-ESRGAN 눈빛 콘트라스트.</li>
+            <li><b>타이포 고정:</b> <b>1줄 순백색(#FFFFFF) + 2줄 레드(#FF1E1E)</b> 극태고딕(Pretendard Black / Gmarket Sans Bold). 터진 썸네일은 채널 고정 템플릿화.</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>⑥ 원형 + 둔갑(70% 변주) 34편 사출 파이프라인</h3>
+          <ul class="clean">
+            <li><b>구조:</b> 터진 1소재 → <b>원형 1~3호 + 둔갑 1A~3B (또는 둔갑 1~7호)</b> (11/20 저녁 한 타임 34편 완성).</li>
+            <li><b>70% 변주 규칙:</b> 대본 뼈대 70% 유지 + ① 초반 0~30초 콜드오픈 교체 ② 순서 재배열(4,3,5,2,1 + 11~13 추가) ③ 다른 하이라이트 썸네일·제목 ④ 크롭·LUT·피치·자막색 변형 ⑤ 기존 이미지/TTS 재활용 → <b>1편 5~6분 컷!</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 4 -->
+    <section id="part4">
+      <h2 class="sec-title">PART 4. 다계정 50~100개 확장 · 자동화 · 시스템화 A to Z</h2>
+
+      <h3 style="margin-bottom:10px">🚦 조회수 신호등 판독표 &amp; 롱폼 수창 수학 공식 (10분=6만뷰 · 20분=4만뷰)</h3>
+      <div class="sig-row searchable">
+        <div class="sig" style="border-top:3px solid var(--p0)">
+          <span class="badge p0">0 ~ 100 미만</span>
+          <div class="range">미인식 / 냉각</div>
+          <p>2편 연속 0뷰면 희망고문 금지 → 비공개 전환 &amp; 타 카테 칼카피 테스트</p>
+        </div>
+        <div class="sig" style="border-top:3px solid var(--p1)">
+          <span class="badge p1">100 ~ 500대</span>
+          <div class="range">가열 시작</div>
+          <p>엔진 예열 구간 → <b>여기서 같은 결 1~2방 추가</b>가 가장 중요</p>
+        </div>
+        <div class="sig" style="border-top:3px solid #fb923c">
+          <span class="badge" style="background:#fb923c;color:#111">800 ~ 1,000대</span>
+          <div class="range">신호탄</div>
+          <p>방향·소재 적중 신호 → 소재 보강 및 후속탄 즉시 장전</p>
+        </div>
+        <div class="sig" style="border-top:3px solid var(--ok)">
+          <span class="badge ok">2,000 ~ 4,000+</span>
+          <div class="range">수창 · 폭격 신호</div>
+          <p><b>딴길 절대 금지!</b> 원형+둔갑 V1~V9(20~50편) 다채널 융단폭격</p>
+        </div>
+        <div class="sig" style="border-top:3px solid var(--p2)">
+          <span class="badge p2">1만+ / 시간당 1~3천</span>
+          <div class="range">TV · 홈화면 탑승</div>
+          <p>카테 영구 픽스 + V2~V5 연타 + 버프 종료 시 V1 재막기 + 해외 미러</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card searchable">
+          <h3>🧱 계정 물리 격리 &amp; 무API 분산 스케줄링</h3>
+          <ul class="clean">
+            <li><b>1구글 = 1본채널 = 1크롬프로필:</b> 로그인 엉킴=로봇감지. 개설 시 <b>3차 고급인증 사전 완료</b> + 7일 숙성.</li>
+            <li><b>계정 3회+ 재활용:</b> 버리지 말고 카테 전환 테스트. 11/20 실측: 기존 영상 비공개 안 해도 1일 3.7천 / 3일 9.6천 유입.</li>
+            <li><b>무API 크롬 자동업로드 + 분산 발사:</b> 동시 공개·40개 일괄 금지 → <b>15분 간격 예약</b>(11:30, 11:45...), 한국어 6h / 해외 8~15h, 롱폼 <b>비공개 1시간 뒤 공개</b>.</li>
+            <li><b>요일 가중치:</b> 금요일 낮 부진 → <b>목요일 밤 · 금요일 저녁~주말</b> 집중 배치.</li>
+          </ul>
+        </div>
+
+        <div class="card searchable">
+          <h3>🖥️ 4PC(→8PC) Tailscale 클러스터 &amp; 틱톡 46채널 공장</h3>
+          <ul class="clean">
+            <li><b>4PC 역할 분담:</b> <code>1PC(메인)</code> 지휘·조판 / <code>2PC(3080)</code> 롱폼 GPU 렌더 / <code>3PC(내장)</code> 업로드·수집 / <code>4PC(3070)</code> 렌더2·원본수집.</li>
+            <li><b>자원 안전:</b> 터미널 1개 순차·시간대 분배(쇼츠→롱폼→새벽 플리), CPU 70~80% 상한, 클로드 프로/울트라 파티원 분배(x4~6).</li>
+            <li><b>🔥 틱톡 46채널 (10배 단가):</b> 유튜브 5만원 vs 틱톡 50만원! PC 4대 크롬 분리(<code>12+12+11+11=46</code>) → 구글 로그인 10초 가입 → 창 X 닫으면 AGY 자동 등록 → <b>62~68초(65.8/65.9/67.9초)</b> 리워드 포맷 무API 발사.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 5 -->
+    <section id="part5">
+      <h2 class="sec-title">PART 5. 남들이 하지 않는 오르제이 6대 비기 &amp; 리스크 안전선</h2>
+      <div class="grid-3 searchable" style="margin-bottom:14px">
+        <div class="mini-card">
+          <span class="badge p0">비기 1</span>
+          <b style="margin-top:6px">공공재 · 미러 · 쉴드(미러반사)</b>
+          <p>얼굴 공개 원저작자를 뺀 양산형 대박 채널을 '공공재' 풀로 보고 미러링(한↔일/영 포함), 양산형 상대의 부당 신고엔 '맞불' 역신고 논리로 무력화.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge p1">비기 2</span>
+          <b style="margin-top:6px">양갈래 교차 터또터</b>
+          <p>바디캠 등 잘 나온 V1 채널이 2곳 생기면 A의 대박 소재를 B의 V2로, B의 대박을 A의 V2로 교차 복제해 동시 수창 돌파.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge p2">비기 3</span>
+          <b style="margin-top:6px">1발 터지면 50편 단물 빼기</b>
+          <p>터진 날 딴길 절대 금지. 백 단위 떨어질 때까지 V1~V20·50편 사출. 다른 날 재업로드한 마지막 버전이 가장 크게 터진 실측 활용.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge ok">비기 4</span>
+          <b style="margin-top:6px">버프 꺼질 때 V1 재막기</b>
+          <p>V1 버프 종료 → V2~V5로 트래픽 바통 터치 → V2~V5 버프 종료 시 V1 변형으로 다시 알고리즘 막아치는 릴레이.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge purple">비기 5</span>
+          <b style="margin-top:6px">숏폼 구독자 분리 충전</b>
+          <p>롱폼 4,000시간 먼저 달성 시 버프 끝난 100만~1,000만 원본 2차 창작 쇼츠(해짜·팬튜브)로 구독자 1,000명 초고속 보충.</p>
+        </div>
+        <div class="mini-card">
+          <span class="badge" style="background:#334155;color:#fff">비기 6</span>
+          <b style="margin-top:6px">단톡방·코딩방 주간 자가진화</b>
+          <p>카톡·카페·개발자 코딩방 신기술을 AGY가 자동 수집 → "나에게 없는 것만 정리·적용 전후 비교"로 1인 10팀 속도 유지.</p>
+        </div>
+      </div>
+
+      <div class="grid-2 searchable">
+        <div class="risk-box">
+          <h3>🔴 고위험 금지선 (그대로 따라 하면 즉사)</h3>
+          <ul class="clean">
+            <li><b>원저작자 직접 Strike 시 쉴드 무력화:</b> 넷플릭스 한국 신작·디즈니·소니·국내 지상파/종편·텐센트 무단 짜깁기 시 원저작자 직격 → 채널·애드센스 연쇄 정지.</li>
+            <li><b>100% 화면 통복제 공개:</b> 재사용 콘텐츠 수창 거절 1순위.</li>
+            <li><b>사후 검수(<code>level10_gate --mode gate</code>):</b> 우리 0순위 최상위 규칙(앞단 완결 · 렌더 후 검수 금지 · 오감 기준) 위반 → 사후 재렌더 루프 유발.</li>
+          </ul>
+        </div>
+        <div class="safe-box">
+          <h3>🟢 장점만 취하는 우리 시스템 안전 적용법</h3>
+          <ul class="clean">
+            <li><b>진짜 공공재 &amp; 안전 구작 1순위:</b> 미국 카운티 바디캠, 국토부/복지로 공공데이터, 2010년 이전 안전 구작(배급사 허용표 준수), 리믹스파인더 한국 빈집.</li>
+            <li><b>'틀'과 '국가'만 미러링 + 70% 둔갑 변주:</b> 공개본은 반드시 자체 해설 60~70%+ · 1:1 물증 매칭 · 70% 변주.</li>
+            <li><b>앞단 기능만 채택:</b> <code>find-outliers</code> + AST 루프 차단 + 썸네일 비교만 앞단 파이프라인에 통합.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PART 6 -->
+    <section id="part6">
+      <h2 class="sec-title">PART 6. [팩트체크] 현재 우리 시스템 vs 오르제이 풀셋팅 — 내가 놓치고 있는 Gap 10선</h2>
+
+      <div class="card searchable" style="border-color:rgba(16,185,129,.4)">
+        <h3 style="color:#6ee7b7">✅ 이미 우리가 앞서 있거나 완료한 영역 (유지)</h3>
+        <p style="margin:0;color:#dbe5f4">① <b>0순위 앞단 완결·사후 검수 금지·오감 기준</b> (오르제이가 사후 검수로 3일 날린 병목 원천 차단) · ② <b>GPU 100% 강제 &amp; Real-ESRGAN CoreML 57.4fps</b>(<code>ffmpeg_vt.py</code>, <code>esrgan_auto.py</code>) · ③ <b>3단계 모델 분배 &amp; AGY Root/Worker 세션 분리 하드게이트</b> · ④ <b>Jev 1.14 정량 소재 점수화 &amp; 실시간 카톡 워처(삭제 전 포착)</b></p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-filter="all">전체 10대 공백</button>
+        <button class="tab-btn" data-filter="P0">🔥 P0 즉시 적용 (4)</button>
+        <button class="tab-btn" data-filter="P1">⚡ P1 이번 주 (4)</button>
+        <button class="tab-btn" data-filter="P2">🚀 P2 확장 (2)</button>
+      </div>
+
+      <div class="table-wrap searchable">
+        <table id="gapTable">
+          <thead><tr><th style="width:66px">등급</th><th style="width:170px">놓치고 있는 영역</th><th>현재 우리 시스템 실측 상태 (Gap)</th><th>즉시 보완 액션</th></tr></thead>
+          <tbody>
+            <tr data-prio="P0"><td><span class="badge p0">P0</span></td><td><b>① 원형+둔갑 다채널 폭격</b></td><td><code>gates.json</code> <code>same_story</code>가 동일 사건을 차단하는 1소재=1편 단발 구조</td><td>입질 소재 한정 <code>--variant-mode</code> 신설(원형 1~3호 + 둔갑 1A~3B 70% 변주 일괄 사출)</td></tr>
+            <tr data-prio="P0"><td><span class="badge p0">P0</span></td><td><b>② 조회수 신호등 48h 판정</b></td><td><code>업로드기록.jsonl</code>만 기록, 48h 조회수 자동 추적·신호등 판정기 부재</td><td>48h 조회수 크롤러 + 100/1천/2~3천/1만+ 자동 분류·폭격 알림 구축</td></tr>
+            <tr data-prio="P0"><td><span class="badge p0">P0</span></td><td><b>③ CTV 거실 TV 락 4규칙</b></td><td>정본에 <code>0.0초 시작</code>만 존재, 4분 2차 도파민·종료 20초 재생목록·엔딩 멘트 0% 미코드화</td><td>롱폼 대본 규칙 및 <code>업로드.py</code>에 4대 CTV 락 + 엔딩 금지어 정규식 하드코딩</td></tr>
+            <tr data-prio="P0"><td><span class="badge p0">P0</span></td><td><b>④ 1~3개월 최소영상 스캐너</b></td><td>Jev 점수화는 있으나 앞단 아웃라이어(≤35개·VPH≥400)·버프 종료 스캐너 미연동</td><td><code>#2281 find-outliers</code> + 리믹스파인더(누운 소재)를 <code>find-materials</code> 앞단에 통합</td></tr>
+            <tr data-prio="P1"><td><span class="badge p1">P1</span></td><td><b>⑤ 틱톡 62초 리워드 공장</b></td><td>유튜브 소수 채널 중심, 틱톡 다계정·62~68초 포맷·무API 업로더 전면 부재</td><td>크롬 프로필 분리 틱톡 10채널 파일럿 + 팬튜브/중국배우 62~68초 자동 컷 구축</td></tr>
+            <tr data-prio="P1"><td><span class="badge p1">P1</span></td><td><b>⑥ 베네치아 썸네일 4대 기법</b></td><td>정본 텍스트만 존재, 로컬 자동 썸네일 생성기에 4대 보정·레드 2줄 프리셋 미탑재</td><td>블러(-15%)·림라이트·3D섀도우·ESRGAN 눈빛 + <code>#FF1E1E</code> 2줄 극태고딕 프리셋 탑재</td></tr>
+            <tr data-prio="P1"><td><span class="badge p1">P1</span></td><td><b>⑦ tts_cache &amp; 2-Pass 실코드</b></td><td>정본 문서화만 완료, 로컬 <code>tools/</code> 롱폼 러너에 문장 해시 캐시·2패스 미구현</td><td><code>tts_split.py</code> 문장 해시 캐시 + <code>base.mp4</code>/<code>.ass</code> 2패스 + <code>concat -c copy</code> 적용</td></tr>
+            <tr data-prio="P1"><td><span class="badge p1">P1</span></td><td><b>⑧ C07 실측 &amp; 원판 분량 매칭</b></td><td>팩트체크 규칙은 있으나 롱폼 <code>원판 분량 ≥ 목표×85%</code> 앞단 게이트 부재</td><td><code>gates.json</code> 앞단에 원판 분량 비율 검증 및 C07 콘솔 실측 강제 규칙 추가</td></tr>
+            <tr data-prio="P2"><td><span class="badge p2">P2</span></td><td><b>⑨ 여유 채널 풀 &amp; 15분 분산</b></td><td>소수 채널·단순 예약, 15분 간격·언어별(6h/8~15h)·목밤~주말 가중치 스케줄러 부재</td><td><code>예약.py</code>에 15분 간격·롱폼 1h 숙성·목밤~주말 가중치 탑재 + 3차 인증 채널 풀 확충</td></tr>
+            <tr data-prio="P2"><td><span class="badge p2">P2</span></td><td><b>⑩ 다PC Tailscale &amp; 관제판</b></td><td>단일 맥 중심, 통합 채널 관제판(구독/조회/재고/신호등) 미구축</td><td>서브 PC 확보 시 Tailscale 렌더 노드 연결 + 로컬 HTML 채널 관제판 구축</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <h2 class="sec-title">✅ 즉시 실행 로드맵 체크리스트 (브라우저 자동 저장)</h2>
+      <div class="chk-list" id="chkList">
+        <label class="chk-item searchable" data-id="r1"><input type="checkbox"><div><div class="chk-title"><span class="badge p0">P0</span> 1. 소재 스캐너(<code>find-outliers</code>) + 한·영·일 1~3개월 무주공산/버프 종료 필터 가동</div><div class="chk-desc">영상 ≤35개 · 조회 10만+ · VPH ≥400 · 카테 7일 1~10등만 통과, 11등 이하 폐기.</div></div></label>
+        <label class="chk-item searchable" data-id="r2"><input type="checkbox"><div><div class="chk-title"><span class="badge p0">P0</span> 2. 거실 스마트 TV(CTV) 체류 락 4규칙 롱폼 대본/업로드 하드코딩</div><div class="chk-desc">0.00초 4초 원음 콜드오픈 + 4분 2차 스모킹건 + 종료 20초 재생목록 최종화면 + 엔딩 멘트 0%.</div></div></label>
+        <label class="chk-item searchable" data-id="r3"><input type="checkbox"><div><div class="chk-title"><span class="badge p0">P0</span> 3. 원형 + 둔갑(70% 변주) 1차 실전 (5채널 융단폭격)</div><div class="chk-desc">바디캠 50분/안전 구작 1발 간보기 → 입질 시 원형 2호 + 둔갑 3호(콜드오픈·순서·썸네일·피치 변형) 시간차 발사.</div></div></label>
+        <label class="chk-item searchable" data-id="r4"><input type="checkbox"><div><div class="chk-title"><span class="badge p0">P0</span> 4. 매일 오전 8시 48시간 조회수 신호등 판독 루틴 구축</div><div class="chk-desc">100 미만 비공개·타카테 전환 / 100~500 가열 1~2방 추가 / 1천 신호탄 / 2~3천+ 폭격 큐 등록.</div></div></label>
+        <label class="chk-item searchable" data-id="r5"><input type="checkbox"><div><div class="chk-title"><span class="badge p1">P1</span> 5. 틱톡 62~68초 리워드 10채널 파일럿 (10배 단가 선점)</div><div class="chk-desc">크롬 프로필 10개 분리 → 구글 10초 가입 → 팬튜브·중국배우 출퇴근 62~68초 자동 생성 &amp; 업로드.</div></div></label>
+        <label class="chk-item searchable" data-id="r6"><input type="checkbox"><div><div class="chk-title"><span class="badge p1">P1</span> 6. 베네치아 썸네일 도감 + 4대 시각 기법(블러·림라이트·3D섀도우·ESRGAN) 프리셋화</div><div class="chk-desc"><code>kr-thumbnail-lab-switching2.vercel.app</code>(암호 <code>switching2012</code>) + <code>#FFFFFF/#FF1E1E</code> 2줄 극태고딕 고정.</div></div></label>
+        <label class="chk-item searchable" data-id="r7"><input type="checkbox"><div><div class="chk-title"><span class="badge p1">P1</span> 7. <code>tts_cache</code> 문장 해시 캐시 + 2-Pass 렌더러(<code>base.mp4</code>+<code>.ass</code>) 실코드 적용</div><div class="chk-desc">일레븐랩스 크레딧 70~80% 절감 + 자막 수정 3분 컷 + <code>volcano_subtitle</code> MCP 재인증 확인.</div></div></label>
+        <label class="chk-item searchable" data-id="r8"><input type="checkbox"><div><div class="chk-title"><span class="badge p1">P1</span> 8. C07 콘솔 실측 강제 + 롱폼 원판 분량 매칭(≥85%) 앞단 게이트 탑재</div><div class="chk-desc">AI 거짓 보고·억지 반복 원천 차단.</div></div></label>
+        <label class="chk-item searchable" data-id="r9"><input type="checkbox"><div><div class="chk-title"><span class="badge p2">P2</span> 9. 여유 채널 풀(3차 고급인증 사전 완료) &amp; 15분 간격·목밤~주말 집중 스케줄러</div><div class="chk-desc"><code>1구글=1본채널=1크롬프로필</code> + Ente Auth OTP(기기값 절단) + 카테 3회+ 전환 재활용.</div></div></label>
+        <label class="chk-item searchable" data-id="r10"><input type="checkbox"><div><div class="chk-title"><span class="badge p2">P2</span> 10. 통합 채널 관제판 &amp; 다PC Tailscale 분산 + 애드센스 법인 전환 시점 검토</div><div class="chk-desc">월 수창 4~10개 진입 시 세무사 상담 후 법인 구조 설계.</div></div></label>
+      </div>
+    </section>
+
+    <p class="muted" style="margin-top:36px;text-align:center">
+      정본 마크다운: <code>/Users/dongkeunkim/마스터/04_스위칭쇼츠2기_프리미엄/오르제이_데일리브리프/오르제이_초고속수창_완전정복_AtoZ.md</code>
+    </p>
+  </main>
+</div>
+
+<script>
+  // 1. Persistent Checklist
+  const STORAGE_KEY = 'orj_atoz_roadmap_v1';
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  const items = document.querySelectorAll('.chk-item');
+  function updateProgress() {
+    let done = 0;
+    items.forEach(el => {
+      const cb = el.querySelector('input');
+      el.classList.toggle('done', cb.checked);
+      if (cb.checked) done++;
+    });
+    document.getElementById('progText').textContent = `${done} / ${items.length} 완료`;
+    document.getElementById('progFill').style.width = `${(done / items.length) * 100}%`;
+  }
+  items.forEach(el => {
+    const id = el.dataset.id;
+    const cb = el.querySelector('input');
+    if (saved[id]) cb.checked = true;
+    cb.addEventListener('change', () => {
+      saved[id] = cb.checked;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  // 2. Gap Table Filter Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('#gapTable tbody tr').forEach(tr => {
+        tr.style.display = (f === 'all' || tr.dataset.prio === f) ? '' : 'none';
+      });
+    });
+  });
+
+  // 3. Real-time Search
+  const searchInput = document.getElementById('searchInput');
+  const searchCount = document.getElementById('searchCount');
+  const searchables = document.querySelectorAll('.searchable');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      searchables.forEach(el => el.classList.remove('hidden-search'));
+      searchCount.textContent = '';
+      return;
+    }
+    let hits = 0;
+    searchables.forEach(el => {
+      const ok = el.textContent.toLowerCase().includes(q);
+      el.classList.toggle('hidden-search', !ok);
+      if (ok) hits++;
+    });
+    searchCount.textContent = `"${searchInput.value.trim()}" 일치 블록: ${hits}개`;
+  });
+
+  // 4. Active TOC highlight
+  const sections = document.querySelectorAll('main > div[id], main > section[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+</script>
+</body>
+</html>

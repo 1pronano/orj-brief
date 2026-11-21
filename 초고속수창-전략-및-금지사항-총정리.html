@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>초고속 수익창출(수창) 최종 전략 & 절대 금지사항 총정리</title>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #121824;
+    --card-2: #171f2e;
+    --border: #243047;
+    --text: #e6edf7;
+    --muted: #93a4bd;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ff3b3b;
+    --purple: #a78bfa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 28px 18px 80px;
+  }
+  .container { max-width: 1180px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, #111c33 0%, #1b122b 60%, #121824 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.45);
+  }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .badge {
+    font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+    background: rgba(56,189,248,0.14); color: var(--accent); border: 1px solid rgba(56,189,248,0.35);
+  }
+  .badge.red { background: rgba(255,59,59,0.14); color: #ff6b6b; border-color: rgba(255,59,59,0.4); }
+  .badge.green { background: rgba(34,197,94,0.14); color: #4ade80; border-color: rgba(34,197,94,0.4); }
+  .badge.purple { background: rgba(167,139,250,0.14); color: var(--purple); border-color: rgba(167,139,250,0.4); }
+  h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 14.5px; }
+  .summary-box {
+    margin-top: 18px; padding: 16px 18px; border-radius: 12px;
+    background: rgba(56,189,248,0.08); border-left: 4px solid var(--accent);
+    font-size: 14.5px; color: #dbeafe;
+  }
+  nav.tabs {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;
+    position: sticky; top: 10px; z-index: 20;
+    background: rgba(11,14,20,0.92); backdrop-filter: blur(10px);
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    cursor: pointer; border: 1px solid var(--border); background: var(--card);
+    color: var(--muted); padding: 10px 16px; border-radius: 10px;
+    font-size: 14px; font-weight: 700; transition: all 0.18s;
+  }
+  .tab-btn:hover { color: var(--text); border-color: var(--accent); }
+  .tab-btn.active { background: var(--accent); color: #06131f; border-color: var(--accent); }
+  .tab-btn.danger.active { background: var(--red); color: #fff; border-color: var(--red); }
+  .section { display: none; }
+  .section.active { display: block; }
+  .part-title {
+    font-size: 22px; font-weight: 800; margin: 26px 0 14px;
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--border);
+  }
+  .part-title.danger { color: #ff6b6b; border-color: rgba(255,59,59,0.35); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; transition: transform 0.15s, border-color 0.15s;
+  }
+  .card:hover { border-color: #36496b; }
+  .card h3 { font-size: 16.5px; font-weight: 800; margin-bottom: 10px; color: #f8fafc; display: flex; align-items: center; gap: 8px; }
+  .card ul { padding-left: 18px; font-size: 14px; color: #cbd5e1; }
+  .card li { margin-bottom: 7px; }
+  .card strong { color: #ffffff; }
+  .hl { color: var(--accent); font-weight: 700; }
+  .hl-green { color: #4ade80; font-weight: 700; }
+  .hl-red { color: #ff6b6b; font-weight: 700; }
+  .hl-yellow { color: #fbbf24; font-weight: 700; }
+  .table-wrap { overflow-x: auto; margin: 14px 0 22px; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; background: var(--card); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--card-2); color: #f8fafc; font-weight: 800; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .callout {
+    padding: 15px 18px; border-radius: 12px; margin: 14px 0 20px; font-size: 14px;
+    background: rgba(255,59,59,0.09); border: 1px solid rgba(255,59,59,0.35); color: #fecaca;
+  }
+  .callout.green { background: rgba(34,197,94,0.09); border-color: rgba(34,197,94,0.35); color: #dcfce7; }
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 12px; margin: 16px 0 22px; }
+  .kpi {
+    background: var(--card-2); border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px 16px; text-align: center;
+  }
+  .kpi .num { font-size: 21px; font-weight: 800; color: var(--accent); }
+  .kpi .num.green { color: #4ade80; }
+  .kpi .num.red { color: #ff6b6b; }
+  .kpi .lbl { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 13px 16px; margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start; font-size: 14px;
+  }
+  .checklist input { margin-top: 4px; transform: scale(1.2); accent-color: var(--green); }
+  footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 12.5px; }
+  @media (max-width: 640px) {
+    h1 { font-size: 22px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="badge-row">
+      <span class="badge">2026-11-21 전수 통합 정본</span>
+      <span class="badge green">강의 35강 + 11/19 오프특강</span>
+      <span class="badge purple">카톡 8,263건+ · 조교/방장 노하우</span>
+      <span class="badge red">0순위 절대규칙 · 교훈장 반영</span>
+    </div>
+    <h1>🚀 초고속 수익창출(수창) 최종 전략 &amp; ⛔ 절대 금지사항 총정리</h1>
+    <p class="subtitle">보유한 전체 강의안·녹취록·프리미엄 카톡방·오르제이 74일 실측·조교 노하우·절대규칙·교훈장을 단어 하나 빠짐없이 교차 통합</p>
+    <div class="summary-box">
+      <strong>핵심 공식:</strong> 수창 전까지 <strong>"내 취향 채널"과 "1편 장인 마인드"를 버리고</strong>, ① <strong>롱폼 4,000시간 + 쇼츠 구독자 1,000명 이원화 + 틱톡 62초 리워드(10배 단가) + 해외 미러링</strong> 4대 루트에, ② <strong>1~3개월 최소영상·상방 1,000만 무주공산 스캔</strong> → ③ <strong>1등 틀(Frame) 100% 칼카피</strong> → ④ <strong>1발 간보기 48h 신호등 판독</strong> → ⑤ <strong>터지면 원형+둔갑(70% 변주) 다채널 시간차 융단폭격</strong>으로 확률게임 공장을 돌린다.
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" onclick="showTab('all', this)">📌 전체 보기</button>
+    <button class="tab-btn" onclick="showTab('part1', this)">🚀 Part 1. 초고속 수창 5대 전략</button>
+    <button class="tab-btn danger" onclick="showTab('part2', this)">⛔ Part 2. 절대 금지사항 총망라</button>
+    <button class="tab-btn" onclick="showTab('checklist', this)">✅ 7일 즉시 실행 체크리스트</button>
+  </nav>
+
+  <!-- PART 1 -->
+  <div id="part1" class="section active">
+    <h2 class="part-title">🚀 PART 1. 수익창출(수창) 가장 빠르게 달성하는 5대 전략 축</h2>
+
+    <div class="kpi-row">
+      <div class="kpi"><div class="num green">10분=6만 / 20분=4만</div><div class="lbl">롱폼 4,000시간 수창 수학 공식</div></div>
+      <div class="kpi"><div class="num">생존 75%+ · 지속 90%+</div><div class="lbl">쇼츠 알고리즘 합격 커트라인</div></div>
+      <div class="kpi"><div class="num green">틱톡 62~68초 = 10배</div><div class="lbl">유튜브 5만원 vs 틱톡 50만원</div></div>
+      <div class="kpi"><div class="num">CTR 7%+ · -14 LUFS</div><div class="lbl">롱폼 썸네일/음량 정본 기준</div></div>
+      <div class="kpi"><div class="num red">1계정=1채널=1크롬</div><div class="lbl">물리 격리 · Ente OTP 기기절단</div></div>
+    </div>
+
+    <h3 style="margin:18px 0 10px; color:var(--accent);">전략 축 A. 초고속 수창 4대 메인 루트</h3>
+    <div class="grid">
+      <div class="card">
+        <h3>① 롱폼 4,000시간 원샷 / 초고속 루트</h3>
+        <ul>
+          <li><strong>수학 공식:</strong> 10분(유지 40%)=<span class="hl-green">6만 뷰</span> / 20분(유지 30~35%)=<span class="hl-green">4만 뷰</span>로 1~3편 원샷 수창.</li>
+          <li><strong>2010년 이전 구작 영화 치트키:</strong> IMDb 7.0+ 안전 배급사 구작을 <strong>180~200% 얼빡 크롭</strong>(★수창 후 절대 삭제 금지).</li>
+          <li><strong>미국 경찰 바디캠(50분 원판):</strong> 공식 브리핑·원음 85~100%·3~5일 잠복 후 폭발(403→4.2만 실측).</li>
+          <li><strong>시니어·정치·부동산·경제 CTV 락:</strong> 6070 거실 TV 자동 연속재생(일본 20분 6편=2,000시간).</li>
+          <li><strong>쇼츠 10개→주말 롱폼 합본:</strong> 중드·플리·뇌전구·사연 주말 몰아보기 + 미드롤 기준 <strong>8~10분 압축</strong>(유지율 45%+).</li>
+          <li><strong>11/19 블루오션:</strong> 강남 3구 부동산(국토부/호갱노노)·연금/복지로·오픈 API 프랜차이즈·센서스튜디오 국제정세·더러운 그림체 역사물(Grok 480p)·이혼숙려캠프 심리학·도감류.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>② 쇼츠 1,000만 유효 &amp; 구독자 1,000명 이원화</h3>
+        <ul>
+          <li><strong>역할 분리:</strong> <strong>롱폼=시청시간 4,000시간</strong> / <strong>숏폼=구독자 1,000명</strong> 동시 공략 후 수창 뒤 숏·롱 병행.</li>
+          <li><strong>합격 커트라인:</strong> 스와이프 생존율 <span class="hl-green">75%+</span> · 평균 지속률 <span class="hl-green">90%+</span>(35~45초) · 3초 90%+.</li>
+          <li><strong>구독자 치트키:</strong> 이슈 해짜(48h 100~300만) · 팬튜브(`@daily_kpop_trend` 1~5위, 일 4개/컴백 7~8개) · 정치 우파/진중권·전원책 · AI 시니어 사연(시덴스 2.0 lite, 일 구독 +150명).</li>
+          <li><strong>쿠팡 쇼핑 태그(`#1620`):</strong> <strong>인물+언급 &amp; 물건나옴(97%)</strong> &gt; 주제 자체(94%) &gt; 출연 프로그램(92%). 기본 3개, <strong>살아있는 태그 1개+ 시 추가 금지</strong>, 3만 원↓·계절성 상품.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>③ 틱톡 62~68초 리워드 (유튜브 10배 단가!)</h3>
+        <ul>
+          <li><strong>단가 격차:</strong> 유튜브 5만 원 줄 때 틱톡 <span class="hl-green">50만 원(10배)</span>.</li>
+          <li><strong>수익 조건:</strong> 팔로워 1만 + 30일 10만 뷰 + <strong>영상 1분 초과(62~68초 정본: 실측 65.8~67.9초)</strong>.</li>
+          <li><strong>46채널 초고속 세팅:</strong> 4PC 크롬 프로필 분리(`12+12+11+11`) → 크롬 구글 로그인으로 <strong>10초 가입</strong> → 무API 자동 예약 업로드.</li>
+          <li><strong>황금 타겟:</strong> K-POP 팬튜브(BTS·블랙핑크·변우석·챌린지) + <strong>중국배우 출퇴근</strong>(장릉혁·샤오잔·왕이보·디리러바).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>④ 해외 미러링 &amp; 다국어 확장 루트</h3>
+        <ul>
+          <li><strong>확장 순서:</strong> 한국 1차 검증 → 일본(시니어 TV)·영미권·스페인어권(K-POP 남돌 수출) 즉시 미러링.</li>
+          <li><strong>넥스레브 고RPM($10+):</strong> `Monetized=On`, `Faceless=Yes`, `Sub 1K~50K`, `Outlier 10~50x`. 부동산 `$19` · 암호화폐 `$15` · 금융 `$13` · 경제 `$12`.</li>
+          <li><strong>일본 추정 단가:</strong> 부동산 `$10.45` · 암호화폐 `$8.25` · 금융 `$7.15` · 경제 `$6.60` · 건강/지정학 `$5.50`. (독일 역사·영국 천체·스페인 부동산)</li>
+          <li><strong>다국어 5단계(볼케이노킷):</strong> 롱폼 <strong>6개국</strong> / 플리 <strong>20개국</strong>. <strong>자동 더빙 허용 OFF</strong> + 설명 <strong>4,998자↓</strong> + 태그 500자 계산 + 3겹 관문(`lang_tool`→원어민→`jev_check`).</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:22px 0 10px; color:var(--accent);">전략 축 B. 소재 · 기획 · 신호등 · 융단폭격 실행 공식</h3>
+    <div class="grid">
+      <div class="card">
+        <h3>🔍 상방 1,000만 &amp; 6대 정량 소재 필터</h3>
+        <ul>
+          <li><strong>상방 리셋:</strong> 100만 시장 대신 <strong>1,000만+ 시장의 1/10(100만)</strong>을 노림.</li>
+          <li><strong>필수 조건:</strong> 최근 <strong>1~3개월</strong>(30일↓) · 채널 총 영상 <strong>≤35개</strong> · 조회 <strong>10만+</strong> · <strong>VPH ≥400</strong> · 구독자 대비 <strong>5배+</strong> · 카테 7일 <strong>1~10등만</strong>(11등↓ 폐기).</li>
+          <li><strong>리믹스파인더 보물:</strong> <strong>한국 빈집 ✔(검색 0개)</strong> + <strong>😴 누운 소재(누적 100만+ &amp; 현재 시간당 100회↓)</strong>.</li>
+          <li><strong>Jev 1.14 점수화:</strong> 후킹30+물증30+스토리20+적합20=100점 내림차순 표 정렬.</li>
+          <li><strong>선구자 제조공장:</strong> 틱허브(`publish_time=1, sort_type=1`) 100만+ 무자막 프레임 선비교 후 선택 다운.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 100% 칼카피 '틀' 우선 &amp; 원형+둔갑 폭격</h3>
+        <ul>
+          <li><strong>순서:</strong> <strong>조회수 확인 1번 → 퀄리티/잡도리 2번.</strong> 1등 영상 3~5개 틀 100% 칼카피 → <strong>좌(원본) vs 우(30% 변형) V2 고정</strong>.</li>
+          <li><strong>관점 비틀기(터또터):</strong> ① 예고편(결말→0초) ② 명탐정(통념 뒤집기) ③ 블랙박스(당사자 사연) ④ 비교 실험 + 해외 베댓 100~300개 역추적.</li>
+          <li><strong>원형+둔갑(70% 변주) 융단폭격:</strong> 2~3천+ 입질 시 딴길 금지 → 원형 1~3호 + 둔갑 V1~V20(최대 50편). ① 콜드오픈 교체 ② 순서 재배열(4,3,5,2,1+11,12,13) ③ 썸네일/제목 교체 ④ 크롭/LUT/피치 변형 ⑤ 조각 재활용(5~6분 컷).</li>
+          <li><strong>1등 버프 종료 폭격:</strong> 1등 버프 꺼질 때 후발주자 몰아주기 타이밍에 <strong>20편 투하</strong> + 양갈래 교차 터또터.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>48시간 조회수 구간</th><th>신호등</th><th>즉각 실행 액션 (오르제이 실측 정본)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>0 ~ 100 미만</strong></td><td><span class="hl-red">🔴 미인식/냉각</span></td><td>2편 연속 0뷰면 희망고문 금지 → 비공개 돌리고 즉시 타 카테고리 칼카피 전환</td></tr>
+          <tr><td><strong>100 ~ 500대</strong></td><td><span class="hl-yellow">🟡 가열 시작</span></td><td>채널 엔진 예열 중 → <strong>여기서 같은 결 1~2방 추가 투하</strong>가 가장 중요</td></tr>
+          <tr><td><strong>800 ~ 1,000대</strong></td><td><span class="hl-yellow">🟠 신호탄</span></td><td>방향·소재 적중 신호 → 소재 정밀 보강 &amp; 후속탄 장전</td></tr>
+          <tr><td><strong>2,000 ~ 4,000대+</strong></td><td><span class="hl-green">🟢 수창·폭격 신호</span></td><td><strong>딴길 절대 금지!</strong> 즉시 원형+둔갑(70% 변주) V1~V20 다채널 시간차 융단폭격 개시</td></tr>
+          <tr><td><strong>10,000+ / 시간당 1~3천</strong></td><td><span class="hl">🔥 홈/TV 탑승</span></td><td>채널 카테 영구 픽스 + 50편 단물 끝까지 빼기 + 버프 종료 시 V1 재막기 + 해외 미러링</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:22px 0 10px; color:var(--accent);">전략 축 C. 제작 · 체류(AVD) · 클릭률(CTR) 극대화 세팅</h3>
+    <div class="grid">
+      <div class="card">
+        <h3>📺 거실 스마트 TV(CTV) 체류 락 4규칙</h3>
+        <ul>
+          <li><strong>0.00초 4초 원음 콜드오픈:</strong> 인트로·초반 무음·날짜 낭독 0% → 충격 원음/반전 직행.</li>
+          <li><strong>4~5분 2차 도파민:</strong> 첫 이탈 구간에 후반 스모킹건 예고 (롱폼 7·13·18분 떡밥, 미드롤 도달 40%+).</li>
+          <li><strong>TV 자동 연속재생 연동:</strong> 우측 상단 카드 + <strong>종료 20초 전 최종화면 '몰아보기 재생목록'</strong> 강제 연동.</li>
+          <li><strong>엔딩 '구독/좋아요/댓글' 멘트 0%:</strong> 여운 있는 팩트 한 줄 즉시 컷. *(구독 멘트는 중반 핵심 인사이트 직후 배치 시 전환율 3배)*</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🖼️ 베네치아식 썸네일 4대 기법 (CTR 7%+)</h3>
+        <ul>
+          <li><strong>4대 시각 보정:</strong> ① 배경 블러 &amp; 명도 <strong>-15%</strong> ② 인물 외곽 <strong>림 라이트</strong> ③ <strong>3D 드롭 섀도우</strong> ④ 얼굴 <strong>S-Curve + Real-ESRGAN 눈빛</strong>.</li>
+          <li><strong>타이포 고정:</strong> 피사체 1명 + <strong>5어절</strong>(영 3~4단어) + <strong>2줄 극태고딕</strong>(Pretendard Black / Gmarket Bold, 자간 -15~-20) — <strong>1줄 `#FFFFFF` + 2줄 `#FF1E1E`</strong>.</li>
+          <li><strong>운영:</strong> CTR 1~2% 즉시 교체, 스튜디오 A/B 테스트, 터진 구도는 채널 영구 고정.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚡ 2세대 롱폼 5종 + GPU 100% 강제</h3>
+        <ul>
+          <li><strong>`1080p + cas=0.86 + unsharp` + GPU 강제:</strong> 4K 포기(4배 가속) + `h264_videotoolbox`(`fallback=false`, CPU 인코딩 금지).</li>
+          <li><strong>2-Pass 분리:</strong> 1패스 바탕(`base.mp4`) + 2패스 오디오/`.ass`(자막 수정 2~3분).</li>
+          <li><strong>720p 앞단 미리보기 + `concat -c copy`:</strong> 부분 수정 30초 병합.</li>
+          <li><strong>`tts_cache` 문장 해시 캐시:</strong> 유료 TTS 크레딧 <strong>70~80% 절감</strong>.</li>
+          <li><strong>Real-ESRGAN 정본:</strong> `&lt;720p` 저화질에 `0.5배 fast` + <strong>CoreML ALL(57.4fps)</strong> / Vulkan `-g 0` + `unsharp=5:5:0.8:5:5:0.0`.</li>
+          <li><strong>음향/자막/폰트:</strong> `-14 LUFS`, `2.2kHz -6dB` 보컬포켓, `Speechmatics` + Apple Vision OCR, 넷플 자막 16자×2줄, `fontfont.app`(97.7%)→`noonnu.cc`→절대경로 화소 실측.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:22px 0 10px; color:var(--accent);">전략 축 D &amp; E. 다계정 자동화 · 저작권 방어 · 재사용 항소 공식</h3>
+    <div class="grid">
+      <div class="card">
+        <h3>🏭 다계정 물리 격리 &amp; 스케줄링 자동화</h3>
+        <ul>
+          <li><strong>계정 절대 순서:</strong> 안드로이드(일 최대 2개·주 1개) → 깡계 → <strong>Ente Auth OTP</strong> → 번호/패스키 삭제 → <strong>폰에서 계정 삭제(기기값 절단)</strong> → 7일 숙성.</li>
+          <li><strong>2~3차 인증:</strong> `hero-sms.com`($0.006~) / `giffgaff` eSIM(6개월 30p 문자 1통 필수).</li>
+          <li><strong>계정 절대 폐기 금지:</strong> 안 터지면 <strong>3회+ 카테 전환 재활용</strong>(기존 영상 비공개 생략 가능).</li>
+          <li><strong>무API 자동업로드:</strong> <strong>15분 간격 예약</strong>, 한국 6h/해외 8~15h, 롱폼 1h 숙성, <strong>목밤·금저녁~주말 집중</strong>, 48h 속도조절(1만↓ 일1 / 1만↑ 일2 / 10만↑ 일4).</li>
+          <li><strong>3단계 모델 &amp; 다PC:</strong> `3.8-flash-low` → `carbon-low` → `carbon/neon-medium`(네온 2창 6시간 25편), CPU 70~80% 상한, Tailscale 역할 분리(메인/렌더GPU/업로드).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛡️ CID 통과 &amp; 재사용 2차 항소 5단계</h3>
+        <ul>
+          <li><strong>허용 배급사:</strong> 아마존·유니버설·파라마운트·NBC·라이온스게이트·20세기·2010년 이전 구작·iQIYI·미국 바디캠. (진입 전 6개월+·100만·3채널 안전판)</li>
+          <li><strong>CID 방어:</strong> 원곡 보컬 0초 · OST 제거 · 단일 컷 2.8~3.2초 · 재가공 쇼츠 1분↓/대사 1/3↓/연속 4.5초↓ · <strong>자체 해설 60~70%+</strong> · 135~180% 컷마다 10~12%p 변화 · 깡통 테스트 선검증.</li>
+          <li><strong>★재사용 항소 철칙:</strong> <strong>기존 영상 절대 삭제 금지 &amp; 항소 중 업로드/삭제 금지 · 애드센스 입금 후 항소!</strong></li>
+          <li><strong>5분 미만 일부공개 항소 영상:</strong> ① 첫 30초 채널 URL·대시보드 ② 대본 ③ TTS ④ HyperFrames/타임라인 2.8~3.2초 편집 녹화 ⑤ <strong>한글 자막 + 스튜디오 영어 SRT(CC)</strong>. 통과 후에도 항소 영상 삭제 금지.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 2 -->
+  <div id="part2" class="section active">
+    <h2 class="part-title danger">⛔ PART 2. 절대 해서는 안 되는 것들 — 치명적 금지사항 총망라</h2>
+    <div class="callout">
+      <strong>경고:</strong> 아래 5대 금지 영역은 실제 수강생 채널 일괄 정지, 수익 몰수, AGY 계정 정지, 수백만 원 과금 폭탄, 조회수 사망이 실측된 <strong>절대 금지선</strong>입니다. 단 1개라도 어기면 몇 달의 노력이 한 방에 날아갑니다.
+    </div>
+
+    <h3 style="margin:18px 0 8px; color:#ff6b6b;">① 계정 · 수창 즉사 금지</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:28%">⛔ 절대 금지</th><th style="width:36%">왜 안 되는가 (실측 근거)</th><th style="width:36%">✅ 올바른 대안</th></tr></thead>
+        <tbody>
+          <tr><td><strong>해수창·시청시간 구매·블로그/해지 애드센스 연결</strong></td><td>'관련 채널' 일괄 정지 원인의 <strong>90%</strong>.</td><td>유튜브 스튜디오 수익창출 탭에서 새 애드센스 생성, 자력 4,000시간 달성.</td></tr>
+          <tr><td><strong>폰 2차 인증 유지 · 기기값 미절단 · 몰아 생성</strong></td><td>1개 문제 시 묶인 전체 채널 <strong>연좌제 몰살</strong>.</td><td>하루 최대 2개 → Ente Auth OTP → 번호/패스키 삭제 → 폰에서 계정 삭제.</td></tr>
+          <tr><td><strong>크롬 프로필 미분리 · AI 계정과 본계정 혼용 · VPN</strong></td><td>로그인 엉킴·VPN = 로봇 감지·노출 제한·정지 주범.</td><td>`1계정=1채널=1크롬프로필=1폴더` 물리 격리, VPN 전면 금지.</td></tr>
+          <tr><td><strong>재사용 항소 전/중 기존 영상 삭제 · 입금 전 항소 · 항소 영상 삭제</strong></td><td>검토팀 기록 불일치로 <strong>즉시 자동 기각</strong> 및 수익 몰수.</td><td>영상 1개도 건드리지 않고 입금 후 5분↓ 일부공개+영어 CC 항소, 영구 유지.</td></tr>
+          <tr><td><strong>영화 롱폼 수창 후 삭제 · 위험 카테 1애드센스 몰빵</strong></td><td>시청시간 삭감→<strong>수창 즉시 해제</strong> / 1채널 위반→전체 타격.</td><td>영화 롱폼 영구 유지(쇼츠만 삭제 가능), 애드센스당 1~2채널(위험 카테 1:1).</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:18px 0 8px; color:#ff6b6b;">② 저작권 · 배급사 · 노딱 · 신고 즉사 금지</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:28%">⛔ 절대 금지</th><th style="width:36%">왜 안 되는가 (실측 근거)</th><th style="width:36%">✅ 올바른 대안</th></tr></thead>
+        <tbody>
+          <tr><td><strong>금지 배급사 무단 사용</strong> (디즈니·소니·지상파·JTBC/ENA/TV조선·tvN·CJ·쿠팡플레이·KT지니·일드/애니·텐센트·넷플 한국신작 롱폼)</td><td>원저작자 직접 Strike 3아웃 채널 즉사, 쉴드 무력화.</td><td>허용 배급사(구작 외화·바디캠·iQIYI 등) + 6개월+·100만·3채널 안전판 확인.</td></tr>
+          <tr><td><strong>저작권 위험 영상을 «비공개»로만 방치</strong></td><td>비공개 상태에서도 저작권 스트라이크 그대로 발동.</td><td>느낌 쎄하거나 경고 리스크 영상은 비공개 아닌 <strong>즉시 완전 삭제</strong>.</td></tr>
+          <tr><td><strong>K-POP MV 보컬 · 드라마 OST 잔류 · 영드짜 결말 스포</strong></td><td>오디오 지문 100% CID 적발 + 배급사 삭제 1순위.</td><td>보컬 0초·OST 완전 제거(`htdemucs`), 결말 스포 금지(클리프행어 컷).</td></tr>
+          <tr><td><strong>2026 노딱 금지 &amp; 정치 허위/추측·후원계좌 노출</strong></td><td>어려 보이는 대상 유혈·초반 폭력/피 수익 불가, 정치 무경고 삭제.</td><td>15세 톤·모자이크/흑백·완곡 순화·`SOURCES.md` 팩트 고정.</td></tr>
+          <tr><td><strong>설명 없는 클립 짜깁기 · 뉴스 그대로 읽기 · 올AI/슬라이드 나열 · AI 페르소나</strong></td><td>2026-10-02 쇼츠 노출 축소 + <strong>위반 영상 1개로 전체 수익 정지</strong>.</td><td>자체 해설 60~70%+, 1:1 물증 매칭, 스톡/실사 레이어링, 고유 관점.</td></tr>
+          <tr><td><strong>쿠팡 일반 상품(11%) · 촬영장비 끼워넣기 · 생존 1개+ 시 추가 · 허위 역신고</strong></td><td>14~21분 위반 적발·쇼핑 기능 정지 / 원저작자 허위 역신고 시 법적 분쟁.</td><td>인물+언급(97%) 우선, 생존 1개+ 시 추가 금지, 쉴드는 악의적 양산형 방어에만.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:18px 0 8px; color:#ff6b6b;">③ 알고리즘 · 체류(AVD) · 클릭률(CTR) 자살 금지</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:28%">⛔ 절대 금지</th><th style="width:36%">왜 안 되는가 (실측 근거)</th><th style="width:36%">✅ 올바른 대안</th></tr></thead>
+        <tbody>
+          <tr><td><strong>3~4초 채널 인트로 · 초반 무음 · 연대기/날짜 낭독 도입</strong></td><td>첫 3초 스와이프 폭발로 알고리즘 추천 즉시 종료.</td><td><strong>0.00초 4초 원음 콜드오픈</strong>(결과/반전/충격 직행).</td></tr>
+          <tr><td><strong>엔딩 구독/좋아요/댓글 멘트 · 끝 4초 홍보판 · 가짜 검색창</strong></td><td>거실 TV 시청자 리모컨 이탈 유발 → AVD 급락.</td><td>엔딩 멘트 <strong>0%</strong>, 팩트 한 줄 즉시 컷 + 종료 20초 전 재생목록 최종화면.</td></tr>
+          <tr><td><strong>3단 텍스트 충돌 · 원작 자막 덧방 · 제미나이 별(`✦`) · 16:9 축소판</strong></td><td>저품질 스팸 인식 → CTR·체류율 동반 폭락.</td><td>자막 1층 고정, 최소 1:1/9:16 꽉 채움, 1인물 5어절 2톤(`#FFFFFF`/`#FF1E1E`).</td></tr>
+          <tr><td><strong>억지 분량 늘리기 · 클립 돌려막기 · 동일 샷 반복 · 원판 부족 창작 · 아나운서 때우기</strong></td><td>시청자 이탈 + AI 환각 + 재사용/반복 판정.</td><td>원판 1:1 매칭(`원판≥목표×0.85`), 1:1 물증 매칭, AST 루프 정적 차단.</td></tr>
+          <tr><td><strong>스포일러 제목 · `[말머리]` · `TOP5` 나열 · 쇼츠/롱폼 무분별 혼합 · AI 생성 영상 소재</strong></td><td>조회수 부진 5대 원인 직격 · AI 영상 소재 추천 차단.</td><td>1영상 1쟁점, 실사·공공재 소재, 숏/롱 역할 명확화.</td></tr>
+          <tr><td><strong>동시 공개 · 하루 4~6개 몰아 올리기 · 40개 동시 업로드 · 금 낮 집중 · 터진 소재 이탈</strong></td><td>로봇 감지·먹통 + 금 낮 화력 증발 + 황금 열차 포기.</td><td>15분 간격·한국 6h/해외 8~15h·목밤~주말 집중·터지면 V1~V20·50편 끝까지.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:18px 0 8px; color:#ff6b6b;">④ AI · 제작 · 자동화 · 과금 파탄 금지</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:28%">⛔ 절대 금지</th><th style="width:36%">왜 안 되는가 (실측 근거)</th><th style="width:36%">✅ 올바른 대안</th></tr></thead>
+        <tbody>
+          <tr><td><strong>렌더 완료 `.mp4` 사후 검수 &amp; 오감 불가 미세 오차 반려</strong></td><td><strong>★0순위 최상위 규칙 위반!</strong> 속도 마비·무한 재렌더·토큰 폭사.</td><td><strong>앞단 1회 완결</strong>, 인간 체감 결함만 교정, 렌더 후 파일 생성만 확인 후 즉시 납품.</td></tr>
+          <tr><td><strong>Claude Code/상태줄/텔레그램 `agy` 외부 호출 · 울트라 2계정 동시 로그인</strong></td><td>11/14 구글 약관 <strong>AGY 계정 정지</strong> 직접 사유.</td><td>`agy` 단독 창 직접 실행(Root/Worker 분리), 울트라 1계정만 로그인 로테이션.</td></tr>
+          <tr><td><strong>자동 충전(Auto top-up) ON · 연간 결제 · Vast.ai 정지 방치/쿠키 업로드</strong></td><td>루프 시 수백만 원 과금 폭탄 + 정지 디스크 과금 + 쿠키 탈취.</td><td>자동 충전 OFF, 월간+상한($5), Vast.ai 종료 즉시 인스턴스 삭제·쿠키 금지.</td></tr>
+          <tr><td><strong>CPU 인코딩(`libx264`) · ESRGAN `CPU_ONLY` · 무작정 4K 렌더</strong></td><td>4~10배 지연·VRAM 폭발·PC 먹통(<strong>GPU 강제 위반</strong>).</td><td>`1080p+cas=0.86+unsharp` + `h264_videotoolbox`(`fallback=false`) + CoreML ALL.</td></tr>
+          <tr><td><strong>`Whisper` 자막 · 긴 원본 전체 받아쓰기 · 도우인 40분 통째 Vmake · TTS 캐시 미사용</strong></td><td>싱크 붕괴 + 크레딧 한 방 증발.</td><td>`Speechmatics`(쇼츠 구간만), 도우인 3분↓ 컷, **`tts_cache` 해시 캐시**.</td></tr>
+          <tr><td><strong>플로우 직접 JS · 구형 `flowkit(:8100)` · 다탭 요청 · CAPTCHA 우회 · 세션 100턴 · 동시 렌더 4+</strong></td><td>플로우 계정 잠김 + 토큰 폭사 + PC 크래시.</td><td>볼케이노킷(`flow-kit`) 1통 10개·사람 속도, 주제별 새 창, CPU 70~80% 상한.</td></tr>
+          <tr><td><strong>자동 더빙 ON · 설명 5,000자 초과 · 2PC MCP 동시 접속 · `OPENAI_API_KEY` 혼용 · 무료 Suno 상업 사용</strong></td><td>다국어 거부, MCP 끊김, 이중 과금, 상업권 위반.</td><td>자동 더빙 OFF, 4,998자↓, 1PC 1MCP, NAVER API HUB 키, Suno 유료+스튜디오 내보내기.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:18px 0 8px; color:#ff6b6b;">⑤ 멘탈 · 운영 · 기회비용 낭비 금지</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:28%">⛔ 절대 금지</th><th style="width:36%">왜 안 되는가 (실측 근거)</th><th style="width:36%">✅ 올바른 대안</th></tr></thead>
+        <tbody>
+          <tr><td><strong>수창 전 '내가 하고 싶은 취향 채널' 고집</strong></td><td>0~100뷰에서 시간만 소모하고 지쳐 포기.</td><td>수창 전엔 오직 '가장 빠른 수창 채널' 올인 → 수창 후 취향/고단가 확장.</td></tr>
+          <tr><td><strong>조회수 검증 전 1편 예술 장인화 &amp; 잡도리 먼저</strong></td><td>소재가 안 맞으면 10시간 깎아도 100뷰.</td><td>1등 틀 100% 칼카피 → 1발 간보기 → 터진 뒤 잡도리·고도화.</td></tr>
+          <tr><td><strong>카테 사전 고정 후 0뷰 희망고문 · 안 터진 계정 폐기</strong></td><td>알고리즘 안 받아주는 방 고집 / 인증 계정 낭비.</td><td>카테 미지정 테스트 → 2연속 0뷰면 <strong>계정 버리지 말고 3회+ 카테 전환</strong>.</td></tr>
+          <tr><td><strong>정상 작동 기준판 폴더 직접 수정 · AI 문장 보고 무검증 신뢰</strong></td><td>생산 라인 붕괴 + AI 구라로 수일 날림.</td><td>`채널명_기준판` 영구 동결(`_실험`에서만 수정) + <strong>C07 콘솔 실측만 인정</strong>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div id="checklist" class="section active">
+    <h2 class="part-title">✅ 지금 당장 실행하는 초고속 수창 7일 체크리스트</h2>
+    <div class="callout green">
+      <strong>실행 원칙:</strong> 완벽한 1편을 만들려 하지 말고, 아래 5단계를 7일 안에 1바퀴 돌려 <strong>신호등(100→1천→2~3천+)</strong>을 띄우는 것이 최우선입니다.
+    </div>
+    <ul class="checklist">
+      <li><input type="checkbox"><div><strong>D+1 · 계정 물리 격리 &amp; 여유 풀 확보:</strong> `1구글=1본채널=1크롬프로필` + Ente Auth OTP(기기값 절단) + 2~3차 고급인증 사전 완료 (안 터진 기존 채널 3회+ 전환 대기)</div></li>
+      <li><input type="checkbox"><div><strong>D+1 · 6대 정량 소재 스캔:</strong> 1~3개월 · 영상 ≤35개 · 10만+ · VPH≥400 · 카테 7일 1~10등 + 리믹스파인더(한국 빈집 + 누운 소재) + Jev 1.14 점수 1위 소재 3개 확정 (구작 영화 / 바디캠 / 시니어 CTV 우선)</div></li>
+      <li><input type="checkbox"><div><strong>D+2 · 1등 틀 칼카피 &amp; CTV 락 탑재:</strong> 레퍼런스 3~5개 좌우 비교 V2 고정 + <strong>0.00초 4초 원음 콜드오픈 + 4분 2차 도파민 + 종료 20초 재생목록 + 엔딩 멘트 0%</strong> + <strong>베네치아식 썸네일(`#FFFFFF`/`#FF1E1E`)</strong></div></li>
+      <li><input type="checkbox"><div><strong>D+2~3 · 1발 간보기 &amp; 48h 신호등 판독:</strong> 여유 채널에 15분 간격·목밤~주말 집중 투하 → 48시간 조회수 100(가열) / 1천(신호탄) / 2~3천+(수창·폭격) 자동 분류</div></li>
+      <li><input type="checkbox"><div><strong>D+4~7 · 원형+둔갑 융단폭격 &amp; 틱톡 10배 확장:</strong> 입질 온 1소재에 <strong>딴길 절대 금지 → 원형 1~3호 + 둔갑(70% 변주) V1~V20 다채널 시간차 폭격</strong> + <strong>틱톡 62~68초 리워드 10채널 파일럿</strong> 동시 가동</div></li>
+    </ul>
+  </div>
+
+  <footer>
+    정본 마크다운: ~/마스터/01_절대규칙/초고속수창-최종전략-및-절대금지-총정리.md · 생성일: 2026-11-21
+  </footer>
+</div>
+
+<script>
+function showTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const ids = ['part1', 'part2', 'checklist'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (tab === 'all' || tab === id) el.classList.add('active');
+    else el.classList.remove('active');
+  });
+}
+</script>
+</body>
+</html>

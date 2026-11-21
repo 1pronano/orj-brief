@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>「공공재 · 미러 · 쉴드」 해독 리포트 (11/19~20 카톡 &amp; 11/19 오프특강 교차 분석)</title>
+<style>
+  :root {
+    --bg:#0b0e14; --card:#141923; --card2:#1a2130; --text:#e8edf5; --muted:#9aa7bd;
+    --accent:#5eead4; --p0:#f43f5e; --p1:#f59e0b; --p2:#38bdf8; --ok:#10b981;
+    --warn:#a855f7; --border:#252f42;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.68;
+  }
+  .wrap { max-width:980px; margin:0 auto; padding:20px 16px 80px; }
+  header {
+    background:linear-gradient(135deg,#131b2e,#1d1633);
+    border:1px solid var(--border); border-radius:16px;
+    padding:24px 22px; margin-bottom:14px;
+  }
+  .eyebrow { font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.04em; }
+  h1 { margin:8px 0 10px; font-size:23px; line-height:1.35; color:#fff; }
+  .headline { font-size:14.5px; color:#dbeafe; margin:0 0 16px; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .stat {
+    background:rgba(255,255,255,.04); border:1px solid var(--border);
+    border-radius:10px; padding:10px 8px; text-align:center;
+  }
+  .stat b { display:block; font-size:15.5px; color:#fff; }
+  .stat span { font-size:11.5px; color:var(--muted); }
+
+  nav {
+    display:flex; gap:6px; overflow-x:auto; padding:10px 0 12px;
+    position:sticky; top:0; background:rgba(11,14,20,.94);
+    backdrop-filter:blur(8px); z-index:20;
+    border-bottom:1px solid rgba(37,47,66,.55);
+  }
+  nav a {
+    flex:0 0 auto; text-decoration:none; color:var(--text);
+    background:var(--card); border:1px solid var(--border);
+    padding:7px 13px; border-radius:999px; font-size:12.5px; font-weight:600;
+  }
+  nav a:hover { border-color:var(--accent); color:var(--accent); }
+  nav a.primary { background:#112a2e; border-color:var(--accent); color:var(--accent); }
+
+  .tldr-box {
+    margin:18px 0 6px; padding:18px 20px;
+    background:linear-gradient(90deg,rgba(94,234,212,.14),rgba(56,189,248,.05));
+    border:1px solid rgba(94,234,212,.4); border-radius:14px;
+  }
+  .tldr-label {
+    font-size:12px; font-weight:800; color:var(--accent);
+    letter-spacing:.05em; margin-bottom:6px; text-transform:uppercase;
+  }
+  .tldr-text { font-size:15.5px; font-weight:700; color:#fff; margin:0; line-height:1.6; }
+
+  section { margin-top:26px; }
+  h2 {
+    font-size:18px; margin:0 0 12px; padding-left:11px;
+    border-left:4px solid var(--accent); color:#fff;
+  }
+  h3 { font-size:15px; margin:0 0 8px; color:var(--accent); }
+
+  .card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:14px; padding:16px 18px; margin-bottom:12px;
+  }
+  .callout-info {
+    background:rgba(56,189,248,.07); border:1px solid rgba(56,189,248,.3);
+    border-radius:12px; padding:13px 15px; margin-bottom:14px;
+    font-size:13.8px; color:#dbeafe;
+  }
+  .badge {
+    display:inline-block; font-size:11px; font-weight:800;
+    padding:2px 8px; border-radius:6px; color:#fff; white-space:nowrap;
+  }
+  .badge.p0 { background:var(--p0); }
+  .badge.p1 { background:var(--p1); color:#111; }
+  .badge.p2 { background:var(--p2); color:#111; }
+  .badge.ok { background:var(--ok); color:#052e16; }
+  .badge.warn { background:var(--warn); color:#fff; }
+
+  .chat-card { padding:15px 16px; }
+  .chat-head {
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:8px; margin-bottom:10px;
+    padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .chat-title { font-size:14.5px; font-weight:800; color:var(--accent); }
+  .chat-log { font-size:13.6px; line-height:1.65; }
+  .chat-line { padding:6px 10px; border-radius:8px; margin-bottom:4px; word-break:break-word; }
+  .chat-line.orj { background:rgba(94,234,212,.08); border-left:3px solid var(--accent); }
+  .chat-line.orj-del { background:rgba(244,63,94,.08); border-left:3px solid var(--p0); }
+  .chat-line.other { background:rgba(255,255,255,.025); color:#b8c4d9; border-left:3px solid #334155; }
+  .time-tag {
+    display:inline-block; background:#232e45; color:#93c5fd;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11.5px; padding:1px 6px; border-radius:5px; margin-right:6px;
+  }
+  .orj-star { color:var(--accent); font-weight:900; margin-right:4px; }
+  .spk { color:#fff; }
+  .kw {
+    background:rgba(94,234,212,.16); color:#99f6e4;
+    padding:1px 6px; border-radius:5px; font-weight:800;
+  }
+  .kw-red {
+    background:rgba(244,63,94,.2); color:#fda4af;
+    padding:1px 6px; border-radius:5px; font-weight:800;
+  }
+
+  .lecture-grid { display:grid; gap:12px; }
+  .lec-item {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:14px; padding:16px 18px;
+  }
+  .lec-head {
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:8px; margin-bottom:8px;
+  }
+  .lec-title { font-size:15px; font-weight:800; color:#fff; }
+  .quote-block {
+    background:var(--card2); border-left:3px solid var(--p2);
+    border-radius:8px; padding:10px 13px; margin:8px 0;
+    font-size:13.5px; color:#e2e8f0;
+  }
+  .lec-note { font-size:13.5px; color:#cbd5e1; margin:8px 0 0; }
+
+  .table-wrap {
+    overflow-x:auto; border:1px solid var(--border);
+    border-radius:14px; background:var(--card);
+  }
+  table.fc { width:100%; border-collapse:collapse; font-size:13.5px; min-width:640px; }
+  table.fc th {
+    background:var(--card2); color:var(--accent); text-align:left;
+    padding:12px 14px; border-bottom:1px solid var(--border);
+    font-size:13px; white-space:nowrap;
+  }
+  table.fc td {
+    padding:14px; border-bottom:1px solid rgba(37,47,66,.65);
+    vertical-align:top; color:#dbe5f4; line-height:1.68;
+  }
+  table.fc tr:last-child td { border-bottom:none; }
+
+  .flow-3 {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px;
+  }
+  .flow-step {
+    background:var(--card2); border:1px solid var(--border);
+    border-radius:12px; padding:14px;
+  }
+  .flow-step .step-num {
+    font-size:11.5px; font-weight:800; color:var(--accent); margin-bottom:4px;
+  }
+  .flow-step b { display:block; font-size:15px; color:#fff; margin-bottom:6px; }
+  .flow-step p { margin:0; font-size:13px; color:#cbd5e1; }
+
+  .split-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .risk-card {
+    background:rgba(244,63,94,.05); border:1px solid rgba(244,63,94,.35);
+    border-radius:14px; padding:16px 18px;
+  }
+  .safe-card {
+    background:rgba(16,185,129,.05); border:1px solid rgba(16,185,129,.35);
+    border-radius:14px; padding:16px 18px;
+  }
+  .risk-card h3 { color:#fda4af; }
+  .safe-card h3 { color:#6ee7b7; }
+  .bullet-list { margin:8px 0 0; padding-left:18px; font-size:13.6px; color:#dbe5f4; }
+  .bullet-list li { margin-bottom:8px; }
+
+  .src-list { list-style:none; padding:0; margin:0; }
+  .src-list li {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:12px 15px; margin-bottom:8px;
+    font-size:13.3px;
+  }
+  .src-path {
+    display:block; margin-top:4px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px; color:#93c5fd; word-break:break-all;
+  }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  code {
+    background:#1e293b; color:#e2e8f0;
+    padding:1px 6px; border-radius:5px; font-size:12.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  .muted { color:var(--muted); font-size:12.8px; }
+
+  @media (max-width:740px) {
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .flow-3, .split-2 { grid-template-columns:1fr; }
+    h1 { font-size:19px; }
+    .wrap { padding:14px 12px 60px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">AI스위칭쇼츠 2기 프리미엄방 · 11/19~20 카톡 &amp; 11/19 서울 2회차 오프특강 교차 해독</div>
+    <h1>「공공재 · 미러 · 쉴드」 해독 리포트</h1>
+    <p class="headline">오르제이님이 카톡에서 강조한 세 암호 단어(<code>공공재</code> · <code>미러</code> · <code>쉴드</code>)의 실제 발화 타임라인(삭제 전 포착분 포함)과 <b>2026-11-19 오프특강 녹취</b>의 직결 대목을 교차 대조해 100% 해독하고, 우리 시스템의 안전 적용선까지 정리했습니다.</p>
+    <div class="stats">
+      <div class="stat"><b>11/19 22:32~</b><span>최초 강조 (6회 언급)</span></div>
+      <div class="stat"><b>11/20 04:13~</b><span>삭제 전 포착 실체 공개</span></div>
+      <div class="stat"><b>11/20 11:35</b><span>「공공 미러반사」 재명명</span></div>
+      <div class="stat"><b>11/19 오프특강</b><span>55:07 맞불 · 1:03:30 미러</span></div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#tldr" class="primary">⚡ 한 줄 통합 전략</a>
+    <a href="#sec1">1. 카톡 팩트체크</a>
+    <a href="#sec2">2. 11/19 오프특강 연결</a>
+    <a href="#sec3">3. 세 단어 의미 해부</a>
+    <a href="#sec4">4. 시스템 적용 · 안전선</a>
+    <a href="#sec5">5. 참고 원본 경로</a>
+  </nav>
+
+  <div id="tldr" class="tldr-box">
+    <div class="tldr-label">한 줄 통합 전략 (TL;DR)</div>
+    <p class="tldr-text">원저작자가 아닌 남의 소스 짜깁기 대박 채널(<span class="kw">공공재</span>)을 찾아 그대로 복제·국가 확장(<span class="kw">미러</span>)해 1~3편 만에 초고속 수창을 뚫고, 상대가 저작권 신고를 걸면 '너도 남의 소스잖아' 맞불·역신고(<span class="kw">쉴드 = 미러반사</span>)로 무력화하는 초고속 수창 전략입니다.</p>
+  </div>
+
+  <section id="sec1">
+    <h2>1. 팩트체크: 실제 카톡 발화 원문 · 시각 · 삭제 여부</h2>
+
+    <div class="callout-info">
+      <b>시점 팩트체크:</b> 정확히는 <b>11월 19일(목) 밤 22:32~23:24</b> 프리미엄방에서 오르제이님이 <span class="kw">공공재 미러 쉴드</span>를 2회 직접 강조했고(수강생 따라 적기 포함 총 6회), <b>5시간 뒤인 11월 20일(금) 새벽 04:13~04:50</b> 삭제한 비밀 대화에서 그 실체를 직접 풀었으며, <b>11월 20일 낮 11:35:35</b>에 <span class="kw">공공 미러링 &amp; 공공 미러반사 = 무적권</span>으로 표현을 바꿔 재강조했습니다.
+    </div>
+
+    <div class="card chat-card">
+      <div class="chat-head">
+        <span class="chat-title">① 11월 19일(목) 밤 22:32 ~ 23:24 — 프리미엄방 최초 강조 (미삭제)</span>
+        <span class="badge ok">원본 보존</span>
+      </div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">22:32:44</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 키워드가 위험해서 절대 삼키시고</div>
+        <div class="chat-line orj"><span class="time-tag">22:36:11</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 순화 표현 좀 한번 더</div>
+        <div class="chat-line orj"><span class="time-tag">22:38:56</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="kw">공공재 미러 쉴드</span></div>
+        <div class="chat-line orj"><span class="time-tag">22:39:09</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 단톡방 최대 표현 입니다</div>
+        <div class="chat-line orj"><span class="time-tag">22:40:25</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 무적 권 입니다</div>
+        <div class="chat-line orj"><span class="time-tag">23:04:19</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <span class="kw">공공재 미러 쉴드</span></div>
+        <div class="chat-line orj"><span class="time-tag">23:05:21</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 얼굴까고 하는 분들 빼고는 다 잡을 수 있어요</div>
+        <div class="chat-line orj"><span class="time-tag">23:06:48~23:07:00</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 관점만 잘 보시면 / 포지션만 잘 보세요 / 그냥 무적</div>
+        <div class="chat-line other"><span class="time-tag">23:07:02</span><b class="spk">눕방사업가</b>: 1. 공공재 = 크리에이티브 커먼즈 영상 같이 아무나 써도 되는걸 말하는건가요?</div>
+        <div class="chat-line orj"><span class="time-tag">23:07:16</span><span class="orj-star">★</span><b class="spk">오르제이</b>: <b>이렇게 생각하시면 안되는뎅 ㅋㅋㅋㅋㅋ</b> <span class="muted">(→ 단순 CC 무료 영상 뜻이 아님을 직접 부정)</span></div>
+        <div class="chat-line orj"><span class="time-tag">23:24:18~23:24:42</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 활용하시면 수창 안 날아가면서 가장 빠른 코스, 7일~30일 수창 현실 입니다</div>
+      </div>
+    </div>
+
+    <div class="card chat-card">
+      <div class="chat-head">
+        <span class="chat-title">② 11월 20일(금) 새벽 04:13 ~ 04:48 — 비밀 대화 실체 해명 (삭제 전 DB 포착 복원)</span>
+        <span class="badge p0">삭제 전 포착</span>
+      </div>
+      <div class="chat-log">
+        <div class="chat-line orj-del"><span class="time-tag">04:13:51</span><span class="badge p0" style="margin-right:6px">삭제됨</span><b class="spk">오르제이</b>: 지금것도 지우셔요 이따가는</div>
+        <div class="chat-line orj-del"><span class="time-tag">04:14:31</span><span class="badge p0" style="margin-right:6px">삭제됨</span><b class="spk">오르제이</b>: <span class="kw-red">역신고</span></div>
+        <div class="chat-line orj"><span class="time-tag">04:18:15</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 1개월 ~ 3개월 동안 가장적은 영상에 가장 많은 조회수 (버프끝난거, 버프안끝난거) 독식가능한 or 무주공산 영상 영어권, 일본어, 한국 싹다 긁어와</div>
+        <div class="chat-line orj-del"><span class="time-tag">04:19:34</span><span class="badge p0" style="margin-right:6px">삭제됨</span><b class="spk">오르제이</b>: <span class="kw-red">역신고</span></div>
+        <div class="chat-line orj"><span class="time-tag">04:19:51~04:19:59</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 저 키워드 쓰면요 / <b>교육때 말해줬잖어요</b></div>
+        <div class="chat-line orj"><span class="time-tag">04:20:45~04:22:01</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 진짜 아이디 있는대로 10개 만드셔서 / 두개까지 100% 똑같이 만든거 올리세요 / 경고 날라오면 / <b>Agy한테 경고장 써서 날리세요</b> / <b>내일 12시까지 윈윈할건지? / 아니면 ㅇㅅㄱ(역신고) 해줄지?</b> / 바로 풀겁니다</div>
+        <div class="chat-line orj"><span class="time-tag">04:25:22~04:26:42</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 저작권이 있죠? / <b>넷플릭스꺼 허락받고 쓰는사람 있나요? / 거의 없죠? / 몰래 쓰는걸로 터트린사람들꺼를 싹다 조사</b> / 시청시간 4천시간 한방에 채워요</div>
+        <div class="chat-line other"><span class="time-tag">04:47:53</span><b class="spk">tu</b>: 올제이님 신고 들어온 건은 없으시죠?</div>
+        <div class="chat-line orj-del"><span class="time-tag">04:48:07</span><span class="badge p0" style="margin-right:6px">삭제됨</span><b class="spk">오르제이</b>: <b>저 한테 신고 못해요</b></div>
+        <div class="chat-line orj"><span class="time-tag">04:48:30~04:48:39</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 이건 지울게요 / 이게 오픈톡방이라 조심스러워서</div>
+      </div>
+    </div>
+
+    <div class="card chat-card">
+      <div class="chat-head">
+        <span class="chat-title">③ 11월 20일(금) 낮 11:35:35 — 표현 치환 재강조</span>
+        <span class="badge p2">핵심 번역</span>
+      </div>
+      <div class="chat-log">
+        <div class="chat-line orj"><span class="time-tag">11:35:35</span><span class="orj-star">★</span><b class="spk">오르제이</b>: 깊이있게 다가가 보시면 감히 말씀드려요. 쇼츠대폭발 사단 아무도 못쫓아 옵니다.~^^ / <span class="kw">공공 미러링 &amp; 공공 미러반사 = 무적권</span></div>
+        <div class="chat-line orj"><span class="time-tag">11:38:01</span><span class="orj-star">★</span><b class="spk">오르제이</b>: Agy에 많이 물어봐 주세요. 저는 큰 키워드만 드리는거에요.~~^^</div>
+      </div>
+      <p class="muted" style="margin:10px 0 0;">→ 전날 밤의 <code>쉴드</code>를 다음 날 낮 직접 <b style="color:#fff">미러반사</b>로 번역해 줌으로써 세 단어의 연결 고리가 100% 확정됩니다.</p>
+    </div>
+  </section>
+
+  <section id="sec2">
+    <h2>2. 최근 오프라인 강의(2026-11-19 서울 2회차) 연결 대목</h2>
+    <div class="lecture-grid">
+      <div class="lec-item">
+        <div class="lec-head">
+          <span class="lec-title">① 저작권 역공("맞불") Q&amp;A — 「쉴드 / 역신고」의 직접 출처</span>
+          <span class="badge p0">55:07 ~ 56:54 · L2839-L2869</span>
+        </div>
+        <div class="quote-block">
+          <b>수강생 질문:</b> "국영 방송이나 외국 방송을 짜깁기해 터진 한국 채널을 일본어로 벤치마킹했는데, 원작자가 '내가 쓴 편집을 그대로 따라 했다'며 저작권 경고를 걸었습니다."<br><br>
+          <b>쇼츠대폭발 강사 답변 (`55:51~56:54`):</b> "그 채널도 어쨌든 남의 소스 갖다 쓴 거 아니에요? <b>그럼 맞불 놔야죠.</b> 최근 산이 조교님도 지도 남의 영상 갖다 써놓고서 자기 거라고 신고 거는 양산형 사례가 있었어요. 그게 저는 제일 이해가 안 됩니다."
+        </div>
+        <p class="lec-note">→ 바로 다음 날 새벽(`04:19:59`) 오르제이님이 <b>"교육때 말해줬잖어요"</b>라며 지목한 대목이 이 '맞불' Q&amp;A입니다.</p>
+      </div>
+
+      <div class="lec-item">
+        <div class="lec-head">
+          <span class="lec-title">② 해외 미러링 + 고속 수창 치트키 — 「미러」의 직접 출처</span>
+          <span class="badge p2">1:03:30 ~ 1:04:42 · L1920-L1936</span>
+        </div>
+        <div class="quote-block">
+          <b>쇼츠대폭발 강사 발언 (`1:03:30~1:04:42`):</b> "이거 알죠? 이 사람은 <b>똑같이 미러링해 갖고 일본으로 보내는 거</b> 알죠? 달빛보브 일본 채널 보신 분 계세요? 똑같이 일본 채널로 보내는데 엄청 잘 나와요. 내년에 정책 바뀌기 전에 빨리 수창 내야지 이 마음이실 거예요. <b>치트키로 일단 시청 시간 빨리 채우세요. 대신에 이제 구작을 하세요.</b>"
+        </div>
+        <p class="lec-note">→ 한국↔일본/영국 등 국가를 바꿔 검증된 포맷을 그대로 복사하는 국가 <b>미러링</b> + 구작 1~2편으로 4,000시간을 채우는 <b>고속 수창 치트키</b>가 결합된 대목입니다.</p>
+      </div>
+
+      <div class="lec-item">
+        <div class="lec-head">
+          <span class="lec-title">③ 누운 소재(버프 식은 100만+) &amp; 빈집 스캔</span>
+          <span class="badge p1">강의 L26 &amp; 리믹스파인더</span>
+        </div>
+        <div class="quote-block">
+          <b>VolcanoTube · RemixFinder(리믹스파인더):</b> 틱톡·릴스·쇼츠 최초 원본 추적 → <b>한국 빈집(0개) + 누운 소재(100만 회+ &amp; 시간당 100회 이하)</b> 선점. (11/19 22:30 방에 공유된 포시즌님 '버프 죽은 100만' 탐색 도구와 직결)
+        </div>
+        <p class="lec-note">→ 오르제이님의 "1~3개월 내 가장 적은 영상으로 가장 많은 조회수(버프 끝난 거/안 끝난 거) 독식·무주공산 영상 싹 다 긁어와" 루틴과 정확히 일치합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec3">
+    <h2>3. 세 단어의 정확한 의미 &amp; 하나의 통합 전략</h2>
+    <div class="table-wrap">
+      <table class="fc">
+        <thead>
+          <tr>
+            <th style="width:180px">단어</th>
+            <th style="width:190px">표면적 오해</th>
+            <th>단톡방 순화 표현의 실제 의미 (오르제이식 관점 · 포지션)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="kw">① 공공재</span></td>
+            <td class="muted">크리에이티브 커먼즈(CC) 무료 영상<br><i>(오르제이: "이렇게 생각하시면 안되는뎅ㅋㅋ")</i></td>
+            <td><b>"얼굴 까고 직접 찍은 오리지널 채널 빼고, 남의 소스(넷플릭스·외국방송·뉴스·바디캠 등)를 허락 없이 짜깁기해 터뜨린 모든 양산형 대박 채널의 소재"</b>를 뜻하는 은어.<br>어차피 그 채널도 원저작자(권리자)가 아니므로 사실상 주인 없는 <b>공용 풀('공공재')</b>로 본다는 관점 전환입니다.</td>
+          </tr>
+          <tr>
+            <td><span class="kw">② 미러 (Mirror)</span></td>
+            <td class="muted">단순 거울 반전 편집</td>
+            <td>최근 1~3개월 내 <b>최소 영상으로 최대 조회수(100만+ · 버프 식은 누운 소재)</b>를 찍은 '공공재' 채널을 골라, <b>소재·구성·길이·틀을 거울처럼 칼카피(1~2발 간보기 → 터지면 70% 변주 '둔갑' V2~V5로 다채널 폭격)</b>하거나 <b>한↔일/영 국가 미러링</b>으로 영상 1~3개 만에 4,000시간 초고속 수창을 뚫는 실행입니다.</td>
+          </tr>
+          <tr>
+            <td><span class="kw">③ 쉴드 (Shield)</span><br><span class="muted">= 미러반사</span></td>
+            <td class="muted">특수한 편집 우회 필터</td>
+            <td>내가 미러링한 상대 양산형 채널이 "내 편집 베꼈다"고 저작권 신고를 걸어와도, <b>상대 역시 원저작자가 아니기 때문에 AGY로 경고장·역신고("내일 12시까지 윈윈할지, 역신고할지")를 날려 반사(맞불)하면 철회할 수밖에 없다는 상호확증파괴식 방패</b>.<br>다음 날 오르제이님이 직접 <code>공공 미러반사 = 무적권</code>이라 명명한 핵심 이유입니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flow-3">
+      <div class="flow-step">
+        <div class="step-num">STEP 1 · 타겟 스캔</div>
+        <b>공공재 발굴</b>
+        <p>원저작자(얼굴 공개)가 아닌 남의 소스 짜깁기 대박 채널 중 '최소 영상 · 최대 조회수' 100만+ 채널 추출</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">STEP 2 · 복제 &amp; 확산</div>
+        <b>미러(Mirror) 타격</b>
+        <p>1~2발 간보기 및 한↔일/영 국가 미러링 → 입질 시 70% 변주(둔갑)로 다채널 연쇄 수창 돌파</p>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">STEP 3 · 방어 무력화</div>
+        <b>쉴드(미러반사) 대응</b>
+        <p>양산형 상대가 신고 시 "너도 남의 소스" 경고장·역신고 맞불로 철회 유도</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec4">
+    <h2>4. 우리 시스템 적용 시 주의점 (고위험 금지선 vs 안전 적용법)</h2>
+    <div class="split-2">
+      <div class="risk-card">
+        <h3>🔴 고위험 금지선 (그대로 따라 하면 위험)</h3>
+        <ul class="bullet-list">
+          <li><b>원저작자 직접 타격 시 쉴드 무력화:</b> 오르제이님 본인도 <i>"키워드가 위험하다 / 지우세요 / 누설 금지"</i>를 반복했듯, 상대가 양산형이 아니라 <b>진짜 원저작자(넷플릭스·지상파·대형 배급사)</b>가 직접 Strike를 때리면 쉴드가 전혀 안 통하고 <b>채널 즉사·애드센스 연쇄 정지</b> 위험이 큽니다.</li>
+          <li><b>허위 반론통지 법적 리스크:</b> 실제 권리 없는 영상에 무리한 역신고/반론통지(Counter-Notification)를 남발하면 유튜브 정책 위반 및 법적 분쟁으로 이어질 수 있습니다.</li>
+          <li><b>배급사 금지표 &amp; 프로필 격리 필수:</b> 우리 정본(<code>스위칭쇼츠2기-최신통합세팅.md</code>)의 배급사 허용표(디즈니·소니·지상파·JTBC·tvN·CJ·텐센트·넷플릭스 한국신작 롱폼 금지) 및 <code>1계정=1채널=1크롬프로필</code> 물리 격리 원칙은 절대 깨면 안 됩니다.</li>
+        </ul>
+      </div>
+
+      <div class="safe-card">
+        <h3>🟢 안전하게 장점만 취하는 실전 적용법</h3>
+        <ul class="bullet-list">
+          <li><b>공공재 → 진짜 공공재 · 안전 구작 우선:</b> 불법 넷플릭스/신작 짜깁기 대신 <b>진짜 공공재(미국 카운티 바디캠, 공공기관 데이터, 2010년 이전 안전 구작, 리믹스파인더 한국 빈집 해외 원본)</b>를 1순위로 공략합니다.</li>
+          <li><b>미러 → 화면 통복제 X, '틀'과 '국가'만 미러링:</b> 화면·편집본을 100% 그대로 베끼지 않고, 검증된 1~5위 채널의 <b>'틀(구조·후킹·리듬·길이)'과 국가 미러링(한↔일/영)</b>만 복제합니다. 1발 간보기 후 입질이 오면 <b>70% 변주(둔갑)</b>로 안전하게 확산합니다.</li>
+          <li><b>쉴드 → 부당한 허위 신고 방어용 한정:</b> 평소에는 <b>자체 성우 해설 60~70%+ · 1:1 물증 매칭 · 1채널 1프로필 격리</b>를 기본 방패로 유지하고, 원저작자도 아닌 양산형 채널의 부당한 허위/악의적 신고에 대해서만 방어적으로 맞대응합니다.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="sec5">
+    <h2>5. 참고 원본 경로</h2>
+    <ul class="src-list">
+      <li>
+        <b>2026-11-20 스위칭쇼츠 2기 오르제이 카피 리포트</b> (새벽 삭제 전 포착 L416~L530 · 낮 11:35 공공 미러반사 L1135)
+        <span class="src-path">/Users/dongkeunkim/마스터/04_스위칭쇼츠2기_프리미엄/오르제이_데일리브리프/2026-11-20_스위칭쇼츠2기_오르제이카피리포트.md</span>
+      </li>
+      <li>
+        <b>2026-11-19 오프특강 (쇼츠대폭발) - 서울 2회차 녹취 전문</b> (55:07~56:54 맞불 Q&amp;A L2839~L2869 · 1:03:30~1:04:42 해외 미러링 &amp; 고속 수창 치트키 L1920~L1936)
+        <span class="src-path">/Users/dongkeunkim/마스터/03_강의/2026-11-19 오프특강 (쇼츠대폭발) - 서울 2회차.md</span>
+      </li>
+      <li>
+        <b>스위칭쇼츠 2기 최신 통합 세팅 (배급사 허용표 · 1채널 1크롬프로필 격리 정본)</b>
+        <span class="src-path">/Users/dongkeunkim/마스터/01_절대규칙/스위칭쇼츠2기-최신통합세팅.md</span>
+      </li>
+      <li>
+        <b>2026-11-20(금) 오르제이 대화 정리 &amp; 적용 셋팅 페이지</b> (스타일 참고 원본)
+        <span class="src-path">/Users/dongkeunkim/.volcano/brief_pages/2026-11-20.html</span>
+      </li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>
